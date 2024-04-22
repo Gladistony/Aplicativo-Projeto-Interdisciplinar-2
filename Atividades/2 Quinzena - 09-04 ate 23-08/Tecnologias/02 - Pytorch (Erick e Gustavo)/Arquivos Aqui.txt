@@ -1,3 +1,4 @@
+repositórios:
 dnoak/AnaliseDeSentimentosPytorch: https://github.com/dnoak/AnaliseDeSentimentosPytorch
 
 /sloria/TextBlob: https://github.com/sloria/TextBlob
