@@ -1,0 +1,3 @@
+Assistindo esse vídeo: https://youtu.be/YdzkzKtGdTw?si=TYqSxOwM9r--qrcy consegui baixar dados 3D do google maps e importar para o blender. 
+Vale ressaltar que nem todos as cidades tem o modelo 3D disponível, (Por exemplo, Belo Jardim), acabei que peguei de Olinda - PE
+Agora é com miguel passar isso para a Unreal
