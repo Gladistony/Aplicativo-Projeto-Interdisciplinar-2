@@ -1,0 +1,12 @@
+Obs.: antes de rodar os códigos, execute o comando no terminal do VSCode a instrução "pip install -r requerimentos.txt" para os imports necessários. Certifique-se de usar as versões entre 3.8 - 3.11 de Python,
+pois versões superiores não são suportadas pelo Mediapipe. De preferência, salve o repositório no Disco Local C:, para não ter problemas com símbolos em portugûes "áêõç" e etc. nas strings de referência de diretório.
+
+De acordo com as pesquisas, não há previsão de suporte à extração de texto de imagens com o Mediapipe, conforme fórum oficial do projeto: https://github.com/google/mediapipe/issues/523
+
+Em relação à atividades de reconhecimento de texto com o Mediapipe, há apenas 3 atividades possíveis, e pesquisamos duas delas: um classificador de sentimento e um reconhecimento de idioma. A terceira atividade transforma textos
+em uma representação numérica para avaliar a semântica. Não nos aprofundamos nessa atividade.
+Os códigos foram retirados das demonstrações do site oficial em Python: https://developers.google.com/mediapipe/solutions/text/text_classifier#models
+
+Porém, encontramos uma tecnologia que extrai texto de uma imagem, chamada OpenCV. Essa também está nas tecnologias que Lucas recomendou. O código foi retirado do vídeo: https://www.youtube.com/watch?v=n-8oCPjpEvM&t=808s
+Caso necessário, segue um vídeo de comparação entre tecnologias de extração de texto demomnstrando que o OpenCV possui melhores resultados: https://www.youtube.com/watch?v=oyqNdcbKhew
+Caso queira adicionar outras imagens de teste, devem ser cortadas perfeitamente em um retângulo para que o código funcione (tem que ficar cortando à mão na tentativa e erro para funcionar).
