@@ -1,6 +1,6 @@
 # Aplicativo Projeto Interdisciplinar 2
  Arquivos do desenvolvimento de uma aplicação da disciplina de projeto interdisiplinar 2 da faculdade UFRPE campus Belo Jardim
- A disciplina é ministrada pelo professor LUCAS SILVA FIGUEIREDO
+ A disciplina era ministrada inicialmente pelo professor LUCAS SILVA FIGUEIREDO e atualmente é ministrada pelo professor YGOR AMARAL BARBOSA LEITE DE SENA
  Os membros da equipe são: 
  
   -Gladistony Silva  	**[GitHub](https://github.com/Gladistony)** 
