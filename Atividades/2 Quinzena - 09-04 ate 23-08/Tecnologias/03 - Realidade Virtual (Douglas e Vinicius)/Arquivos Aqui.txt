@@ -1,6 +1,0 @@
-Adaptive Virtual Reality Educational Game For People With Neurodevelopmental Disorders
-https://github.com/PedroBarcha/adaptive-vr-game
-
-Customizing User Experience with Adaptive Virtual Reality
-Authors: Pedro Barcha and Bachar Senno
-https://dl.acm.org/citation.cfm?id=3180351

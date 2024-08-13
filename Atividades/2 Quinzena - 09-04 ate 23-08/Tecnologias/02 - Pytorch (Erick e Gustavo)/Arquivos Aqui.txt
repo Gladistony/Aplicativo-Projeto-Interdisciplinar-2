@@ -1,8 +1,0 @@
-repositórios:
-dnoak/AnaliseDeSentimentosPytorch: https://github.com/dnoak/AnaliseDeSentimentosPytorch
-
-/sloria/TextBlob: https://github.com/sloria/TextBlob
-
-https://github.com/omarsar/emotion_analysis_elastic_pytorch
-
-https://github.com/SCIFER99/Training-Emotion-Detection-Systems
