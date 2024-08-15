@@ -10,6 +10,37 @@
 
 <body>
 
+    <section class="conteiner">
+
+        <header>
+            <h1>Cadastro</h1>
+        </header>
+        <ul class="listaDeCaixasDeTexto">
+            <li class="caixaDetexto">
+                <label for="nomeDoUsuario" class="textoDePalavra">Seu Nome</label>
+                <input type="text" name="nome" id="nomeDoUsuario" placeholder="Seu Nome">
+            </li>
+            <li class="caixaDetexto">
+                <label for="emailDoUsuario" class="textoDePalavra">Email-Institucional</label>
+                <input type="email" name="email" id="emailDoUsuario" placeholder="Email-Institucional">
+            </li>
+            <li class="caixaDetexto">
+                <label for="cursoDoUsuario" class="textoDePalavra">Curso</label>
+                <input type="text" name="curso" id="cursoDoUsuario" placeholder="Curso">
+            </li>
+            <li class="caixaDetexto">
+                <label for="senhaDoUsuario" class="textoDePalavra">Crie sua Senha</label>
+                <input type="password" name="senha" id="senhaDoUsuario" placeholder="Crie sua Senha" minlength="8"
+                    maxlength="20" required>
+                <p class="descricaoDeSenha"> Deve conter no mínimo 8 caracteres</p>
+            </li>
+        </ul>
+
+        <button type="submit">Cadastrar</button>
+        <p class="linkParaLogin">Já possui uma conta? <a href="./telaDeLogin.html">Entrar</a></p>
+    </section>
+
+    <script src="../scripts/scriptCadastro.js"></script>
 </body>
 
 </html>
