@@ -4,16 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../styles/estilo_telaDeLogin.css">
 </head>
 
 
 <body>
+    <section class="conteiner">
+        <header>
+            <img src="../imagens/ufrpeLogo.png" alt="" class="imagemDeBoasVindas">
 
-    
+            <h1>Entrar</h1>
 
-<script src="../scripits/scripitLogin.js"></script>
+            <p class="Welcome"> Boas Vindas</p>
+
+        </header>
+
+        <main>
+            <ul class="listaDeCaixasDeTexto">
+                <label for="email" class="textoDePalavra">Endereço de e-mail </label>
+                <li class="caixaDetexto"><input type="email" name="email" id="email" placeholder="E-mail institucional"
+                        class="caixaDetexto">
+                </li>
+                <label for="Senha" class="textoDePalavra">Senha de autenticação</label>
+                <li class="caixaDetexto"><input type="password" name="senha" id="senha"
+                        placeholder="Digite a sua senha "></li>
+                <a href="" class="esqueciSenha">Esqueci minha senha</a>
+            </ul>
+
+        </main>
+        <button type="submit">Entrar</button>
+        <p class="linkParaCadastro">Já possui uma conta? <a href="./telaDeCadastro.html">Cadastre-se agora </a></p>
+
+    </section>
+
+
+    <script src="../scripits/scripitLogin.js"></script>
 </body>
 
 </html>

@@ -13,30 +13,30 @@
     <section class="conteiner">
 
         <header>
-            <h1>Cadastro</h1>
+            <h1 id="TituloCadastro">Cadastro</h1>
         </header>
-        <ul class="listaDeCaixasDeTexto">
-            <li class="caixaDetexto">
-                <label for="nomeDoUsuario" class="textoDePalavra">Seu Nome</label>
-                <input type="text" name="nome" id="nomeDoUsuario" placeholder="Seu Nome">
+        <ul class="listaDeCaixasDeTexto" id="listaDeCaixasDeTextoCadastro">
+            <li class="caixaDetexto" id="caixaDetexto1">
+                <label for="nomeDoUsuario" class="textoDePalavra" id="textoDePalavraCadastro">Seu nome</label>
+                <input type="text" name="nome" id="nomeDoUsuario" placeholder="Insira o seu nome ">
             </li>
-            <li class="caixaDetexto">
-                <label for="emailDoUsuario" class="textoDePalavra">Email-Institucional</label>
-                <input type="email" name="email" id="emailDoUsuario" placeholder="Email-Institucional">
+            <li class="caixaDetexto" id="caixaDetexto2">
+                <label for="emailDoUsuario" class="textoDePalavra">E-mail institucional</label>
+                <input type="email" name="email" id="emailDoUsuario" placeholder="Insira seu endereço de e-mail">
             </li>
-            <li class="caixaDetexto">
+            <li class="caixaDetexto" id="caixaDetexto3">
                 <label for="cursoDoUsuario" class="textoDePalavra">Curso</label>
-                <input type="text" name="curso" id="cursoDoUsuario" placeholder="Curso">
+                <input type="text" name="curso" id="cursoDoUsuario" placeholder="Insira seu curso ">
             </li>
-            <li class="caixaDetexto">
-                <label for="senhaDoUsuario" class="textoDePalavra">Crie sua Senha</label>
-                <input type="password" name="senha" id="senhaDoUsuario" placeholder="Crie sua Senha" minlength="8"
+            <li class="caixaDetexto" id="caixaDetexto4">
+                <label for="senhaDoUsuario" class="textoDePalavra">Senha</label>
+                <input type="password" name="senha" id="senhaDoUsuario" placeholder="Crie uma senha" minlength="8"
                     maxlength="20" required>
                 <p class="descricaoDeSenha"> Deve conter no mínimo 8 caracteres</p>
             </li>
         </ul>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" id="botaoDeCadastrar">Cadastrar</button>
         <p class="linkParaLogin">Já possui uma conta? <a href="./telaDeLogin.html">Entrar</a></p>
     </section>
 

@@ -37,6 +37,7 @@ header h1 {
 
 
 
+
 .listaDeCaixasDeTexto {
     list-style: none;
     padding: 0;
@@ -51,11 +52,13 @@ header h1 {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 60px;
     box-sizing: border-box;
 }
 
 .textoDePalavra {
+    font-weight: 500;
+    font-size: small;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 10px;
@@ -63,6 +66,7 @@ header h1 {
 
 
 .descricaoDeSenha {
+    margin-top: 5px;
     display: flex;
     justify-content: flex-start;
     font-size: x-small;

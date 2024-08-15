@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.conteiner {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagemDeBoasVindas {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 150px;
+    max-height: 100px;
+}
+
+header h1 {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.Welcome {
+    text-align: center;
+    font-size: 0.8em;
+    color: #b6b6b6;
+    margin-bottom: 20px;
+}
+
+.listaDeCaixasDeTexto {
+    list-style: none;
+    padding: 0;
+}
+
+.caixaDetexto {
+    margin-bottom: 15px;
+}
+
+.caixaDetexto input {
+    background-color: #edf0f1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 60px;
+    box-sizing: border-box;
+}
+
+.textoDePalavra {
+
+    font-weight: 500;
+    font-size: small;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.esqueciSenha {
+    display: flex;
+    justify-content: flex-end;
+    font-size: x-small;
+    color: #10648c;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.esqueciSenha:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #121f24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #10648c;
+}
+
+.linkParaCadastro {
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #666;
+}
+
+.linkParaCadastro a {
+    color: #10648c;
+    text-decoration: none;
+}
+
+.linkParaCadastro a:hover {
+    text-decoration: underline;
+}
