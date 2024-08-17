@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor&A</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Menu lateral (esquerda) -->
+            <div class="col-12 col-md-4 col-lg-3 d-flex flex-column p-4 bg-light text-dark vh-100">
+                <h1 class="text-2xl fw-bold text-primary">Monitor<span class="text-danger">&a</span></h1>
+                <nav class="mt-4 flex-grow-1">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="d-flex align-items-center text-muted hover-text-primary">
+                                <span class="material-icons">home</span>
+                                <span class="ms-2">Início</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="d-flex align-items-center text-muted hover-text-primary">
+                                <span class="material-icons">class</span>
+                                <span class="ms-2">Turmas cadastradas</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="d-flex align-items-center text-muted hover-text-primary">
+                                <span class="material-icons">description</span>
+                                <span class="ms-2">Meus arquivos</span>
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="d-flex align-items-center text-danger">
+                                <span class="material-icons">settings</span>
+                                <span class="ms-2">Gerenciar meu perfil</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <h2 class="mt-6 text-lg fw-semibold">Fóruns que participo</h2>
+                <ul class="mt-2 list-unstyled">
+                    <li class="d-flex align-items-center mb-2">
+                        <span class="material-icons">functions</span>
+                        <span class="ms-2">Cálculo I</span>
+                        <span class="text-muted small ms-2">Prof. João Azevedo</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        <span class="material-icons">computer</span>
+                        <span class="ms-2">Programação I</span>
+                        <span class="text-muted small ms-2">Prof. Júlio Teixeira</span>
+                    </li>
+                </ul>
+                <a href="#" class="mt-4 text-danger text-decoration-underline">Ver todos os fóruns</a>
+            </div>
+
+            <!-- Conteúdo principal e menu bar -->
+            <div class="col-12 col-md-8 col-lg-9 d-flex flex-column">
+                <!-- Menu bar -->
+                <div class="d-flex justify-content-between align-items-center bg-light p-3 shadow-sm">
+                    <div></div> <!-- Espaço vazio para alinhar à direita -->
+                    <div class="d-flex align-items-center">
+                        <span class="material-icons me-3">message</span>
+                        <img class="rounded-circle border border-primary me-2" src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="User Profile Picture" style="width: 40px; height: 40px;" />
+                        <span class="me-2">Alex Costa</span>
+                        <span class="material-icons">arrow_drop_down</span>
+                    </div>
+                </div>
+
+                <!-- Conteúdo principal -->
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6 col-lg-5 d-flex flex-column mx-auto">
+                        <div class="bg-light p-4 rounded shadow w-100">
+                            <div class="d-flex flex-column align-items-center">
+                                <img class="w-50 h-50 rounded-circle border border-primary"
+                                    src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="User Profile Picture" />
+                                <h2 class="text-center mt-4">Alex Costa</h2>
+                                <p class="text-muted text-center">alex.costa@ufrpe.br</p>
+                                <p class="text-muted text-center">Cursando Engenharia da Computação</p>
+                                <p class="text-muted text-center">Período de ingresso: 2024.1</p>
+                                <p class="text-muted text-center">Data de nascimento: 17/06/2001</p>
+                                <p class="text-muted text-center">Endereço: Rua Moradas, nº 123 - Belo Jardim, PE</p>
+                                <textarea class="mt-4 p-2 border border-primary rounded w-100"
+                                    placeholder="Fale mais sobre você..."></textarea>
+                                <div class="mt-4 w-100">
+                                    <button class="btn bg-primary text-light px-4 rounded w-100 mb-2">Editar minha foto de perfil</button>
+                                    <button class="btn bg-primary text-light px-4 rounded w-100">Editar meu endereço</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segunda coluna -->
+                    <div class="col-12 col-md-6 col-lg-5 d-flex flex-column mx-auto">
+                        <div class="bg-light p-4 rounded shadow w-100">
+                            <h3>Monitores online agora</h3>
+                            <ul class="list-unstyled">
+                                <li class="d-flex align-items-center mb-2">
+                                    <img class="rounded-circle border border-primary me-2" src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="Monitor Profile Picture" style="width: 40px; height: 40px;" />
+                                    <span class="me-2">Monitor 1</span>
+                                    <span class="material-icons">message</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-2">
+                                    <img class="rounded-circle border border-primary me-2" src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="Monitor Profile Picture" style="width: 40px; height: 40px;" />
+                                    <span class="me-2">Monitor 2</span>
+                                    <span class="material-icons">message</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-light p-4 rounded shadow w-100 mt-4">
+                            <h3>Conversas Recentes</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle border border-primary me-2" src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="User Profile Picture" style="width: 40px; height: 40px;" />
+                                        <div>
+                                            <span class="d-block">Usuário 1</span>
+                                            <small class="text-muted">Última mensagem...</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle border border-primary me-2" src="https://openui.fly.dev/openui/128x128.svg?text=👤" alt="User Profile Picture" style="width: 40px; height: 40px;" />
+                                        <div>
+                                            <span class="d-block">Usuário 2</span>
+                                            <small class="text-muted">Última mensagem...</small>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
