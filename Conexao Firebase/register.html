@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+</head>
+
+<body>
+    <div class="register-container">
+        <h2>Cadastro</h2>
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Nome" required>
+            <input type="text" id="course" placeholder="Curso" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit" id="registerButton">Cadastrar</button>
+        </form>
+        <div id="loading" class="loading-spinner" style="display: none;"></div>
+    </div>
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="register.js"></script>
+</body>
+
+</html>
