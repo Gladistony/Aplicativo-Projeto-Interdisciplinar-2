@@ -6,3 +6,7 @@ cor do H1 : #152126
 cor das caixas de texto: #edf0f1
 cor do botão cadastrar : #121f24
 cor dos links de palavra: #10648c
+
+
+
+
