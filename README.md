@@ -51,7 +51,8 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 2. **Configurar o php.ini**: No diretório de instalação do XAMPP, abra o arquivo `php.ini` (geralmente localizado em `C:\xampp\php\php.ini`) e certifique-se de que as seguintes extensões estejam habilitadas (remova o ponto e vírgula `;` no início das linhas, se necessário):
    ```ini
    extension=php_openssl.dll
-   extension=php_curl.dll```
+   extension=php_curl.dll
+   ```
 3. **Atenção**: Os passos seguintes somente devem ser executados em um novo projeto, no caso da importação do projeto já configurado, os passos 3,4 e 5 podem ser ignorados
 
 #### Passo 3: Instalar o Composer
@@ -63,10 +64,11 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 1. **Crie um diretório para o projeto**: No diretório `htdocs` do XAMPP (geralmente em `C:\xampp\htdocs`), crie uma pasta para o seu projeto.
 2. **Inicie um novo projeto com o Composer**: No terminal, navegue até o diretório do projeto e execute o comando:
    ```bash
-   composer init```
-
+   composer init
+	```
 ### Passo 5: Instalar o Pacote do Firebase
 1. **Abra a pasta do projeto**: No terminal, navegue até o diretório do seu projeto.
 2. **Instale o pacote do Firebase**: Execute o seguinte comando para instalar o pacote `kreait/firebase-php`:
    ```bash
-   composer require "kreait/firebase-php:^7.0" ```
+   composer require "kreait/firebase-php:^7.0"
+   ```
