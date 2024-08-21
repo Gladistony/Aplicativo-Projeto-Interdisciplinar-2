@@ -10,24 +10,29 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const email = document.getElementById('emailDoUsuario').value;
     const password = document.getElementById('senhaDoUsuario').value;
     const confirmPassword = document.getElementById('senhaValidada').value;
-    const loginurl = document.getElementById('linkLogin').value;
+    const erromsg = document.getElementById('mensagem-erroCadastro');
 
     // Verificar se o email termina com @ufrpe.br
     if (!email.endsWith('@ufrpe.br')) {
-        alert('Por favor, use um e-mail institucional @ufrpe.br.');
+        //alert('Por favor, use um e-mail institucional @ufrpe.br.');
+        erromsg.style.display = 'block';
+        erromsg.innerHTML = 'Por favor, use um e-mail institucional @ufrpe.br.';
         return;
     }
 
     // Verificar se as senhas são iguais
     if (password !== confirmPassword) {
-        alert('As senhas não são iguais.');
+        errormsg.style.display = 'block';
+        errormsg.innerHTML = 'As senhas não coincidem.';
         return;
     }
 
     const auth = getAuth();
     const loadingSpinner = document.getElementById('loading');
-    const registerButton = document.getElementById('registerButton');
-    //loadingSpinner.style.display = 'block';
+    const registerButton = document.getElementById('botaoDeCadastrar');
+    const loginurl = document.getElementById('linkLogin');
+
+    loadingSpinner.style.display = 'block';
     registerButton.style.display = 'none';
     loginurl.style.display = 'none';
 
@@ -77,9 +82,14 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         window.location.href = 'main-logado.php';
     } catch (error) {
-        alert('Erro: ' + error.message);
+        //alert('Erro: ' + error.message);
         registerButton.style.display = 'block';
         loginurl.style.display = 'block';
+        erromsg.style.display = 'block';
+        if (error.code === 'auth/email-already-in-use') {
+            erromsg.innerHTML = 'O e-mail já está em uso.';
+        }
+        //erromsg.innerHTML = error.message;
     } finally {
         loadingSpinner.style.display = 'none';
     }
