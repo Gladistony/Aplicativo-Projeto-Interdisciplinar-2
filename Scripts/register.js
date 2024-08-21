@@ -10,7 +10,6 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const email = document.getElementById('emailDoUsuario').value;
     const password = document.getElementById('senhaDoUsuario').value;
     const confirmPassword = document.getElementById('senhaValidada').value;
-    const loginurl = document.getElementById('linkLogin').value;
 
     // Verificar se o email termina com @ufrpe.br
     if (!email.endsWith('@ufrpe.br')) {
@@ -26,8 +25,10 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     const auth = getAuth();
     const loadingSpinner = document.getElementById('loading');
-    const registerButton = document.getElementById('registerButton');
-    //loadingSpinner.style.display = 'block';
+    const registerButton = document.getElementById('botaoDeCadastrar');
+    const loginurl = document.getElementById('linkLogin');
+    const erromsg = document.getElementById('mensagem-erroCadastro');
+    loadingSpinner.style.display = 'block';
     registerButton.style.display = 'none';
     loginurl.style.display = 'none';
 
@@ -77,9 +78,14 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         window.location.href = 'main-logado.php';
     } catch (error) {
-        alert('Erro: ' + error.message);
+        //alert('Erro: ' + error.message);
         registerButton.style.display = 'block';
         loginurl.style.display = 'block';
+        erromsg.style.display = 'block';
+        if (error.code === 'auth/email-already-in-use') {
+            erromsg.innerHTML = 'O e-mail já está em uso.';
+        }
+        //erromsg.innerHTML = error.message;
     } finally {
         loadingSpinner.style.display = 'none';
     }
