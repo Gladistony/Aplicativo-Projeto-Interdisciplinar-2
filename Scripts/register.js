@@ -10,16 +10,20 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const email = document.getElementById('emailDoUsuario').value;
     const password = document.getElementById('senhaDoUsuario').value;
     const confirmPassword = document.getElementById('senhaValidada').value;
+    const erromsg = document.getElementById('mensagem-erroCadastro');
 
     // Verificar se o email termina com @ufrpe.br
     if (!email.endsWith('@ufrpe.br')) {
-        alert('Por favor, use um e-mail institucional @ufrpe.br.');
+        //alert('Por favor, use um e-mail institucional @ufrpe.br.');
+        erromsg.style.display = 'block';
+        erromsg.innerHTML = 'Por favor, use um e-mail institucional @ufrpe.br.';
         return;
     }
 
     // Verificar se as senhas são iguais
     if (password !== confirmPassword) {
-        alert('As senhas não são iguais.');
+        errormsg.style.display = 'block';
+        errormsg.innerHTML = 'As senhas não coincidem.';
         return;
     }
 
@@ -27,7 +31,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const loadingSpinner = document.getElementById('loading');
     const registerButton = document.getElementById('botaoDeCadastrar');
     const loginurl = document.getElementById('linkLogin');
-    const erromsg = document.getElementById('mensagem-erroCadastro');
+
     loadingSpinner.style.display = 'block';
     registerButton.style.display = 'none';
     loginurl.style.display = 'none';
