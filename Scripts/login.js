@@ -56,7 +56,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     } catch (error) {
         if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-login-credentials') {
             erromsg.style.display = 'block';
-            erromsg.innerHTML = 'Usuário ou senha inválidos';
+            erromsg.innerHTML = 'Email ou senha inválidos';
         }
         loginButton.style.display = 'block';
         cadastrourl.style.display = 'block';

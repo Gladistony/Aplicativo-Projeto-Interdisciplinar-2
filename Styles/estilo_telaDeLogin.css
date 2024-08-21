@@ -105,7 +105,8 @@ header h2 {
     font-size: x-small;
     color: #10648c;
     text-decoration: none;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: -10px;
 }
 
 .esqueciSenha:hover {
@@ -170,7 +171,7 @@ button:hover {
     position: relative;
     text-align: center;
     font-size: small;
-    margin-top: 20px;
+    margin-top: -20px;
     color: #edf0f1;
     border-radius: 10px;
     word-wrap: break-word;

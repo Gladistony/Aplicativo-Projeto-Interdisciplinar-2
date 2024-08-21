@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
         rel="stylesheet">
+    <script type="module" src="../Scripts/firebase-config.js"></script>
+    <script type="module" src="../Scripts/esqueciSenha.js"></script>
 </head>
 
 <body>
@@ -30,14 +32,15 @@
 
 
         <main>
-            <form>
+            <form id="formularioUnico">
                 <div class="caixa-texto">
                     <label for="email" class="texto-Palavra">Colocar endereço de e-mail</label>
                     <input type="email" name="email" id="email" placeholder="E-mail institucional" class="caixaDetexto">
                 </div>
+                <button type="submit">Enviar</button>
             </form>
         </main>
-        <button type="submit">Enviar</button>
+
     </div>
 
 </body>
