@@ -5,10 +5,10 @@ import { app, db } from './firebase-config.js';
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const name = document.getElementById('nome').value;
+    const name = document.getElementById('nomeDoUsuario').value;
     const course = document.getElementById('cursoDoUsuario').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('senha').value;
+    const email = document.getElementById('emailDoUsuario').value;
+    const password = document.getElementById('senhaDoUsuario').value;
     const confirmPassword = document.getElementById('senhaValidada').value;
     const loginurl = document.getElementById('linkLogin').value;
 
@@ -27,7 +27,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const auth = getAuth();
     const loadingSpinner = document.getElementById('loading');
     const registerButton = document.getElementById('registerButton');
-    loadingSpinner.style.display = 'block';
+    //loadingSpinner.style.display = 'block';
     registerButton.style.display = 'none';
     loginurl.style.display = 'none';
 
@@ -36,12 +36,14 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         const user = userCredential.user;
 
         await sendEmailVerification(user);
+        const dataAtual = new Date();
 
         // Salvar informações adicionais no Firestore
         await setDoc(doc(db, "InforConta", user.uid), {
             nome: name,
             curso: course,
-            email: email
+            email: email,
+            dataCriacao: dataAtual.toISOString()
         });
 
         // Realizar login automaticamente após o cadastro

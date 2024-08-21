@@ -12,9 +12,14 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const loadingSpinner = document.getElementById('loading');
     const loginButton = document.getElementById('loginButton');
     const cadastrourl = document.getElementById('linkcadastro');
+    const erromsg = document.getElementById('mensagem-erroLogin');
+    const esqueceuurl = document.getElementById('esqueciMinhaSenha');
+
     loadingSpinner.style.display = 'block';
     loginButton.style.display = 'none';
     cadastrourl.style.display = 'none';
+    erromsg.style.display = 'none';
+    esqueceuurl.style.display = 'none';
 
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -49,8 +54,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         window.location.href = 'main-logado.php';
     } catch (error) {
-        alert('Erro: ' + error.message);
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-login-credentials') {
+            erromsg.style.display = 'block';
+            erromsg.innerHTML = 'Usuário ou senha inválidos';
+        }
         loginButton.style.display = 'block';
+        cadastrourl.style.display = 'block';
+        esqueceuurl.style.display = 'block';
     } finally {
         loadingSpinner.style.display = 'none';
     }

@@ -115,12 +115,11 @@ button:hover {
     border: 1px solid #ce3939;
 }
 
-
 #mensagem-erroCadastro {
     display: none;
     /* colocar em display block */
     background-color: #ce3939;
-    padding: 6px;
+    padding: 20px;
     width: 200px;
     height: auto;
     position: relative;
