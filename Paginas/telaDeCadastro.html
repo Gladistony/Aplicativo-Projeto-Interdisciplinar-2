@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="..\Styles\estilo_telaDeCadastro.css">
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+        rel="stylesheet">
+    <script type="module" src="../Scripts/firebase-config.js"></script>
+    <script type="module" src="../Scripts/register.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="TituloCadastro">Cadastro</h1>
+        </header>
+        <main>
+            <form id="registerForm" action=""> <!-- O action feito para o back-end-->
+                <div class="caixa-texto" id="input1">
+                    <label for="nomeDoUsuario" class="texto-Palavra" id="textoDePalavraCadastro">Seu nome</label>
+                    <input type="text" name="nome" id="nomeDoUsuario" placeholder="Insira o seu nome">
+                </div>
+                <div class="caixa-texto" id="input2">
+                    <label for="emailDoUsuario" class="texto-Palavra">E-mail institucional</label>
+                    <input type="email" name="email" id="emailDoUsuario" placeholder="Insira seu endereço de e-mail">
+                </div>
+                <div class="caixa-texto" id="input3">
+                    <label for="cursoDoUsuario" class="texto-Palavra">Curso</label>
+                    <select name="curso" id="cursoDoUsuario" class="caixa-texto">
+                        <option value="Engenharia da Computação">Engenharia da Computação</option>
+                        <option value="Engenharia de Controle e Automação">Engenharia de Controle e Automação</option>
+                        <option value="Engenharia Hídrica">Engenharia Hídrica</option>
+                        <option value="Engenharia Química">Engenharia Química</option>
+                    </select>
+                </div>
+                <div class="caixa-texto" id="input4">
+                    <label for="senhaDoUsuario" class="texto-Palavra">Senha</label>
+                    <input type="password" name="senha" id="senhaDoUsuario" placeholder="Crie uma senha" minlength="8"
+                        maxlength="20" required>
+                    <p class="descricaoDeSenha">Deve conter no mínimo 8 caracteres</p>
+                </div>
+
+                <div class="caixa-texto" id="input5">
+                    <label for="senhaDoUsuario" class="texto-Palavra">Confirme a senha</label>
+                    <input type="password" name="validacao-senha" id="senhaValidada" placeholder="Confirme a sua senha"
+                        minlength="8" maxlength="20" required>
+                    <p class="descricaoDeSenha">Coloque a mesma senha da anterior</p>
+                </div>
+
+                <p id="mensagem-erroCadastro">xcdcdd </p>
+                <button type="submit" id="botaoDeCadastrar">Cadastrar</button>
+                <span class="linkParaLogin" id="linkLogin">Já possui uma conta? <a
+                        href="..\index.html">Entrar</a></span>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: --apple-system, BlinkMacSystemFont, 'Poppins', "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins';
+}
+
+header {
+    margin-right: 9px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 50px;
+    font-family: "Flex";
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 10px;
+    color: #1f1f1f;
+}
+
+header h1 span {
+    color: #10648c;
+}
+
+header h2 {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.Welcome {
+    text-align: center;
+    font-size: 0.8em;
+    color: #b6b6b6;
+    margin-bottom: 20px;
+}
+
+.listaDeCaixasDeTexto {
+    list-style: none;
+    padding: 0;
+}
+
+.caixa-texto {
+    margin-bottom: 5px;
+}
+
+.caixa-texto input {
+    background-color: #edf0f1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 60px;
+    box-sizing: border-box;
+}
+
+.texto-Palavra {
+    font-weight: 500;
+    font-size: small;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.esqueciSenha {
+    display: flex;
+    justify-content: flex-end;
+    font-size: x-small;
+    color: #10648c;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.esqueciSenha:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #121f24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #10648c;
+}
+
+.full-width-button {
+    margin-top: 10px;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.linkParaCadastro {
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #666;
+}
+
+.linkParaCadastro a {
+    color: #10648c;
+    text-decoration: none;
+}
+
+.linkParaCadastro a:hover {
+    text-decoration: underline;
+}
+
+.erro input {
+    border: 1px solid #ce3939;
+}
+
+#mensagem-erroLogin {
+    display: none;
+    /* colocar em display block */
+    background-color: #ce3939;
+    padding: 6px;
+    width: 200px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #edf0f1;
+    border-radius: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#mensagem-erroLogin::before {
+    content: "\00d7";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #edf0f1;
+    font-size: large;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

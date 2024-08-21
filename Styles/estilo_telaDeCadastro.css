@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    background-image: url(../Recursos/Imagens/fundoAzul.jpg);
+    background-repeat: no-repeat;
+    background-position: right 20px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+.container {
+    margin-right: 400px;
+    background-color: #ffff;
+    padding: 20px;
+    width: 300px;
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.listaDeCaixasDeTexto {
+    padding: 0;
+}
+
+.caixa-texto {
+    margin-bottom: 15px;
+}
+
+.caixa-texto input,
+.caixa-texto select {
+    background-color: #edf0f1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 60px;
+    box-sizing: border-box;
+}
+
+.texto-Palavra {
+    font-weight: 500;
+    font-size: small;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+
+.descricaoDeSenha {
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: x-small;
+    color: #666;
+}
+
+button {
+    background-color: #121f24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #10648c;
+}
+
+.linkParaLogin {
+
+    text-align: center;
+    font-size: small;
+    margin-top: 10px;
+    color: #666;
+    display: block;
+}
+
+.linkParaLogin a {
+    color: #10648c;
+    text-decoration: none;
+}
+
+.linkParaLogin a:hover {
+    text-decoration: underline;
+}
+
+.erro input {
+    background-color: #f0f0f0;
+    border: 1px solid #ce3939;
+}
+
+
+#mensagem-erroCadastro {
+    display: none;
+    /* colocar em display block */
+    background-color: #ce3939;
+    padding: 6px;
+    width: 200px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #edf0f1;
+    border-radius: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+
+#mensagem-erroCadastro::before {
+    content: "\00d7";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #edf0f1;
+    font-size: large;
+}
