@@ -47,11 +47,13 @@ header h1 {
 }
 
 .caixa-texto {
+    width: 300px;
     margin-bottom: 15px;
 }
 
 .caixa-texto input,
 .caixa-texto select {
+    margin-bottom: -7px;
     background-color: #edf0f1;
     width: 100%;
     padding: 10px;
@@ -59,6 +61,8 @@ header h1 {
     border-radius: 60px;
     box-sizing: border-box;
 }
+
+#cursoDoUsuario {}
 
 .texto-Palavra {
     font-weight: 500;
@@ -70,7 +74,7 @@ header h1 {
 
 
 .descricaoDeSenha {
-    margin-top: 5px;
+    margin-top: 10px;
     display: flex;
     justify-content: flex-start;
     font-size: x-small;
@@ -131,15 +135,4 @@ button:hover {
     word-wrap: break-word;
     overflow: hidden;
     margin-bottom: 20px;
-}
-
-
-
-#mensagem-erroCadastro::before {
-    content: "\00d7";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    color: #edf0f1;
-    font-size: large;
 }

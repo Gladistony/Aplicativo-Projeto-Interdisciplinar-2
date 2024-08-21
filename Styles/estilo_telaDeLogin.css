@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    src: url('../Recursos/Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
 }
 
 * {
@@ -38,7 +38,7 @@ header {
 
 header h1 {
     font-size: 50px;
-    font-family: "Flex";
+    font-family: "Poppins";
     font-weight: 700;
     font-style: normal;
     margin-bottom: 10px;
@@ -152,10 +152,10 @@ button:hover {
 }
 
 #mensagem-erroLogin {
-    display: none;
+    display: block;
     /* colocar em display block */
     background-color: #ce3939;
-    padding: 20px;
+    margin: auto;
     width: 200px;
     height: auto;
     position: relative;
@@ -169,14 +169,7 @@ button:hover {
     margin-bottom: 20px;
 }
 
-#mensagem-erroLogin::before {
-    content: "\00d7";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    color: #edf0f1;
-    font-size: large;
-}
+
 
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
