@@ -9,4 +9,7 @@ cor dos links de palavra: #10648c
 
 
 
-
+============= Para vocês Back-end==========================================================================================
+Pessoal do back-end eu fiz um alert que é de display block, aí ele vai está em none, contudo etretanto quando disparar o erro
+ vai ter que aparecer junto com a classe erro, que deve persistir mesmo se o úsuario clicar em fechar o popup
+  e também fazer as verificações como se a senha é a mesma nos três casos, aí quando estiver correto, aí tudo bem pode tirar essas duas classes. 

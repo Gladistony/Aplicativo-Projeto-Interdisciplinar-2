@@ -21,7 +21,7 @@ body {
     font-family: "Roboto Flex", sans-serif;
 }
 
-.conteiner {
+.container {
     margin-right: 400px;
     background-color: #ffff;
     padding: 20px;
@@ -37,20 +37,15 @@ header h1 {
     color: #333;
 }
 
-
-
-
-
 .listaDeCaixasDeTexto {
-    list-style: none;
     padding: 0;
 }
 
-.caixaDetexto {
+.caixa-texto {
     margin-bottom: 15px;
 }
 
-.caixaDetexto input {
+.caixa-texto input {
     background-color: #edf0f1;
     width: 100%;
     padding: 10px;
@@ -59,12 +54,12 @@ header h1 {
     box-sizing: border-box;
 }
 
-.textoDePalavra {
+.texto-Palavra {
     font-weight: 500;
     font-size: small;
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 
@@ -95,8 +90,9 @@ button:hover {
 
     text-align: center;
     font-size: small;
-    margin-top: 30px;
+    margin-top: 10px;
     color: #666;
+    display: block;
 }
 
 .linkParaLogin a {
@@ -106,4 +102,39 @@ button:hover {
 
 .linkParaLogin a:hover {
     text-decoration: underline;
+}
+
+.erro input {
+    background-color: #f0f0f0;
+    border: 1px solid #ce3939;
+}
+
+
+#mensagem-erroCadastro {
+    display: none;
+    /* colocar em display block */
+    background-color: #ce3939;
+    padding: 6px;
+    width: 200px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #edf0f1;
+    border-radius: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+
+#mensagem-erroCadastro::before {
+    content: "\00d7";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #edf0f1;
+    font-size: large;
 }

@@ -84,11 +84,11 @@ body {
     padding: 0;
 }
 
-.caixaDetexto {
+.caixa-texto {
     margin-bottom: 15px;
 }
 
-.caixaDetexto input {
+.caixa-texto input {
     background-color: #edf0f1;
     width: 100%;
     padding: 10px;

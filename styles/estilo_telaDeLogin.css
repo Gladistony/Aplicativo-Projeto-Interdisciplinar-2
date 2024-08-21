@@ -15,7 +15,7 @@ body {
     font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-.conteiner {
+.container {
     background-color: #ffffff;
     padding: 20px;
     width: 300px;
@@ -24,14 +24,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.imagemDeBoasVindas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 20px auto;
-    max-width: 180px;
-    max-height: 100px;
-}
+
 
 header {
     margin-right: 9px;
@@ -73,21 +66,21 @@ header h2 {
     padding: 0;
 }
 
-.caixaDetexto {
-    margin-bottom: 15px;
+.caixa-texto {
+    margin-bottom: 5px;
 }
 
-.caixaDetexto input {
+.caixa-texto input {
     background-color: #edf0f1;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 60px;
     box-sizing: border-box;
+
 }
 
 .texto-Palavra {
-
     font-weight: 500;
     font-size: small;
     display: flex;
@@ -137,4 +130,36 @@ button:hover {
 
 .linkParaCadastro a:hover {
     text-decoration: underline;
+}
+
+.erro input {
+    border: 1px solid #ce3939;
+}
+
+#mensagem-erroLogin {
+    display: none;
+    /* colocar em display block */
+    background-color: #ce3939;
+    padding: 6px;
+    width: 200px;
+    height: auto;
+    position: relative;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    color: #edf0f1;
+    border-radius: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+}
+
+#mensagem-erroLogin::before {
+    content: "\00d7";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #edf0f1;
+    font-size: large;
 }

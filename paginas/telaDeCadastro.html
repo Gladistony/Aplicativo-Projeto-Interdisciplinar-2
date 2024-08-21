@@ -14,44 +14,46 @@
 </head>
 
 <body>
-    <!--Como é uma tela de cadastro semântica deve utilizar para campos de input e os Label a tag pai form para vc conseguir comunicar o front com o back precisamos de uma Action atribuída no formulário-->
-
-    <!--Sobre as classes, tente colocar nomes mais simplificados e que tenham sentido-->
-
-    <div class="conteiner">
+    <div class="container">
         <header>
-            <!--Vc pode até utilizar um header para o formulário. O <header> não precisa necessariamente estar no início da página; ele pode ser usado para organizar a estrutura dentro de uma seção específica se o objetivo é criar um cabeçalho global.-->
-
-            <!--A <section> é utilizada para dividir o conteúdo, tipo se eu vou colocar um parte da pagina para falar sobre o mercado e outra para saúde Irei criar duas sections diferente Ou crio uma section para ser a parte onde teria texto-->
             <h1 id="TituloCadastro">Cadastro</h1>
         </header>
         <main>
             <form action=""><!-- O action feito para o back-end-->
-                <div class="caixaDetexto" id="caixaDetexto1">
+                <div class="caixa-texto" id="input1">
                     <label for="nomeDoUsuario" class="texto-Palavra" id="textoDePalavraCadastro">Seu nome</label>
                     <input type="text" name="nome" id="nomeDoUsuario" placeholder="Insira o seu nome">
                 </div>
-                <div class="caixaDetexto" id="caixaDetexto2">
-                    <label for="emailDoUsuario" class="textoDePalavra">E-mail institucional</label>
+                <div class="caixa-texto" id="input2">
+                    <label for="emailDoUsuario" class="texto-Palavra">E-mail institucional</label>
                     <input type="email" name="email" id="emailDoUsuario" placeholder="Insira seu endereço de e-mail">
                 </div>
-                <div class="caixaDetexto" id="caixaDetexto3">
+                <div class="caixa-texto" id="input3">
                     <label for="cursoDoUsuario" class="texto-Palavra">Curso</label>
                     <input type="text" name="curso" id="cursoDoUsuario" placeholder="Insira seu curso">
                 </div>
-                <div class="caixaDetexto" id="caixaDetexto4">
+                <div class="caixa-texto" id="input4">
                     <label for="senhaDoUsuario" class="texto-Palavra">Senha</label>
                     <input type="password" name="senha" id="senhaDoUsuario" placeholder="Crie uma senha" minlength="8"
                         maxlength="20" required>
                     <p class="descricaoDeSenha">Deve conter no mínimo 8 caracteres</p>
                 </div>
+
+                <div class="caixa-texto" id="input5">
+                    <label for="senhaDoUsuario" class="texto-Palavra">Confirme a senha</label>
+                    <input type="password" name="validacao-senha" id="senhaValidada" placeholder="Confirme a sua senha"
+                        minlength="8" maxlength="20" required>
+                    <p class="descricaoDeSenha">Coloque a mesma senha da anterior</p>
+                </div>
+
+                <p id="mensagem-erroCadastro">xcdcdd </p>
+
             </form>
             <button type="submit" id="botaoDeCadastrar">Cadastrar</button>
             <span class="linkParaLogin">Já possui uma conta? <a href="./telaDeLogin.html">Entrar</a></span>
 
         </main>
     </div>
-
 </body>
 
 </html>

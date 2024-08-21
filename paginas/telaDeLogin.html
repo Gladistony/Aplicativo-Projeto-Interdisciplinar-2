@@ -19,29 +19,35 @@
 
 <body>
 
-    <div class="conteiner">
+    <div class="container">
         <header>
             <h1>Monitor<span>&a</span></h1> <!-- Ajeitar a fonte da logo-->
+
             <h2>Entrar</h2>
-            <p class="Welcome">Boas Vindas</p>
+
+            <span class="Welcome">Boas Vindas</span>
         </header>
 
         <main>
-            <form class="listaDeCaixasDeTexto" action=""> <!-- O action feito para o back-end-->
-                <div class="caixaDetexto">
+            <form class="listaDeCaixasDeTexto" action="">
+                <!-- O action feito para o back-end-->
+                <div class="caixa-texto">
                     <label for="email" class="texto-Palavra">Endereço de e-mail</label>
-                    <input type="email" name="email" id="email" placeholder="E-mail institucional" class="caixaDetexto">
+                    <input type="email" name="email" id="email" placeholder="E-mail institucional" class="caixa-texto">
                 </div>
-                <div class="caixaDetexto">
+                <div class="caixa-texto"><!--Quando der erro a classe: "erro" tem que vim para aqui, ficando desse jeito class = "caixa-texto erro"-->
                     <label for="senha" class="texto-Palavra">Senha de autenticação</label>
                     <input type="password" name="senha" id="senha" placeholder="Digite a sua senha">
                 </div>
-                <a href="./telaDeEsqueciASenha.html" class="esqueciSenha"><span>Esqueci minha senha</span></a>
+                <a href="./telaDeEsqueciASenha.html" class="esqueciSenha"><span>Esqueci minha senha</span></a> 
+                
+                <p id="mensagem-erroLogin"></p> 
             </form>
             <button type="submit">Entrar</button>
             <span class="linkParaCadastro">Já possui uma conta? <a href="./telaDeCadastro.html">Cadastre-se
                     agora</a></span>
         </main>
+
     </div>
 
 </body>
