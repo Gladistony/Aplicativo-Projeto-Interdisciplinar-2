@@ -21,6 +21,9 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #ffffff;
     padding: 20px;
     width: 300px;
@@ -66,11 +69,14 @@ header h2 {
 }
 
 .listaDeCaixasDeTexto {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
 }
 
 .caixa-texto {
+    width: 250px;
     margin-bottom: 5px;
 }
 
@@ -81,6 +87,7 @@ header h2 {
     border: 1px solid #ccc;
     border-radius: 60px;
     box-sizing: border-box;
+    margin-bottom: 15px;
 }
 
 .texto-Palavra {
@@ -94,6 +101,7 @@ header h2 {
 .esqueciSenha {
     display: flex;
     justify-content: flex-end;
+    align-self: flex-end;
     font-size: x-small;
     color: #10648c;
     text-decoration: none;
@@ -148,6 +156,7 @@ button:hover {
 }
 
 .erro input {
+    background-color: #f0f0f0;
     border: 1px solid #ce3939;
 }
 

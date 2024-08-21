@@ -62,7 +62,6 @@ header h1 {
     box-sizing: border-box;
 }
 
-#cursoDoUsuario {}
 
 .texto-Palavra {
     font-weight: 500;
@@ -136,7 +135,6 @@ button:hover {
     overflow: hidden;
     margin-bottom: 20px;
 }
-
 
 
 
