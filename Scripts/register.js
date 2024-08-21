@@ -22,8 +22,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     // Verificar se as senhas são iguais
     if (password !== confirmPassword) {
-        errormsg.style.display = 'block';
-        errormsg.innerHTML = 'As senhas não coincidem.';
+        erromsg.style.display = 'block';
+        erromsg.innerHTML = 'As senhas não coincidem.';
         return;
     }
 
