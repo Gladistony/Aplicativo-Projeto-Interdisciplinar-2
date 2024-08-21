@@ -33,7 +33,6 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 
 
 - **JavaScript**: Para a lógica de interação no frontend e backend.
-- **Python (flask)**: Para a lógica de interação no backend.
 - **CSS**: Para estilização e layout das páginas.
 - **HTML**: Para a estruturação do conteúdo do site.
 - **PHP**: Para o desenvolvimento do backend e integração com o banco de dados.
