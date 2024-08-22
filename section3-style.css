@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    margin: 24px;
+    padding: 16px;
+}
+
+section h1 {
+    font-size: 20px;
+    color: #F0394F;
+    margin-bottom: 16px;
+}
+
+section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+section#monitores-online {
+    background-color: white;
+    border-radius: 16px;
+    margin: 24px;
+}
+
+section#conversas-recentes {
+    background-color: white;
+    border-radius: 16px;
+    margin: 24px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.container h2 {
+    font-size: 16px;
+    color: #F0394F;
+    margin-bottom: 0;
+}
+
+.container p {
+    font-size: 12px;
+    margin: 4px 0 0 0;
+}
+
+section a {
+    margin-left: auto;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
