@@ -67,7 +67,8 @@ section#conversas-recentes > div > img {
     margin-left: -60px;
 }
 
-div.container {
+div#diferente.container {
     margin-top: 8px;
     margin-bottom: 4px;
+    background-color: white !important;
 }
