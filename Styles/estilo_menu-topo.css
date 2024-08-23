@@ -1,6 +1,6 @@
 #menu-topo {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: flex-end;
     /* Alinha os itens à direita */
     width: 100%;

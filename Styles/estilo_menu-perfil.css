@@ -12,6 +12,7 @@ section > div.d-inline-block > img {
     height: 230px;
     object-fit: cover;
     margin-top: 4px;
+    border-radius: 50%;
 }
 
 section > h1 {
