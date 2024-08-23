@@ -8,17 +8,20 @@ if (!isset($_SESSION['email'])) {
 $email = $_SESSION['email'];
 $userInfo = $_SESSION['userInfo'];
 $verificado = $_SESSION['verificado'];
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Bem-vindo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo</title>
     <script type="module" src="../Scripts/main-logado.js"></script>
     <link rel="stylesheet" href="../Styles/estilo_main-logado.css">
 </head>
+
 <body>
     <div id="menu_do_topo" class="top-menu">
     </div>

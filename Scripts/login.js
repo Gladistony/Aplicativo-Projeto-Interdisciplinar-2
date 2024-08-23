@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { app, db } from './firebase-config.js';
 
@@ -24,35 +24,43 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        const verificado = user.emailVerified;
 
-        // Buscar informações da conta no Firestore
-        const docRef = doc(db, "InforConta", user.uid);
-        const docSnap = await getDoc(docRef);
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const verificado = user.emailVerified;
 
-        let userInfo = {
-            curso: "Indisponível",
-            nome: "Indisponível",
-            endereco: "Indisponível",
-            dataCriacao: "Indisponível",
-            dataNascimento: "Indisponível",
-            periodoIngresso: "Indisponível"
-        };
+                // Buscar informações da conta no Firestore
+                const docRef = doc(db, "InforConta", user.uid);
+                const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-            userInfo = docSnap.data();
-        }
+                let userInfo = {
+                    curso: "Indisponível",
+                    nome: "Indisponível",
+                    endereco: "Indisponível",
+                    dataCriacao: "Indisponível",
+                    dataNascimento: "Indisponível",
+                    periodoIngresso: "Indisponível",
+                    fotoPerfil: "Indisponível"
+                };
 
-        // Enviar informações ao servidor PHP
-        await fetch('./Scripts/set-session.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado })
+                if (docSnap.exists()) {
+                    userInfo = docSnap.data();
+                }
+
+                // Enviar informações ao servidor PHP
+                await fetch('./Scripts/set-session.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado })
+                });
+
+                window.location.href = './Paginas/main-logado.php';
+            } else {
+                console.log('Usuário não está logado');
+            }
         });
-
-        window.location.href = './Paginas/main-logado.php';
     } catch (error) {
         if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-login-credentials') {
             erromsg.style.display = 'block';
