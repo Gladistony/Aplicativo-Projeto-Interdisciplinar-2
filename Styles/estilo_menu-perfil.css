@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+section > div.d-inline-block > img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    margin-top: 4px;
+}
+
+section > h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+section#perfil > h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+section#perfil > h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+section#perfil > p {
+    margin: 4px 0;
+}
+
+section#perfil > .d-grid > button {
+    margin-top: 10px;
+    width: 100%;
+}
