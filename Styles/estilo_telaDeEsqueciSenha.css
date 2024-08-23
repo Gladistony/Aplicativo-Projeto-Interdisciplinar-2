@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Po";
+
+}
+
+
+.conteiner {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 300px;
+    text-align: start;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.setaDeVoltar {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.setaDeVoltar:hover {
+    cursor: pointer;
+    border: 0.8px outset #121f24;
+    border-radius: 20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.cabeçalho {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cabeçalho h1 {
+    font-size: 50px;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 10px;
+    color: #1f1f1f;
+}
+
+.cabeçalho h1 span {
+    color: #10648c;
+}
+
+.cabeçalho h2 {
+    font-size: medium;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: "Poppins";
+}
+
+.Welcome {
+    font-size: 0.8em;
+    color: #b6b6b6;
+    margin-bottom: 20px;
+}
+
+.listaDeCaixasDeTexto {
+    list-style: none;
+    padding: 0;
+}
+
+.caixa-texto {
+    margin-bottom: 15px;
+}
+
+.caixa-texto input {
+    background-color: #edf0f1;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 60px;
+    box-sizing: border-box;
+}
+
+.texto-Palavra {
+    font-weight: 500;
+    font-size: small;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+
+button {
+    background-color: #121f24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: #10648c;
+}

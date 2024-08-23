@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Styles/estilo_telaDeLogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script type="module" src="Scripts/firebase-config.js"></script>
+    <script type="module" src="Scripts/login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Monitor<span>&a</span></h1> <!-- Ajeitar a fonte da logo -->
+            <h2>Entrar</h2>
+            <span class="Welcome">Bem vindo ao sistema unificado de acesso aos conteúdos da UFRPE-UABJ</span>
+        </header>
+
+        <main>
+            <form id="loginForm" class="listaDeCaixasDeTexto" action="">
+                <!-- O action feito para o back-end -->
+                <div class="caixa-texto">
+                    <label for="email" class="texto-Palavra">Endereço de e-mail</label>
+                    <input type="email" name="email" id="email" placeholder="E-mail institucional" class="caixa-texto">
+                </div>
+                <div class="caixa-texto">
+                    <!-- Quando der erro a classe: "erro" tem que vim para aqui, ficando desse jeito class = "caixa-texto erro" -->
+                    <label for="senha" class="texto-Palavra">Senha de autenticação</label>
+                    <input type="password" name="senha" id="senha" placeholder="Digite a sua senha">
+                </div>
+                <a href="Paginas/telaDeEsqueciASenha.html" class="esqueciSenha" id="esqueciMinhaSenha"><span>Esqueci
+                        minha senha</span></a>
+                <p id="mensagem-erroLogin"></p>
+                <button type="submit" id="loginButton">Entrar</button>
+            </form>
+            <div id="loading" class="loading-spinner" style="display: none;"></div>
+            <span class="linkParaCadastro" id="linkcadastro">Não possui uma conta? <a
+                    href="Paginas/telaDeCadastro.html">Cadastre-se
+                    agora</a></span>
+        </main>
+    </div>
+</body>
+
+</html>

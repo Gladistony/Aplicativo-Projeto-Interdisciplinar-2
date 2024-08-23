@@ -1,0 +1,29 @@
+#menu-topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* Alinha os itens à direita */
+    width: 100%;
+    /* Altura do menu */
+    background-color: #ffffff;
+    /* Cor de fundo opcional */
+    /* Espaçamento interno */
+}
+
+.user-photo {
+    width: 40px;
+    /* Tamanho da foto */
+    height: 40px;
+    /* Tamanho da foto */
+    border-radius: 50%;
+    /* Foto redonda */
+    margin: 10px;
+    /* Espaço entre a foto e o botão */
+}
+
+button {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}

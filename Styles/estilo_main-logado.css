@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body > div#menu_do_topo {
+    background-color: #F4F4F4;
+}
+
+.top-menu {
+    height: 50px;
+    padding-bottom: 8px;
+    color: white;
+    background-color: #F4F4F4;
+}
+
+.container {
+    background-color: #F4F4F4;
+    display: flex;
+}
+
+.sidebar-menu {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 100px;
+    margin-top: 16px;
+    padding: 10px;
+    background-color: #fff;
+    min-height: calc(100vh - 60px); /* Altura mínima para preencher a tela */
+}
+
+.sidebar-chat {
+    width: 300px;
+    padding: 10px;
+    top: 60px; /* Abaixo da barra superior */
+    overflow-y: auto;
+}
