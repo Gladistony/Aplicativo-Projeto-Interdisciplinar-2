@@ -1,65 +1,74 @@
 @charset "utf-8";
 
-section#conversas > section {
+section#conversas>section {
     margin: 8px;
     width: 270px;
     background-color: white;
     border-radius: 16px;
 }
 
-section#monitores-online > h1 {
+section#monitores-online>h1 {
     margin-left: -8px;
     font-size: 20px;
     color: #F03A4F;
 }
 
-section#monitores-online > div > img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 4px;
-    margin-left: -60px;
-}
-
-section#monitores-online > div > div {
-    margin-left: 8px;
-    margin-top: 4px;
+section#monitores-online>div {
     display: flex;
     flex-direction: column;
 }
 
-section#monitores-online > div > div > h2 {
+section#monitores-online>div>.usuarioLogado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+section#monitores-online>div>.usuarioLogado>img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 4px;
+}
+
+section#monitores-online>div>.usuarioLogado>div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
+
+section#monitores-online>div>.usuarioLogado>div>h3 {
     font-size: 16px;
     color: #F03A4F;
 }
 
-section#monitores-online > div > div > p {
+section#monitores-online>div>.usuarioLogado>div>p {
     font-size: 12px;
 }
 
-section#conversas-recentes > h1 {
+section#conversas-recentes>h1 {
     margin-left: -42px;
     font-size: 20px;
     color: #F03A4F;
 }
 
-section#conversas-recentes > div > div {
+section#conversas-recentes>div>div {
     margin-left: 8px;
     margin-top: 4px;
     display: flex;
     flex-direction: column;
 }
 
-section#conversas-recentes > div > div > h2 {
+section#conversas-recentes>div>div>h2 {
     font-size: 16px;
     color: #F03A4F;
 }
 
-section#conversas-recentes > div > div > p {
+section#conversas-recentes>div>div>p {
     font-size: 12px;
 }
 
-section#conversas-recentes > div > img {
+section#conversas-recentes>div>img {
     width: 50px;
     height: 50px;
     border-radius: 50%;

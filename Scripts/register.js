@@ -57,6 +57,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             email: email,
             dataCriacao: dataFormatada,
             tipoConta: 'Aluno',
+            ultimoLogin: dataFormatada,
+            listaAmigos: []
         });
 
         // Realizar login automaticamente após o cadastro
@@ -76,7 +78,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                     dataNascimento: "Indisponível",
                     periodoIngresso: "Indisponível",
                     fotoPerfil: "Indisponível",
-                    tipoConta: "Indisponível"
+                    tipoConta: "Indisponível",
+                    ultimoLogin: "Indisponível",
+                    listaAmigos: []
                 };
 
                 if (docSnap.exists()) {

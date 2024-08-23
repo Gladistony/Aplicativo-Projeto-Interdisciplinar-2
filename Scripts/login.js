@@ -1,5 +1,5 @@
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { app, db } from './firebase-config.js';
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
@@ -41,12 +41,30 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     dataNascimento: "Indisponível",
                     periodoIngresso: "Indisponível",
                     fotoPerfil: "Indisponível",
-                    tipoConta: "Aluno"
+                    tipoConta: "Aluno",
+                    ultimoLogin: "Indisponível",
+                    listaAmigos: [],
                 };
 
                 if (docSnap.exists()) {
                     userInfo = docSnap.data();
                 }
+                //Gravar hora do ultimo login
+                const dataAtual = new Date();
+                const dataFormatada = dataAtual.toLocaleString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+
+                userInfo.ultimoLogin = dataFormatada;
+
+                // Atualizar informações no Firestore
+                await setDoc(docRef, userInfo);
+
 
                 // Enviar informações ao servidor PHP
                 await fetch('./Scripts/set-session.php', {

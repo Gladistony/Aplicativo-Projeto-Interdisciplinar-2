@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { getFirestore, doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { collection, query, where, doc, getDoc, getDocs, updateDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 import { app, db } from './firebase-config.js';
 
@@ -21,9 +21,9 @@ function loadCSS(file) {
     document.head.appendChild(link);
 }
 
-loadHTML('../Paginas/top-menu.html', '../Styles/estilo_menu-topo.css', 'menu_do_topo');
+loadHTML('../Paginas/top-menu.php', '../Styles/estilo_menu-topo.css', 'menu_do_topo');
 loadHTML('../Paginas/menu-lateral.html', '../Styles/estilo_menu-lateral.css', 'menu_do_lado');
-loadHTML("../Paginas/menu-conversas.html", "../Styles/estilo_menu-conversas.css", "barra_lado_chat");
+loadHTML("../Paginas/menu-conversas.php", "../Styles/estilo_menu-conversas.css", "barra_lado_chat");
 loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal", carregamentoInicialConcluido);
 
 
@@ -31,6 +31,7 @@ const auth = getAuth();
 const storage = getStorage();
 
 function carregamentoInicialConcluido() {
+    ajustarusuariosLogados();
     const profilePictureInput = document.getElementById("profilePictureInput");
     if (profilePictureInput) {
         profilePictureInput.addEventListener('change', async function (event) {
@@ -134,4 +135,31 @@ function toggleEditMode() {
         descricao.readOnly = false;
         document.getElementById('editarPerfilBtn').innerText = 'Salvar';
     }
+}
+
+
+async function ajustarusuariosLogados() {
+    const inforConta = collection(db, 'InforConta');
+    const q = query(inforConta, where('tipoConta', '==', 'Monitor'));
+    const usuarios = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        usuarios.push(doc.data());
+    });
+    const usuariosLogados = document.getElementById('listagemdeMonitores');
+    usuariosLogados.innerHTML = '';
+    usuarios.forEach((usuario) => {
+        const usuarioLogado = document.createElement('div');
+        usuarioLogado.classList.add('usuarioLogado');
+        usuarioLogado.innerHTML = `
+            <img src="${usuario.fotoPerfil}" alt="Foto de perfil">
+            <div>
+                <h3>${usuario.nome}</h3>
+                <p>${usuario.email}</p>
+            </div>
+        `;
+        usuariosLogados.appendChild(usuarioLogado);
+    });
+
+
 }
