@@ -152,7 +152,7 @@ async function ajustarusuariosLogados() {
         const usuarioLogado = document.createElement('div');
         usuarioLogado.classList.add('usuarioLogado');
         usuarioLogado.innerHTML = `
-            <img src="${usuario.fotoPerfil}" alt="Foto de perfil">
+            <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
             <div>
                 <h3>${usuario.nome}</h3>
                 <p>${usuario.email}</p>
@@ -160,6 +160,29 @@ async function ajustarusuariosLogados() {
         `;
         usuariosLogados.appendChild(usuarioLogado);
     });
-
-
 }
+/*
+async function ajustarAmigoLogados() {
+    const inforConta = collection(db, 'InforConta');
+    const q = query(inforConta, where('tipoConta', '==', 'Monitor'));
+    const usuarios = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        usuarios.push(doc.data());
+    });
+    const usuariosLogados = document.getElementById('diferente');
+    usuariosLogados.innerHTML = '';
+    usuarios.forEach((usuario) => {
+        const amigoItem = document.createElement('div');
+        amigoItem.classList.add('amigoItem');
+        amigoItem.innerHTML = `
+            <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+            <div>
+                <h2>${usuario.nome}</h2>
+                <p>${amigo.mensagemRecente || 'Nenhuma mensagem recente'}</p>
+            </div>
+        `;
+        usuariosLogados.appendChild(amigoItem);
+    });
+}  
+    */
