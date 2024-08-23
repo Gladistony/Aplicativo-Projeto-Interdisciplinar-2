@@ -40,7 +40,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     dataCriacao: "Indisponível",
                     dataNascimento: "Indisponível",
                     periodoIngresso: "Indisponível",
-                    fotoPerfil: "Indisponível"
+                    fotoPerfil: "Indisponível",
+                    tipoConta: "Aluno"
                 };
 
                 if (docSnap.exists()) {

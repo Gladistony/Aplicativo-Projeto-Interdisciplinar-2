@@ -67,4 +67,71 @@ function carregamentoInicialConcluido() {
     } else {
         console.error('Elemento profilePictureInput não encontrado.');
     }
+    const editarPerfilBtn = document.getElementById('editarPerfilBtn');
+    if (editarPerfilBtn) {
+        editarPerfilBtn.addEventListener('click', toggleEditMode);
+    } else {
+        console.error('Elemento editarPerfilBtn não encontrado.');
+    }
+    document.getElementById('periodo').addEventListener('focus', function () {
+        if (this.value === 'Não informado') {
+            this.value = '';
+        }
+    });
+    document.getElementById('periodo').addEventListener('blur', function () {
+        if (this.value === '') {
+            this.value = 'Não informado';
+        }
+    });
+}
+
+
+function toggleEditMode() {
+    const isEditing = document.getElementById('editarPerfilBtn').innerText === 'Salvar';
+    const periodo = document.getElementById('periodo');
+    const nascimento = document.getElementById('nascimento');
+    const descricao = document.getElementById('descricao');
+
+    if (isEditing) {
+        // Carregar o texto salvo em periodo e a data em nascimento, além da descrição 
+        const periodoValue = periodo.value;
+        var nascimentoValue = nascimento.value;
+        const descricaoValue = descricao.value;
+        if (nascimentoValue === '') {
+            nascimentoValue = 'Não informado';
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // Buscar informações da conta no Firestore
+                const docRef = doc(db, "InforConta", user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    // Atualizar informações no Firestore
+                    await updateDoc(docRef, {
+                        periodoIngresso: periodoValue,
+                        dataNascimento: nascimentoValue,
+                        descricao: descricaoValue
+                    });
+
+                    console.log('Informações atualizadas com sucesso.');
+                } else {
+                    console.error('Documento não encontrado.');
+                }
+            }
+        }
+        );
+        periodo.readOnly = true;
+        nascimento.readOnly = true;
+        descricao.readOnly = true;
+        document.getElementById('editarPerfilBtn').innerText = 'Editar perfil';
+
+    } else {
+        // Switch to edit mode
+        periodo.readOnly = false;
+        nascimento.readOnly = false;
+        descricao.readOnly = false;
+        document.getElementById('editarPerfilBtn').innerText = 'Salvar';
+    }
 }

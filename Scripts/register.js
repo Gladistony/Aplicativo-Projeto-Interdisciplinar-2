@@ -55,7 +55,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             nome: name,
             curso: course,
             email: email,
-            dataCriacao: dataFormatada
+            dataCriacao: dataFormatada,
+            tipoConta: 'Aluno',
         });
 
         // Realizar login automaticamente após o cadastro
@@ -74,7 +75,8 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                     dataCriacao: "Indisponível",
                     dataNascimento: "Indisponível",
                     periodoIngresso: "Indisponível",
-                    fotoPerfil: "Indisponível"
+                    fotoPerfil: "Indisponível",
+                    tipoConta: "Indisponível"
                 };
 
                 if (docSnap.exists()) {
