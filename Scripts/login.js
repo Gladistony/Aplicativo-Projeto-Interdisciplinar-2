@@ -44,7 +44,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         }
 
         // Enviar informações ao servidor PHP
-        await fetch('set-session.php', {
+        await fetch('./Scripts/set-session.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado })
         });
 
-        window.location.href = 'main-logado.php';
+        window.location.href = './Paginas/main-logado.php';
     } catch (error) {
         if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-login-credentials') {
             erromsg.style.display = 'block';

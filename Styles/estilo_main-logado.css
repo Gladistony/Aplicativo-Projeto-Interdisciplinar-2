@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.top-menu {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar-menu,
+.sidebar-chat {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    padding: 10px;
+}

@@ -72,7 +72,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         }
 
         // Enviar informações ao servidor PHP
-        await fetch('set-session.php', {
+        await fetch('./Paginas/main-logado.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
             body: JSON.stringify({ email: email, userInfo: userInfo, verificado: false })
         });
 
-        window.location.href = 'main-logado.php';
+        window.location.href = './Paginas/main-logado.php';
     } catch (error) {
         //alert('Erro: ' + error.message);
         registerButton.style.display = 'block';
