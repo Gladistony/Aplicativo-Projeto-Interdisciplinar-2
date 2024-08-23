@@ -1,8 +1,73 @@
 @charset "utf-8";
 
-section img {
-    width: 100px;
-    height: 100px;
+section#conversas > section {
+    margin: 8px;
+    width: 270px;
+    background-color: white;
+    border-radius: 16px;
+}
+
+section#monitores-online > h1 {
+    margin-left: -8px;
+    font-size: 20px;
+    color: #F03A4F;
+}
+
+section#monitores-online > div > img {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin-right: 4px;
+    margin: 4px;
+    margin-left: -60px;
+}
+
+section#monitores-online > div > div {
+    margin-left: 8px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+section#monitores-online > div > div > h2 {
+    font-size: 16px;
+    color: #F03A4F;
+}
+
+section#monitores-online > div > div > p {
+    font-size: 12px;
+}
+
+section#conversas-recentes > h1 {
+    margin-left: -42px;
+    font-size: 20px;
+    color: #F03A4F;
+}
+
+section#conversas-recentes > div > div {
+    margin-left: 8px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+section#conversas-recentes > div > div > h2 {
+    font-size: 16px;
+    color: #F03A4F;
+}
+
+section#conversas-recentes > div > div > p {
+    font-size: 12px;
+}
+
+section#conversas-recentes > div > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 4px;
+    margin-left: -60px;
+}
+
+div.container {
+    margin-top: 8px;
+    margin-bottom: 4px;
 }
