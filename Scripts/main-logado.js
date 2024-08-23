@@ -16,3 +16,6 @@ function loadCSS(file) {
 }
 
 loadHTML('../Paginas/top-menu.html', '../Styles/estilo_menu-topo.css', 'menu_do_topo');
+loadHTML('../Paginas/menu-lateral.html', '../Styles/estilo_menu-lateral.css', 'menu_do_lado');
+loadHTML("../Paginas/menu-conversas.html", "../Styles/estilo_menu-conversas.css", "barra_lado_chat");
+loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal");

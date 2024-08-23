@@ -10,29 +10,69 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 .top-menu {
-    background-color: #333;
     color: white;
     padding: 10px;
     text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 500;
 }
 
 .container {
     display: flex;
     flex: 1;
+    margin-top: 60px;
+    /* Altura da barra superior */
 }
 
-.sidebar-menu,
-.sidebar-chat {
+.sidebar-menu {
     width: 200px;
     background-color: #f4f4f4;
     padding: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 70px;
+    /* Abaixo da barra superior */
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 501;
+}
+
+.sidebar-chat {
+    width: 300px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 70px;
+    /* Abaixo da barra superior */
+    bottom: 0;
+    /* Alinha a borda inferior do elemento com a borda inferior da tela */
+    right: 0;
+    /* Alinha o elemento à direita */
+    overflow-y: auto;
 }
 
 .main-content {
     flex: 1;
     padding: 10px;
+    margin-left: 200px;
+    /* Largura da barra lateral esquerda */
+    margin-right: 200px;
+    /* Largura da barra lateral direita */
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    min-height: calc(100vh - 60px);
+    /* Altura mínima para preencher a tela */
 }
