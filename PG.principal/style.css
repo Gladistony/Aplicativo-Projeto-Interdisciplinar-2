@@ -10,34 +10,23 @@
 
 body{
     height: 100vh;
+    background-color: aliceblue;
 }
 
 nav.menu-lateral{
-    width: 70px;
+    width: 280px;
     height: 100%;
-    background: #070413;
+    background: #ffffff;
     padding: 40px 0 40px 1%;
-    box-shadow: 3px 0 0 #040281;
     position: fixed;
     top: 0;
     left:0;
-    overflow: hidden;
-    transition: .2s;
-}
+} 
 
-nav.menu-lateral:hover{
-    width: 300px;
-}
-    
-
-.btn-expandir{
-    width: 100%;
-    padding-left: 10px;
-}
 
 .btn-expandir{
     font-size: 24px;
-    color:antiquewhite;
+    color:rgb(0, 0, 0);
     cursor: pointer;
 }
 
@@ -46,28 +35,137 @@ ul{
     list-style-type: none;
 }
 
-ul li.item-menu{
-    transition: .2s;
-}
-
-ul li.item-menu:hover{
-    background: #040281;
-}
-
 ul li.item-menu a{
-    color:antiquewhite;
+    color:rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 20px;
-    padding: 20px 4%;
+    font-size: 15px;
+    padding: 12px 4%;
     display: flex;
-    line-height: 40px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    
+}
+
+ul li.item-menu{
+    margin-right: 30px;
+    padding: 2px;
 }
 
 ul li.item-menu a .txt-link{
-    margin-left: 30px;
+    margin-left: 10px; 
 }
 
+ul li.item-menu a:hover{
+    color: #ff0000;
+    background-color: rgb(228, 226, 223);
+    border-radius: 10px;
+}
+
+
 ul li.item-menu a .icon > i{
-    font-size: 30px;
-    margin-left: 4px;
+    font-size: 20px;
+    margin-left: 6px;
+}
+
+.titulo {
+    margin-left: 17px;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.titulo span{
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.line{
+    border: 1px solid rgb(235, 231, 231);
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+
+.subtitulo{
+    margin-left: 17px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.professores{
+    font-size: small;
+    margin-left: 47px;
+}
+
+ul li.buton a{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 4%;
+    display: flex;
+    line-height: 20px;
+    margin-bottom: 10px;
+    border-color: #ff0000;
+}
+
+ul li.buton{
+    margin-right: 30px;
+    padding: 2px;
+}
+
+ul li.buton a .txt-link{
+    margin-left: 40px;
+    color: #ff0000;   
+}
+
+ul li.buton a{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #ff0000;
+    border-width: 1px 1px 1px 1px;
+}
+
+ul li.buton a:hover{
+    background-color: rgb(228, 226, 223);
+}
+
+.integral{
+    font-size: 35px;
+    margin-left: 15px;
+}
+
+ul li.item-menu-disciplina a{
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 4%;
+    line-height: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.item-menu-disciplina{
+    display:block;
+}
+
+ul li.item-menu-disciplina{
+    margin-right: 30px;
+    padding: 2px;
+}
+
+ul li.item-menu-disciplina a .txt-link{
+    margin-left: 9px;
+}
+
+ul li.item-menu-disciplina a .icon > i{
+    font-size: 21px;
+    margin-left: 6px;
+    
+}
+
+ul li.item-menu-disciplina a:hover{
+    color: #ff0000;
 }
