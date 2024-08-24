@@ -34,9 +34,9 @@ $dataCriacao = isset($userInfo['dataCriacao']) ? $userInfo['dataCriacao'] : 'Dat
             <img id="botaoloadfoto" class="icone" src="../Recursos/Imagens/editar.png" alt="icone-editar">
             Editar minha foto de perfil
         </button>
-        <button class="btn-editar">
-            <img id="botaoloadend" class="icone" src="../Recursos/Imagens/fixar-mapa.png" alt="icone-endereco">
-            Editar Endereço
+        <button class="btn-editar" id="editarPerfilBtn">
+            <img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user">
+            Editar perfil
         </button>
     </div>
 </section>
