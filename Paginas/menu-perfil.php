@@ -30,10 +30,10 @@ $dataCriacao = isset($userInfo['dataCriacao']) ? $userInfo['dataCriacao'] : 'Dat
     <div class="d-grid gap-2 mt-4 w-50 mx-auto">
         <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" />
         <div id="loading-fotoperfil" class="loading-spinner" style="display: none;"></div>
-        <button id="botaoloadfoto" onclick="document.getElementById('profilePictureInput').click();">
+        <button class="btn-editar" id="botaoloadfoto" onclick="document.getElementById('profilePictureInput').click();">
             Editar minha foto de perfil
         </button>
-        <button id="editarPerfilBtn">
+        <button class="btn-editar" id="editarPerfilBtn">
             Editar perfil
         </button>
     </div>
