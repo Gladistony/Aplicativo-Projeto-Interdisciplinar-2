@@ -126,7 +126,7 @@ function toggleEditMode() {
         periodo.disabled = true;
         nascimento.readOnly = true;
         descricao.readOnly = true;
-        document.getElementById('editarPerfilBtn').innerText = 'Editar perfil';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user"> Editar perfil';
 
     } else {
         // Switch to edit mode
