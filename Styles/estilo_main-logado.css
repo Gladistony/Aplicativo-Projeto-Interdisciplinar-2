@@ -41,7 +41,7 @@ body > div#menu_do_topo {
     margin-left: 100px;
     margin-top: 16px;
     padding: 10px;
-    background-color: #fff;
+    background-color: #F4F4F4;
     min-height: calc(100vh - 60px); /* Altura mínima para preencher a tela */
 }
 

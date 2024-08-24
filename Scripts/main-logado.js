@@ -123,17 +123,17 @@ function toggleEditMode() {
             }
         }
         );
-        periodo.readOnly = true;
+        periodo.disabled = true;
         nascimento.readOnly = true;
         descricao.readOnly = true;
-        document.getElementById('editarPerfilBtn').innerText = 'Editar perfil';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user">Editar perfil';
 
     } else {
         // Switch to edit mode
-        periodo.readOnly = false;
+        periodo.disabled = false;
         nascimento.readOnly = false;
         descricao.readOnly = false;
-        document.getElementById('editarPerfilBtn').innerText = 'Salvar';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/save.png" alt="icone-salvar">Salvar';
     }
 }
 
