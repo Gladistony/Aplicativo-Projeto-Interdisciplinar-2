@@ -133,7 +133,7 @@ function toggleEditMode() {
         periodo.disabled = false;
         nascimento.readOnly = false;
         descricao.readOnly = false;
-        document.getElementById('editarPerfilBtn').innerText = 'Salvar';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/save.png" alt="icone-salvar"> Salvar';
     }
 }
 
