@@ -126,14 +126,14 @@ function toggleEditMode() {
         periodo.disabled = true;
         nascimento.readOnly = true;
         descricao.readOnly = true;
-        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user"> Editar perfil';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user">Editar perfil';
 
     } else {
         // Switch to edit mode
         periodo.disabled = false;
         nascimento.readOnly = false;
         descricao.readOnly = false;
-        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/save.png" alt="icone-salvar"> Salvar';
+        editarPerfilBtn.innerHTML = '<img class="icone" src="../Recursos/Imagens/save.png" alt="icone-salvar">Salvar';
     }
 }
 
