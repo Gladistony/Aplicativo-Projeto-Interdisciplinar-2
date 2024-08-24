@@ -1,8 +1,10 @@
+/* Definição da fonte Poppins */
 @font-face {
     font-family: 'Poppins';
     src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
+/* Estilo geral do corpo da página */
 body {
     height: 100vh;
     margin: 0;
@@ -10,6 +12,7 @@ body {
     background-color: #f8f9fa;
 }
 
+/* Estilo da seção de perfil */
 #perfil {
     max-width: 600px;
     margin: 20px auto;
@@ -20,12 +23,14 @@ body {
     text-align: center;
 }
 
+/* Estilo da div que contém a imagem do perfil */
 .imagem {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
+/* Estilo da imagem do perfil */
 #profileImage {
     width: 150px;
     height: 150px;
@@ -33,6 +38,7 @@ body {
     object-fit: cover;
 }
 
+/* Estilo do alerta */
 .alert {
     background-color: #f8d7da;
     color: #721c24;
@@ -41,6 +47,7 @@ body {
     margin-top: 20px;
 }
 
+/* Estilo do textarea */
 textarea {
     width: calc(100% - 20px); /* Ajusta a largura para incluir padding */
     height: 100px;
@@ -51,6 +58,7 @@ textarea {
     margin: 10px 0; /* Adiciona margem uniforme */
 }
 
+/* Estilo do contêiner dos botões */
 .button-container {
     display: grid;
     gap: 10px;
@@ -60,6 +68,7 @@ textarea {
     margin-right: auto;
 }
 
+/* Estilo dos botões de edição */
 .btn-editar {
     font-weight: bold;
     padding: 10px;
@@ -70,6 +79,11 @@ textarea {
     cursor: pointer;
 }
 
+/* Estilo do botão ao passar o mouse */
+.btn-editar:hover {
+    background-color: #dddddd;
+}
+/* Estilo dos ícones */
 .icone {
     width: 16px; /* Ajuste o tamanho conforme necessário */
     height: 16px; /* Ajuste o tamanho conforme necessário */
@@ -77,10 +91,7 @@ textarea {
     margin-right: 5px; /* Espaço entre o ícone e o texto */
 }
 
-button:hover {
-    background-color: #dddddd;
-}
-
+/* Estilo do spinner de carregamento */
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #007bff;
@@ -90,11 +101,13 @@ button:hover {
     animation: spin 1s linear infinite;
 }
 
+/* Animação do spinner */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+/* Estilo do contêiner do spinner de carregamento */
 .loading-spinner {
     display: flex;
     justify-content: center;
@@ -103,6 +116,7 @@ button:hover {
     height: 50px;
 }
 
+/* Estilo do spinner de carregamento */
 .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #007bff;
@@ -113,6 +127,7 @@ button:hover {
     margin: 20px auto;
 }
 
+/* Animação do spinner */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -123,12 +138,15 @@ button:hover {
 }
 
 /* Media Queries para Responsividade */
+
+/* Estilo para telas com largura máxima de 1200px */
 @media (max-width: 1200px) {
     #perfil {
         max-width: 80%;
     }
 }
 
+/* Estilo para telas com largura máxima de 992px */
 @media (max-width: 992px) {
     #perfil {
         max-width: 90%;
@@ -152,6 +170,7 @@ button:hover {
     }
 }
 
+/* Estilo para telas com largura máxima de 768px */
 @media (max-width: 768px) {
     #perfil {
         max-width: 95%;
@@ -175,6 +194,7 @@ button:hover {
     }
 }
 
+/* Estilo para telas com largura máxima de 576px */
 @media (max-width: 576px) {
     #perfil {
         max-width: 100%;
