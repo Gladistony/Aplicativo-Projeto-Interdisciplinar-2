@@ -4,14 +4,6 @@
     src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
-/* Estilo geral do corpo da página */
-body {
-    height: 100vh;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-}
-
 /* Estilo da seção de perfil */
 #perfil {
     max-width: 600px;
@@ -24,9 +16,19 @@ body {
 }
 
 #perfil h1,
-#perfil h2 {
+#perfil h2,
+#perfil h3 {
     font-weight: bold;
 }
+
+#perfil p {
+    margin-top: 10px;
+}
+
+#perfil h3 {
+    margin-top: 20px;
+}
+
 
 /* Estilo da div que contém a imagem do perfil */
 .imagem {
