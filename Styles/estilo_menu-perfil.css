@@ -23,6 +23,11 @@ body {
     text-align: center;
 }
 
+#perfil h1,
+#perfil h2 {
+    font-weight: bold;
+}
+
 /* Estilo da div que contém a imagem do perfil */
 .imagem {
     display: flex;
@@ -49,13 +54,15 @@ body {
 
 /* Estilo do textarea */
 textarea {
-    width: calc(100% - 20px); /* Ajusta a largura para incluir padding */
+    width: calc(100% - 20px);
+    /* Ajusta a largura para incluir padding */
     height: 100px;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 4px;
     resize: none;
-    margin: 10px 0; /* Adiciona margem uniforme */
+    margin: 10px 0;
+    /* Adiciona margem uniforme */
 }
 
 /* Estilo do contêiner dos botões */
@@ -73,9 +80,12 @@ textarea {
     font-weight: bold;
     padding: 10px;
     border-radius: 4px;
-    border: 2px solid black; /* Adiciona uma borda preta */
-    background-color: #ffffff; /* Define a cor de fundo como branca */
-    color: black; /* Define a cor do texto como preta */
+    border: 2px solid black;
+    /* Adiciona uma borda preta */
+    background-color: #ffffff;
+    /* Define a cor de fundo como branca */
+    color: black;
+    /* Define a cor do texto como preta */
     cursor: pointer;
 }
 
@@ -83,12 +93,17 @@ textarea {
 .btn-editar:hover {
     background-color: #dddddd;
 }
+
 /* Estilo dos ícones */
 .icone {
-    width: 16px; /* Ajuste o tamanho conforme necessário */
-    height: 16px; /* Ajuste o tamanho conforme necessário */
-    vertical-align: middle; /* Alinha verticalmente o ícone com o texto */
-    margin-right: 5px; /* Espaço entre o ícone e o texto */
+    width: 16px;
+    /* Ajuste o tamanho conforme necessário */
+    height: 16px;
+    /* Ajuste o tamanho conforme necessário */
+    vertical-align: middle;
+    /* Alinha verticalmente o ícone com o texto */
+    margin-right: 5px;
+    /* Espaço entre o ícone e o texto */
 }
 
 /* Estilo do spinner de carregamento */
@@ -103,8 +118,13 @@ textarea {
 
 /* Animação do spinner */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Estilo do contêiner do spinner de carregamento */
@@ -132,6 +152,7 @@ textarea {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

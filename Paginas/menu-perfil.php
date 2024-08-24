@@ -23,7 +23,7 @@ $currentYear = date("Y");
         </div>
     <?php endif; ?>
     <p>Cursando <?php echo htmlspecialchars($userInfo['curso']); ?></p>
-    <p>Período de ingresso: 
+    <p>Período de ingresso:
         <select id="periodo" disabled>
             <?php for ($year = 2019; $year <= $currentYear; $year++) : ?>
                 <option value="<?php echo $year . '.1'; ?>" <?php echo ($year . '.1' == $periodo) ? 'selected' : ''; ?>>
@@ -46,7 +46,7 @@ $currentYear = date("Y");
             <img id="botaoloadfoto" class="icone" src="../Recursos/Imagens/editar.png" alt="icone-editar">
             Editar minha foto de perfil
         </button>
-        <button class="btn-editar" id="editarPerfilBtn" onclick="toggleEditMode()">
+        <button class="btn-editar" id="editarPerfilBtn">
             <img class="icone" src="../Recursos/Imagens/user.png" alt="icone-user">
             Editar perfil
         </button>

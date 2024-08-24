@@ -123,14 +123,14 @@ function toggleEditMode() {
             }
         }
         );
-        periodo.readOnly = true;
+        periodo.disabled = true;
         nascimento.readOnly = true;
         descricao.readOnly = true;
         document.getElementById('editarPerfilBtn').innerText = 'Editar perfil';
 
     } else {
         // Switch to edit mode
-        periodo.readOnly = false;
+        periodo.disabled = false;
         nascimento.readOnly = false;
         descricao.readOnly = false;
         document.getElementById('editarPerfilBtn').innerText = 'Salvar';
