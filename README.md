@@ -4,6 +4,8 @@
 
 Este projeto é dedicado à disciplina de Projeto 2 do curso de Engenharia da Computação da UFRPE, Campus UABJ.
 
+[Relatorio da 1 VA - 27/08/2024](https://github.com/Gladistony/Aplicativo-Projeto-Interdisciplinar-2/issues/45)
+
 ## 🎯 Objetivo do Projeto
 
 O projeto tem como objetivo a criação de um site destinado a centralizar a interação entre estudantes, monitores e professores. Para isso, será criado um fórum dedicado às discussões, apresentação e resolução de atividades, bem como ao compartilhamento geral de informações sobre a disciplina.
