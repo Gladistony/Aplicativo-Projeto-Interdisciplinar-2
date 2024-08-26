@@ -17,10 +17,6 @@ body > div#menu_do_topo {
     background-color: #F4F4F4;
 }
 
-section#menu-topo {
-    display: flex;
-}
-
 .top-menu {
     height: 50px;
     padding-bottom: 8px;
