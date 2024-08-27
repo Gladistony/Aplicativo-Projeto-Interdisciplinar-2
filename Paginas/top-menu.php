@@ -6,9 +6,6 @@ $fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Rec
 $nomeUsuario = isset($userInfo['nome']) ? $userInfo['nome'] : 'Usuário';
 ?>
 <section id="menu-topo">
-    <div class="logo">
-        Monitor<span>&a</span>
-    </div>
     <img alt="Foto do Usuário" class="user-photo" src="<?php echo htmlspecialchars($fotoPerfil); ?>" />
     <div class="user-profile">
         <button id="botao-drop-down">
