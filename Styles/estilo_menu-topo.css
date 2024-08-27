@@ -1,3 +1,109 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+section#menu-topo {
+    margin: 0;
+    font-family: 'Poppins-Regular';
+    background-color: #f5f5f5;
+}
+
+.top-bar {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1F1F1F;
+}
+
+.logo span {
+    color: #10648C;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.user-profile button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 100px;
+}
+
+.dropdown button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    text-align: left;
+}
+
+.dropdown button:hover {
+    background-color: #f5f5f5;
+}
+
+.user-name {
+    margin-right: 2px;
+}
+
+.arrow-down {
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+body {
+    font-family: 'Poppins-Bold', sans-serif;
+}
+
 #menu-topo {
     display: flex;
     flex-direction: row;
@@ -27,3 +133,150 @@ button {
     font-size: 14px;
     cursor: pointer;
 }
+
+
+section#menu-topo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* Alinha os itens à direita */
+    width: 100%;
+    /* Altura do menu */
+    background-color: #ffffff;
+    /* Cor de fundo opcional */
+    /* Espaçamento interno */
+}
+
+.user-photo {
+    width: 40px;
+    /* Tamanho da foto */
+    height: 40px;
+    /* Tamanho da foto */
+    border-radius: 50%;
+    /* Foto redonda */
+    margin: 10px;
+    /* Espaço entre a foto e o botão */
+}
+
+button {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+section#menu-topo > div.logo {
+    margin-right: 925px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/*segunda parte*/
+body {
+        margin: 0;
+        font-family: 'Poppins-Regular';
+        background-color: #f5f5f5;
+    }
+
+    #menu-topo {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2px;
+    }
+
+
+
+    section#menu-topo {
+        width: 100%;
+    }
+
+    section#menu-topo>div.top-bar {
+        display: flex;
+        justify-content: flex-end;
+        width: 1070px;
+    }
+
+    .logo {
+        font-family: 'Poppins-Bold', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        color: #1F1F1F;
+    }
+
+    .logo span {
+        font-family: 'Poppins-Bold' !important; 
+        color: #F0394F;
+    }
+
+    span.user-name{
+        font-family: 'Poppins-Bold' !important; 
+    }
+
+    .user-profile {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .user-profile button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'Poppins-Bold', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        display: flex;
+        align-items: center;
+    }
+
+    .user-profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        min-width: 100px;
+    }
+
+    .dropdown button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-family: 'Poppins-Regular', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        text-align: left;
+    }
+
+    .dropdown button:hover {
+        background-color: #f5f5f5;
+    }
+
+    .user-name {
+        margin-right: 2px;
+    }
+
+    .arrow-down {
+        margin-right: 16px;
+        font-size: 16px;
+        line-height: 1;
+        vertical-align: middle;
+        margin-left: 5px;
+    }

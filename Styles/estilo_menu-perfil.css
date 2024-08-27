@@ -1,36 +1,63 @@
-/* Definição da fonte Poppins */
-@font-face {
-    font-family: 'Poppins';
-    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-}
+@charset "utf-8";
 
-/* Estilo da seção de perfil */
-#perfil {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
-#perfil h1,
-#perfil h2,
-#perfil h3 {
+section>div.d-inline-block>img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    margin-top: 4px;
+    border-radius: 50%;
+}
+
+section>h1 {
+    font-size: 40px;
     font-weight: bold;
+    margin: 8px;
 }
 
-#perfil p {
-    margin-top: 10px;
+section#perfil>h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 4px 0;
 }
 
-#perfil h3 {
+section#perfil>h3 {
+    font-size: 18px;
+    font-weight: bold;
     margin-top: 20px;
 }
 
+section#perfil>p {
+    margin: 4px 0;
+}
 
-/* Estilo da div que contém a imagem do perfil */
+section#perfil>.d-grid>button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #121f24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+section#perfil>textarea {
+    width: 350px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 0.9em;
+    resize: none;
+}
+
 .imagem {
     display: flex;
     justify-content: center;
@@ -45,7 +72,24 @@
     object-fit: cover;
 }
 
-/* Estilo do alerta */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
 .alert {
     background-color: #f8d7da;
     color: #721c24;
@@ -118,7 +162,6 @@ textarea {
     animation: spin 1s linear infinite;
 }
 
-/* Animação do spinner */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -126,118 +169,5 @@ textarea {
 
     100% {
         transform: rotate(360deg);
-    }
-}
-
-/* Estilo do contêiner do spinner de carregamento */
-.loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-}
-
-/* Estilo do spinner de carregamento */
-.loading-spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #007bff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
-}
-
-/* Animação do spinner */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Media Queries para Responsividade */
-
-/* Estilo para telas com largura máxima de 1200px */
-@media (max-width: 1200px) {
-    #perfil {
-        max-width: 80%;
-    }
-}
-
-/* Estilo para telas com largura máxima de 992px */
-@media (max-width: 992px) {
-    #perfil {
-        max-width: 90%;
-    }
-
-    .button-container {
-        width: 70%;
-    }
-
-    #profileImage {
-        width: 130px;
-        height: 130px;
-    }
-
-    textarea {
-        height: 90px;
-    }
-
-    .btn-editar {
-        padding: 8px;
-    }
-}
-
-/* Estilo para telas com largura máxima de 768px */
-@media (max-width: 768px) {
-    #perfil {
-        max-width: 95%;
-    }
-
-    .button-container {
-        width: 80%;
-    }
-
-    #profileImage {
-        width: 120px;
-        height: 120px;
-    }
-
-    textarea {
-        height: 80px;
-    }
-
-    .btn-editar {
-        padding: 8px;
-    }
-}
-
-/* Estilo para telas com largura máxima de 576px */
-@media (max-width: 576px) {
-    #perfil {
-        max-width: 100%;
-        padding: 10px;
-    }
-
-    .button-container {
-        width: 100%;
-    }
-
-    #profileImage {
-        width: 100px;
-        height: 100px;
-    }
-
-    textarea {
-        height: 70px;
-    }
-
-    .btn-editar {
-        padding: 6px;
     }
 }

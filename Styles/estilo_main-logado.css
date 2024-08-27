@@ -18,7 +18,7 @@ body > div#menu_do_topo {
 }
 
 .top-menu {
-    height: 50px;
+    height: 70px;
     padding-bottom: 8px;
     color: white;
     background-color: #F4F4F4;
@@ -41,13 +41,13 @@ body > div#menu_do_topo {
     margin-left: 100px;
     margin-top: 16px;
     padding: 10px;
-    background-color: #F4F4F4;
+    background-color: #fff;
     min-height: calc(100vh - 60px); /* Altura mínima para preencher a tela */
 }
 
 .sidebar-chat {
     width: 300px;
     padding: 10px;
-    top: 60px; /* Abaixo da barra superior */
+    margin-bottom: 350px;
     overflow-y: auto;
 }
