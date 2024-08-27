@@ -17,12 +17,8 @@ body > div#menu_do_topo {
     background-color: #F4F4F4;
 }
 
-section#menu-topo {
-    display: flex;
-}
-
 .top-menu {
-    height: 50px;
+    height: 70px;
     padding-bottom: 8px;
     color: white;
     background-color: #F4F4F4;
@@ -45,13 +41,13 @@ section#menu-topo {
     margin-left: 100px;
     margin-top: 16px;
     padding: 10px;
-    background-color: #F4F4F4;
+    background-color: #fff;
     min-height: calc(100vh - 60px); /* Altura mínima para preencher a tela */
 }
 
 .sidebar-chat {
     width: 300px;
     padding: 10px;
-    top: 60px; /* Abaixo da barra superior */
+    margin-bottom: 350px;
     overflow-y: auto;
 }
