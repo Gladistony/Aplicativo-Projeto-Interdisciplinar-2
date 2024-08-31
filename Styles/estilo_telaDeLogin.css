@@ -156,10 +156,7 @@ button:hover {
     text-decoration: underline;
 }
 
-.erro input {
-    background-color: #f0f0f0;
-    border: 1px solid #ce3939;
-}
+
 
 #mensagem-erroLogin {
     display: block;

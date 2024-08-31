@@ -26,15 +26,17 @@
             <form id="registerForm" action=""> <!-- O action feito para o back-end-->
                 <div class="caixa-texto" id="input1">
                     <label for="nomeDoUsuario" class="texto-Palavra" id="textoDePalavraCadastro">Seu nome</label>
-                    <input type="text" name="nome" id="nomeDoUsuario" placeholder="Insira o seu nome" autocomplete="off">
+                    <input type="text" name="nome" id="nomeDoUsuario" placeholder="Insira o seu nome" autocomplete="off"
+                        required>
                 </div>
                 <div class="caixa-texto" id="input2">
                     <label for="emailDoUsuario" class="texto-Palavra">E-mail institucional</label>
-                    <input type="email" name="email" id="emailDoUsuario" placeholder="Insira seu endereço de e-mail">
+                    <input type="email" name="email" id="emailDoUsuario" placeholder="Insira seu endereço de e-mail"
+                        required>
                 </div>
                 <div class="caixa-texto" id="input3">
                     <label for="cursoDoUsuario" class="texto-Palavra">Curso</label>
-                    <select name="curso" id="cursoDoUsuario" class="caixa-texto">
+                    <select name="curso" id="cursoDoUsuario" class="caixa-texto" required>
                         <option value="Engenharia da Computação">Engenharia da Computação</option>
                         <option value="Engenharia de Controle e Automação">Engenharia de Controle e Automação</option>
                         <option value="Engenharia Hídrica">Engenharia Hídrica</option>
@@ -55,7 +57,7 @@
                     <p class="descricaoDeSenha">Coloque a mesma senha da anterior</p>
                 </div>
 
-                <p id="mensagem-erroCadastro">xcdcdd </p>
+                <p id="mensagem-erroCadastro"></p>
                 <div id="loading" class="loading-spinner" style="display: none;"></div>
                 <button type="submit" id="botaoDeCadastrar">Cadastrar</button>
                 <span class="linkParaLogin" id="linkLogin">Já possui uma conta? <a
