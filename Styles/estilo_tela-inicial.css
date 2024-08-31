@@ -1,0 +1,34 @@
+/* estilo_tela-inicial.css */
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 24px;
+}
