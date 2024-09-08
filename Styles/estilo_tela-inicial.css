@@ -32,3 +32,24 @@ p {
     color: #666;
     margin-bottom: 24px;
 }
+
+.patch-notes {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.patch-notes h2 {
+    margin-bottom: 10px;
+}
+
+.notas {
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}

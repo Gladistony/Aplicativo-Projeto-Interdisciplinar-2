@@ -21,8 +21,20 @@
                 <?php include 'menu-conversas.php'; ?>
             </div>
             <div class="conteudo">
-                <h1>Olá, seja bem-vindo(a) ao Chat!</h1>
+                <h1>Olá, seja bem-vindo(a) ao Monitor&a!</h1>
                 <p>Escolha uma opção para começar a interagir.</p>
+            </div>
+            <!-- Área para Patch Notes -->
+            <div class="patch-notes">
+                <h2>Patch Notes - Novidades do Sistema</h2>
+                <div class="notas">
+                    <?php include 'exibir-patch-notes.php'; ?>
+                </div>
+                <form action="editar-patch-notes.php" method="POST">
+                    <textarea name="novidades" rows="10" cols="50"></textarea>
+                    <br>
+                    <button type="submit">Atualizar Patch Notes</button>
+                </form>
             </div>
         </div>        
     </body>
