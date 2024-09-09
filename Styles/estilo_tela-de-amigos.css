@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+
+}
+
+#amigos {
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+
+}
+
+#amigos:hover {
+    background-color: #edf0f1;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    border-radius: 20px;
+}
+
+.img-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+}
+
+#nome {
+    font-family: "Poppins";
+    font-weight: bold;
+    margin: 0;
+}
+
+#mensagem-recente {
+    font-size: small;
+    margin: 5px 0 0 0;
+    color: #555;
+
+}
+
+button {
+    margin-left: 300px;
+    color: #ffff;
+    padding: 5px 10px;
+    background-color: #f00;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #d00;
+}
