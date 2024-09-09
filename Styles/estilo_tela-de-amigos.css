@@ -13,11 +13,73 @@
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
+}
 
+#barra-superior {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.container-pesquisa,
+.container-adicionar-amigo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#barra-pesquisa,
+#novo-amigo {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    font-family: "Poppins";
+    margin-right: -299px;
+}
+
+#botao-pesquisa,
+#botao-adicionar-amigo {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#botao-pesquisa:hover,
+#botao-adicionar-amigo:hover {
+    background-color: #0056b3;
+}
+
+#adicionar {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#adicionar:hover {
+    background-color: #0056b3;
 }
 
 #amigos {
@@ -29,7 +91,6 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 600px;
-
 }
 
 #amigos:hover {
@@ -44,7 +105,6 @@ main {
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
-
 }
 
 #nome {
@@ -54,10 +114,10 @@ main {
 }
 
 #mensagem-recente {
+    font-family: "Poppins";
     font-size: small;
     margin: 5px 0 0 0;
     color: #555;
-
 }
 
 button {
@@ -68,7 +128,6 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-
 }
 
 button:hover {
