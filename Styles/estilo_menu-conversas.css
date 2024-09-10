@@ -87,3 +87,11 @@ div#diferente.container {
     margin-bottom: 4px;
     background-color: white !important;
 }
+
+section#conversas-recentes,
+section#monitores-online {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
