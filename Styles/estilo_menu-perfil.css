@@ -1,5 +1,25 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../Recursos/Fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
 #conteudo_principal section>div#conteudo_principal {
     display: flex;
     flex-direction: column;
@@ -15,26 +35,29 @@
     border-radius: 50%;
 }
 
+
 #conteudo_principal section>h1 {
+    font-family: 'Poppins-SemiBold', sans-serif;
     font-size: 40px;
-    font-weight: bold;
     margin: 8px;
 }
 
 #conteudo_principal section#perfil>h2 {
+
     font-size: 24px;
-    font-weight: bold;
     margin: 4px 0;
+    font-family: 'Poppins-SemiBold', sans-serif;
 }
 
 #conteudo_principal section#perfil>h3 {
     font-size: 18px;
-    font-weight: bold;
     margin-top: 20px;
+    font-family: 'Poppins-Medium', sans-serif;
 }
 
 #conteudo_principal section#perfil>p {
     margin: 4px 0;
+    font-family: 'Poppins-Regular', sans-serif;
 }
 
 #conteudo_principal section#perfil>.d-grid>button {
@@ -56,6 +79,7 @@
     border-radius: 5px;
     font-size: 0.9em;
     resize: none;
+    font-family: 'Poppins-Regular', sans-serif;
 }
 
 #conteudo_principal .imagem {
@@ -111,11 +135,30 @@
     /* Adiciona margem uniforme */
 }
 
+.input-data-fonte,
+.periodo-fonte,
+.curso,
+.data-criacao {
+    font-family: 'Poppins-SemiBold', sans-serif;
+}
+
+.descricao-fonte {
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+#descricao {
+    width: 90% !important;
+    /* Largura da caixa de texto de descrição */
+    height: 120px !important;
+    /* Altura da caixa de texto de decrição */
+}
+
+
 /* Estilo do contêiner dos botões */
 #conteudo_principal .button-container {
     display: grid;
-    gap: 10px;
-    margin-top: 40px;
+    gap: 2px;
+    margin-top: 10px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -123,8 +166,8 @@
 
 /* Estilo dos botões de edição */
 #conteudo_principal .btn-editar {
-    font-weight: bold;
     padding: 10px;
+    font-family: 'Poppins-Medium', sans-serif;
     border-radius: 4px;
     border: 2px solid black;
     /* Adiciona uma borda preta */
