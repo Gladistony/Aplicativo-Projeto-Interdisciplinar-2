@@ -46,12 +46,15 @@ header {
 #barra-pesquisa,
 #novo-amigo {
     flex-grow: 1;
-    padding: 10px;
+    padding: 10.2px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 0;
     font-family: "Poppins";
-    margin-right: -299px;
+    margin-right: -300px;
+    font-size: x-small;
 }
+
+
 
 #botao-pesquisa,
 #botao-adicionar-amigo {
@@ -62,7 +65,10 @@ header {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+
 }
+
+
 
 #botao-pesquisa:hover,
 #botao-adicionar-amigo:hover {
