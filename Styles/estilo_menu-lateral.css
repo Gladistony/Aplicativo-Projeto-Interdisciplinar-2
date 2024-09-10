@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+.animado {
+    position: relative;
+    display: inline-block;
+}
+
+.animado::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(20deg);
+    animation: brilho 3s ease-in-out forwards; 
+}
+
+@keyframes brilho {
+    0% {
+        left: -40%;
+        opacity: 1;
+    }
+    25% {
+        left: 0%;
+        opacity: 1;
+    }
+    75% {
+        left: 100%;
+        opacity: 1;
+    }
+    100% {
+        left: 200%;
+        opacity: 0; 
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
