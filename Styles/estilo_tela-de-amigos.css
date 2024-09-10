@@ -9,24 +9,29 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body {
     background-color: #f0f0f0;
 }
 
+header {
+    display: inline-block;
+    width: 100%;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
 #barra-superior {
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
     max-width: 600px;
+    margin: 0;
     margin-bottom: 20px;
 }
 
@@ -80,6 +85,18 @@ main {
 
 #adicionar:hover {
     background-color: #0056b3;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Alinha os itens à esquerda */
+    align-items: flex-start;
+    /* Alinha os itens à esquerda */
+    height: 100vh;
+    margin-top: 0;
+    /* Remove a margem superior */
 }
 
 #amigos {
