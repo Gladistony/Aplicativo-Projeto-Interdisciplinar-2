@@ -10,9 +10,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(20deg);
-    animation: brilho 3s ease-in-out forwards; 
+    animation: brilho 3s ease-in-out infinite;
 }
 
 @keyframes brilho {
@@ -20,17 +20,20 @@
         left: -40%;
         opacity: 1;
     }
+
     25% {
         left: 0%;
         opacity: 1;
     }
+
     75% {
         left: 100%;
         opacity: 1;
     }
+
     100% {
         left: 200%;
-        opacity: 0; 
+        opacity: 0;
     }
 }
 
