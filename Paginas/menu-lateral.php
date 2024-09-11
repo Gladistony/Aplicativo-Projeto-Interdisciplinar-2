@@ -10,9 +10,9 @@
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
+            <a href="#" id="lateral-amigos">
                 <img src="../Recursos/Imagens/pessoas.png"  alt="pessoas">
-                <span class="txt-link">Pontuação</span>
+                <span class="txt-link">Amigos</span>
             </a>
         </li>
         <li class="item-menu">
@@ -25,6 +25,12 @@
             <a href="#" id="lateral-configuracoes">
                 <img src="../Recursos/Imagens/config.png"  alt="configurações">
                 <span class="txt-link">Gerenciar meu perfil</span>
+            </a>
+        </li>
+        <li class="item-menu" id="botao-admin">
+            <a href="#">
+                <img src="../Recursos/Imagens/config.png"  alt="configurações">
+                <span class="txt-link">Configurar Contas</span>
             </a>
         </li>
 
