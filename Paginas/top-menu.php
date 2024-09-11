@@ -10,7 +10,7 @@ $nomeUsuario = isset($userInfo['nome']) ? $userInfo['nome'] : 'Usuário';
     <div class="user-profile">
         <button id="botao-drop-down">
             <span class="user-name"><?php echo htmlspecialchars($nomeUsuario); ?></span>
-            <span class="arrow-down">&#x02C5;</span> <!-- Unicode for modifier letter down arrowhead -->
+            <span class="arrow-down"><img src="../Recursos/Imagens/Seta-para-baixo.jpeg" alt=""></span> <!-- Unicode for modifier letter down arrowhead -->
         </button>
         <div class="dropdown" id="dropdown" style="display: none;">
             <button id="botao-drop-sair">Sair</button>
