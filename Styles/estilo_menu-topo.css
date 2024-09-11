@@ -293,3 +293,34 @@ span.user-name {
     background-color: #fafafa;
     /* Cor de hover mais clara */
 }
+
+.botao-link {
+    display: inline-block;
+    padding: 10px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.botao-link:hover {
+    background-color: #e0e0e0;
+    /* Cor de hover mais clara */
+}
+
+.user-name {
+    margin-right: 2px;
+}
+
+.arrow-down {
+    margin-right: 16px;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 5px;
+}
