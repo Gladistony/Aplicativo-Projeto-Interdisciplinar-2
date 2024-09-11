@@ -7,7 +7,7 @@ $nomeUsuario = isset($userInfo['nome']) ? $userInfo['nome'] : 'Usuário';
 ?>
 <section id="menu-topo">
     <a href="./Paginas/menu-perfil.php">
-        <img alt="Foto do Usuário" class="user-photo" src="<?php echo htmlspecialchars($fotoPerfil); ?>" />>
+        <img alt="Foto do Usuário" class="user-photo" src="<?php echo htmlspecialchars($fotoPerfil); ?>">
 
     </a>
 
