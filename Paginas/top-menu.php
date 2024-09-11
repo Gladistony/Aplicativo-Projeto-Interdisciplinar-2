@@ -18,7 +18,7 @@ $nomeUsuario = isset($userInfo['nome']) ? $userInfo['nome'] : 'Usuário';
             <!-- Unicode for modifier letter down arrowhead -->
         </button>
         <div class="dropdown" id="dropdown" style="display: none;">
-            <a href="./Paginas/menu-perfil.php" id="botao-drop-seu-Perfil" class="button-link">Seu perfil</a>
+            <a href="./Paginas/menu-perfil.php" id="botao-drop-seu-Perfil">Seu perfil</a>
             <button id="botao-drop-sair">Sair</button>
 
         </div>

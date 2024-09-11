@@ -256,6 +256,25 @@ span.user-name {
     justify-content: center;
 }
 
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Evita que o hover vaze */
+}
+
 .dropdown button {
     width: 100%;
     padding: 10px;
@@ -267,43 +286,10 @@ span.user-name {
     font-weight: 400;
     color: #333;
     text-align: center;
-    margin-right: 2px;
+    /* Centraliza o texto dentro do botão */
 }
 
 .dropdown button:hover {
-    background-color: #f5f5f5;
-}
-
-.user-name {
-    margin-right: 2px;
-}
-
-.user-name:hover {
-    background-color: #f5f5f5;
-}
-
-.arrow-down {
-    margin-right: 16px;
-    font-size: 16px;
-    line-height: 1;
-    vertical-align: middle;
-    margin-left: 5px;
-}
-
-.button-link {
-    display: inline-block;
-    padding: 10px;
-    border: none;
-    background-color: #f0f0f0;
-    color: #333;
-    text-align: center;
-    text-decoration: none;
-    font-family: 'Poppins-Regular', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-}
-
-.button-link:hover {
-    background-color: #e0e0e0;
+    background-color: #fafafa;
+    /* Cor de hover mais clara */
 }
