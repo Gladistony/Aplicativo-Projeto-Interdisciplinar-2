@@ -44,6 +44,8 @@ function carregamentoPerfil() {
                         });
 
                         //atualizar pagina
+                        localStorage.removeItem('usuariosMonitores');
+                        localStorage.removeItem('tempoSalvo');
                         window.location.reload();
 
                         //document.getElementById('profileImage').src = downloadURL;
