@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+.animado {
+    position: relative;
+    display: inline-block;
+}
+
+.animado::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(20deg);
+    animation: brilho 3s ease-in-out infinite;
+}
+
+@keyframes brilho {
+    0% {
+        left: -40%;
+        opacity: 1;
+    }
+
+    25% {
+        left: 0%;
+        opacity: 1;
+    }
+
+    75% {
+        left: 100%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +45,7 @@
     font-weight: 300;
 }
 
-body {
+body>div#menu_do_lado {
     height: 100vh;
     background-color: aliceblue;
 }
@@ -39,7 +76,7 @@ nav.menu-lateral {
     cursor: pointer;
 }
 
-ul {
+#menu_do_lado ul {
     height: 100%;
     list-style-type: none;
 }
@@ -75,14 +112,14 @@ ul li.item-menu a .icon>i {
     margin-left: 6px;
 }
 
-.line {
+#menu_do_lado .line {
     border: 1px solid rgb(235, 231, 231);
     margin-left: 10px;
     margin-right: 30px;
     margin-bottom: 15px;
 }
 
-.subtitulo {
+#menu_do_lado .subtitulo {
     margin-left: 17px;
     margin-bottom: 25px;
     margin-top: 25px;
@@ -124,7 +161,7 @@ ul li.buton a:hover {
     background-color: rgb(238, 237, 236);
 }
 
-img {
+#menu_do_lado img {
     width: 12%;
 }
 
@@ -140,10 +177,10 @@ section#foruns>div>h2:hover {
 section#foruns>div>img {
     width: 15%;
     margin-left: 8px;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-.container {
+#menu_do_lado .container {
     display: flex;
     align-items: center;
 }

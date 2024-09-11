@@ -1,29 +1,29 @@
 <nav class="menu-lateral">
     <header class="logo" id="logo-lateral">
-        Monitor<span class="animado">&</span><span class="animado">a</span>
+        Monitor<span>&a</span>
     </header>
     <ul>
         <li class="item-menu">
-            <a href="#">
-                <img src="../Recursos/Imagens/casa.png" alt="casa">
+            <a href="#" id="lateral-inicio"><!-- ../Paginas/telaForum.php -->
+                <img src="../Recursos/Imagens/casa.png"  alt="casa">
                 <span class="txt-link">Início</span>
             </a>
         </li>
         <li class="item-menu">
             <a href="#">
-                <img src="../Recursos/Imagens/pessoas.png" alt="pessoas">
-                <span class="txt-link">Turmas cadastradas</span>
+                <img src="../Recursos/Imagens/pessoas.png"  alt="pessoas">
+                <span class="txt-link">Pontuação</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
-                <img src="../Recursos/Imagens/folder.png" alt="pasta">
+            <a href="#" id="lateral-arquivos">
+                <img src="../Recursos/Imagens/folder.png"  alt="pasta">
                 <span class="txt-link">Meus arquivos</span>
             </a>
         </li>
         <li class="item-menu">
-            <a href="#">
-                <img src="../Recursos/Imagens/config.png" alt="configurações">
+            <a href="#" id="lateral-configuracoes">
+                <img src="../Recursos/Imagens/config.png"  alt="configurações">
                 <span class="txt-link">Gerenciar meu perfil</span>
             </a>
         </li>
@@ -33,13 +33,13 @@
         <h1 class="subtitulo">Fóruns que participo</h1>
 
         <section id="foruns">
-                <div class="container" id="listagemdediciplinas">
-                    <img src="../Recursos/Imagens/integral.png" alt="integral">
-                        <h2>Calculo 1<br>prof: João Azevedo</h2>
-                </div>
+            <div class="container" id="listagemdediciplinas">
+                <img src="../Recursos/Imagens/integral.png"  alt="integral">
+                <h2>Calculo 1<br>prof: João Azevedo</h2>
+            </div>
         </section>
         <li class="buton">
-            <a href="#">
+            <a href="#" id="lateral-forum">
                 <span class="txt-link">Ver todos os fóruns</span>
             </a>
         </li>
