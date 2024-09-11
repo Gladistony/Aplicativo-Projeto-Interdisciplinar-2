@@ -5,51 +5,35 @@ session_start();
 $userInfo = $_SESSION['userInfo'];
 $nome = $userInfo['nome'];
 
+// Definições Gerais
+$infoGeral = $_SESSION['infoConfig'];
+$boas_vindas = $infoGeral['MsgBoasVindas'];
+$periodo = $infoGeral['Periodo'];
+$avisos = $infoGeral['Avisos'];
+
 // Obtendo a data atual
 $dataAtual = date('d/m/Y H:i:s');
+
+// Definindo a saudação com base no horário
+$hora = date('H');
+if ($hora < 12) {
+    $saudacao = "Bom dia";
+} elseif ($hora < 18) {
+    $saudacao = "Boa tarde";
+} else {
+    $saudacao = "Boa noite";
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Bem-vindo</title>
-    <style>
-        body>div#conteudo_principal {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-
-        .container>div#conteudo_principal {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1>div#conteudo_principal {
-            color: #333;
-        }
-
-        p>div#conteudo_principal {
-            color: #666;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Bem-vindo, <?php echo $nome; ?>!</h1>
-        <p>Seja bem-vindo ao sistema de gerenciamento de usuários.</p>
-        <p>Data e hora atual: <?php echo $dataAtual; ?></p>
+<div class="container">
+    <h1><?php echo $boas_vindas; ?></h1>
+    <div class="saudacao"><?php echo $saudacao; ?>, <?php echo $nome; ?>!</div>
+    <div class="periodo">Período: <?php echo $periodo; ?></div>
+    <div id="relogio" class="relogio"></div>
+    <div class="avisos">
+        <div class="aviso">Avisos:</div>
+        <?php foreach ($avisos as $aviso): ?>
+            <div class="aviso"><?php echo $aviso; ?></div>
+        <?php endforeach; ?>
     </div>
-</body>
-
-</html>
+</div>
