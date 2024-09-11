@@ -4,6 +4,11 @@ session_start();
 // Definindo o nome do usuário para exibição
 $userInfo = $_SESSION['userInfo'];
 $nome = $userInfo['nome'];
+// Definições Gerais
+$infoGeral = $_SESSION['infoConfig'];
+$boas_vindas = $infoGeral['MsgBoasVindas'];
+$periodo = $infoGeral['Periodo'];
+$avisos = $infoGeral['Avisos'];
 
 // Obtendo a data atual
 $dataAtual = date('d/m/Y H:i:s');
@@ -47,7 +52,13 @@ $dataAtual = date('d/m/Y H:i:s');
 <body>
     <div class="container">
         <h1>Bem-vindo, <?php echo $nome; ?>!</h1>
-        <p>Seja bem-vindo ao sistema de gerenciamento de usuários.</p>
+        <p><?php echo $boas_vindas; ?></p>
+        <p>Periodo: <?php echo $periodo; ?></p>
+        <?php
+        for ($i = 0; $i < count($avisos); $i++) {
+            echo "<p>{$avisos[$i]}</p>";
+        }
+        ?>
         <p>Data e hora atual: <?php echo $dataAtual; ?></p>
     </div>
 </body>
