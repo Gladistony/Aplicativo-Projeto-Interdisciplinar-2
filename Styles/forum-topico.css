@@ -1,0 +1,81 @@
+#conteudo_principal body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+#conteudo_principal h1,
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+#conteudo_principal p {
+    text-align: center;
+    color: #666;
+}
+
+#conteudo_principal textarea {
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#conteudo_principal button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#conteudo_principal button:hover {
+    background-color: #0056b3;
+}
+
+#conteudo_principal ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comentario-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.autor-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.comentario-conteudo {
+    flex: 1;
+}
+
+.comentario-conteudo h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.comentario-conteudo p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}

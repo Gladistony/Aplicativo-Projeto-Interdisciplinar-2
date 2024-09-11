@@ -1,0 +1,88 @@
+#conteudo_principal body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+#conteudo_principal h1 {
+    text-align: center;
+    color: #333;
+}
+
+#conteudo_principal a {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+#conteudo_principal a:hover {
+    text-decoration: underline;
+}
+
+#conteudo_principal ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#conteudo_principal button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#conteudo_principal button:hover {
+    background-color: #0056b3;
+}
+
+.topico-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.topico-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.topico-box h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.topico-box p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.topico-box button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.topico-box button:hover {
+    background-color: #0056b3;
+}

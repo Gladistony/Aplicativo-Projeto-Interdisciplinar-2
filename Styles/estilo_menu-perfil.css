@@ -1,13 +1,33 @@
 @charset "utf-8";
 
-section {
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-SemiBold';
+    src: url('../Recursos/Fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+#conteudo_principal section>div#conteudo_principal {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-section>div.d-inline-block>img {
+#conteudo_principal section>div.d-inline-block>img {
     width: 230px;
     height: 230px;
     object-fit: cover;
@@ -15,29 +35,32 @@ section>div.d-inline-block>img {
     border-radius: 50%;
 }
 
-section>h1 {
+
+#conteudo_principal section>h1 {
+    font-family: 'Poppins-SemiBold', sans-serif;
     font-size: 40px;
-    font-weight: bold;
     margin: 8px;
 }
 
-section#perfil>h2 {
+#conteudo_principal section#perfil>h2 {
+
     font-size: 24px;
-    font-weight: bold;
     margin: 4px 0;
+    font-family: 'Poppins-SemiBold', sans-serif;
 }
 
-section#perfil>h3 {
+#conteudo_principal section#perfil>h3 {
     font-size: 18px;
-    font-weight: bold;
     margin-top: 20px;
+    font-family: 'Poppins-Medium', sans-serif;
 }
 
-section#perfil>p {
+#conteudo_principal section#perfil>p {
     margin: 4px 0;
+    font-family: 'Poppins-Regular', sans-serif;
 }
 
-section#perfil>.d-grid>button {
+#conteudo_principal section#perfil>.d-grid>button {
     margin-top: 10px;
     width: 100%;
     background-color: #121f24;
@@ -49,30 +72,31 @@ section#perfil>.d-grid>button {
     font-size: 0.9em;
 }
 
-section#perfil>textarea {
+#conteudo_principal section#perfil>textarea {
     width: 350px;
     padding: 10px 20px;
     border: 1px solid #000;
     border-radius: 5px;
     font-size: 0.9em;
     resize: none;
+    font-family: 'Poppins-Regular', sans-serif;
 }
 
-.imagem {
+#conteudo_principal .imagem {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
 /* Estilo da imagem do perfil */
-#profileImage {
+#conteudo_principal #profileImage {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.loading-spinner {
+#conteudo_principal .loading-spinner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +104,7 @@ section#perfil>textarea {
     height: 50px;
 }
 
-.loading-spinner {
+#conteudo_principal .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #007bff;
     border-radius: 50%;
@@ -90,7 +114,7 @@ section#perfil>textarea {
     margin: 20px auto;
 }
 
-.alert {
+#conteudo_principal .alert {
     background-color: #f8d7da;
     color: #721c24;
     padding: 10px;
@@ -99,7 +123,7 @@ section#perfil>textarea {
 }
 
 /* Estilo do textarea */
-textarea {
+#conteudo_principal textarea {
     width: calc(100% - 20px);
     /* Ajusta a largura para incluir padding */
     height: 100px;
@@ -111,20 +135,39 @@ textarea {
     /* Adiciona margem uniforme */
 }
 
+.input-data-fonte,
+.periodo-fonte,
+.curso,
+.data-criacao {
+    font-family: 'Poppins-SemiBold', sans-serif;
+}
+
+.descricao-fonte {
+    font-family: 'Poppins-Regular', sans-serif;
+}
+
+#descricao {
+    width: 90% !important;
+    /* Largura da caixa de texto de descrição */
+    height: 120px !important;
+    /* Altura da caixa de texto de decrição */
+}
+
+
 /* Estilo do contêiner dos botões */
-.button-container {
+#conteudo_principal .button-container {
     display: grid;
-    gap: 10px;
-    margin-top: 40px;
+    gap: 2px;
+    margin-top: 10px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Estilo dos botões de edição */
-.btn-editar {
-    font-weight: bold;
+#conteudo_principal .btn-editar {
     padding: 10px;
+    font-family: 'Poppins-Medium', sans-serif;
     border-radius: 4px;
     border: 2px solid black;
     /* Adiciona uma borda preta */
@@ -136,12 +179,12 @@ textarea {
 }
 
 /* Estilo do botão ao passar o mouse */
-.btn-editar:hover {
+#conteudo_principal .btn-editar:hover {
     background-color: #dddddd;
 }
 
 /* Estilo dos ícones */
-.icone {
+#conteudo_principal .icone {
     width: 16px;
     /* Ajuste o tamanho conforme necessário */
     height: 16px;
@@ -153,7 +196,7 @@ textarea {
 }
 
 /* Estilo do spinner de carregamento */
-.loading-spinner {
+#conteudo_principal .loading-spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-top: 4px solid #007bff;
     border-radius: 50%;
