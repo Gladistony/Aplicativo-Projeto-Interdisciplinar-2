@@ -1,6 +1,6 @@
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-import { app, db } from './firebase-config.js';
+import { collection, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { db } from './firebase-config.js';
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -126,11 +126,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-login-credentials') {
             erromsg.style.display = 'block';
             erromsg.innerHTML = 'Email ou senha inválidos';
+            loadingSpinner.style.display = 'none';
         }
         loginButton.style.display = 'block';
         cadastrourl.style.display = 'block';
         esqueceuurl.style.display = 'block';
-    } finally {
         loadingSpinner.style.display = 'none';
+    } finally {
+        //loadingSpinner.style.display = 'none';
     }
 });
