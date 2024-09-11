@@ -12,6 +12,8 @@ $periodo = $infoGeral['Periodo'];
 $avisos = $infoGeral['Avisos'];
 
 // Obtendo a data atual
+date_default_timezone_set('America/Sao_Paulo');
+
 $dataAtual = date('d/m/Y H:i:s');
 
 // Definindo a saudação com base no horário

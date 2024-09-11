@@ -60,7 +60,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     minute: '2-digit',
                     hour12: false
                 });
-
+                userInfo.dataacesso = dataAtual.getTime();
                 userInfo.ultimoLogin = dataFormatada;
 
                 // Atualizar informações no Firestore
@@ -116,6 +116,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     },
                     body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: forum })
                 });
+                localStorage.removeItem('usuariosMonitores');
+                localStorage.removeItem('tempoSalvo');
 
                 window.location.href = './Paginas/main-logado.php';
             } else {
