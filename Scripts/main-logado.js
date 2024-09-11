@@ -50,7 +50,7 @@ function unloadHTML(elementId) {
 loadHTML('../Paginas/top-menu.php', '../Styles/estilo_menu-topo.css', 'menu_do_topo');
 loadHTML('../Paginas/menu-lateral.php', '../Styles/estilo_menu-lateral.css', 'menu_do_lado', carregamentoLateral);
 loadHTML("../Paginas/menu-conversas.php", "../Styles/estilo_menu-conversas.css", "barra_lado_chat", carregamentoConversas);
-loadHTML("../Paginas/menu-home.php", "nenhum", "conteudo_principal", carregamentoMain);
+loadHTML("../Paginas/menu-home.php", "../Styles/estilo_menu-home,css", "conteudo_principal", carregamentoMain);
 //loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal", carregamentoPerfil);
 
 
@@ -283,6 +283,14 @@ function carregamentoMain() {
     if (botaodropdw) {
         botaodropdw.addEventListener('click', toggleDropdown);
     }
+    function atualizarRelogio() {
+        var agora = new Date();
+        var data = agora.toLocaleDateString('pt-BR');
+        var hora = agora.toLocaleTimeString('pt-BR');
+        document.getElementById('relogio').innerHTML = data + ' ' + hora;
+    }
+
+    setInterval(atualizarRelogio, 1000);
 }
 
 function carregamentoPerfil() {
