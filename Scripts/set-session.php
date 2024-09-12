@@ -7,3 +7,4 @@ $_SESSION['verificado'] = $data['verificado'];
 $_SESSION['forum'] = $data['forum'];
 $_SESSION['id'] = $data['id'];
 $_SESSION['infoConfig'] = $data['infoConfig'];
+$_SESSION['datacustom'] = $data['datacustom'];
