@@ -1,15 +1,44 @@
 import { db } from '../firebase-config.js';
-import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { collection, query, where, getDocs, getDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { getFirstTwoNames } from '../utilidades.js';
 
 function loadMenuDireito() {
     ajustarmonitoresLogados();
+    ajustarAmigoLogados();
     //document.getElementById('link-amigos').addEventListener('click', function () {
     //    unloadHTML('conteudo_principal');
     //    loadHTML("../Paginas/telaDeAmigos.php", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
     // });
 }
+
+async function ajustarAmigoLogados() {
+    const auth = getAuth();
+    const agora = new Date().getTime();
+    const cincoMinutos = 5 * 60 * 1000;
+    const umMinutoAtras = agora - 3 * 60000;
+    const dadosSalvos = JSON.parse(localStorage.getItem('usuariosAmigos'));
+    const tempoSalvo = localStorage.getItem('tempoSalvo');
+    if (dadosSalvos && tempoSalvo && (agora - tempoSalvo < cincoMinutos)) {
+        ajustarAmigo(dadosSalvos);
+    } else {
+        const listaamigos = window.sessionData.userInfo.listaAmigos || [];
+        const usuarios = [];
+        for (const amigo of listaamigos) {
+            const docRef = doc(db, "InforConta", amigo);
+            if (docRef) {
+                const doc = await getDoc(docRef);
+                const data = doc.data();
+                if (data.dataacesso && (data.dataacesso > umMinutoAtras)) {
+                    usuarios.push(data);
+                }
+            }
+        }
+        localStorage.setItem('usuariosAmigos', JSON.stringify(usuarios));
+        ajustarAmigo(usuarios);
+    }
+}
+
 
 async function ajustarmonitoresLogados() {
     //console.log(window.sessionData);
@@ -71,6 +100,30 @@ function ajusteMonito(dadosSalvos) {
                 </div>
             `;
             usuariosLogados.appendChild(usuarioLogado);
+        });
+    }
+}
+
+function ajustarAmigo(dadosSalvos) {
+    const usuariosLogados = document.getElementById('diferente');
+    usuariosLogados.innerHTML = '';
+    if (dadosSalvos.length === 0) {
+        const aviso = document.createElement('div');
+        aviso.classList.add('aviso');
+        aviso.innerHTML = '<p>Nenhum amigo online no momento.</p>';
+        usuariosLogados.appendChild(aviso);
+    } else {
+        dadosSalvos.forEach((usuario) => {
+            const amigoItem = document.createElement('div');
+            amigoItem.classList.add('usuarioLogado');
+            amigoItem.innerHTML = `
+            <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+            <div>
+                <h3>${getFirstTwoNames(usuario.nome)}</h3>
+                <p>${usuario.email}</p>
+            </div>
+        `;
+            usuariosLogados.appendChild(amigoItem);
         });
     }
 }

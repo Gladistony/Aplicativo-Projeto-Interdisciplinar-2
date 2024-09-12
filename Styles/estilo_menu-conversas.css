@@ -13,6 +13,12 @@ section#monitores-online>h1 {
     color: #F03A4F;
 }
 
+section#conversas-recentes>h1 {
+    margin-left: -8px;
+    font-size: 20px;
+    color: #F03A4F;
+}
+
 section#monitores-online>div {
     display: flex;
     flex-direction: column;
@@ -74,34 +80,33 @@ section#monitores-online>div>.usuarioLogadoprofessor>div>p {
     font-size: 12px;
 }
 
-section#conversas-recentes>h1 {
-    margin-left: -42px;
-    font-size: 20px;
-    color: #F03A4F;
-}
 
-section#conversas-recentes>div>div {
-    margin-left: 8px;
-    margin-top: 4px;
+section#conversas-recentes>div>.usuarioLogado {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
-section#conversas-recentes>div>div>h2 {
-    font-size: 16px;
-    color: #F03A4F;
-}
-
-section#conversas-recentes>div>div>p {
-    font-size: 12px;
-}
-
-section#conversas-recentes>div>img {
+section#conversas-recentes>div>.usuarioLogado>img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 4px;
-    margin-left: -60px;
+}
+
+section#conversas-recentes>div>.usuarioLogado>div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
+
+section#conversas-recentes>div>.usuarioLogado>div>h3 {
+    font-size: 16px;
+    color: hsl(0, 0%, 0%);
+}
+
+section#conversas-recentes>div>.usuarioLogado>div>p {
+    font-size: 12px;
 }
 
 div#listagemdeMonitores.container {
