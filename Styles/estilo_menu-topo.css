@@ -91,6 +91,7 @@ section#menu-topo {
 
 .user-name {
     margin-right: 2px;
+    margin-left: 3px;
 }
 
 .arrow-down {
@@ -108,23 +109,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* Alinha os itens à direita */
     width: 100%;
-    /* Altura do menu */
     background-color: #ffffff;
-    /* Cor de fundo opcional */
-    /* Espaçamento interno */
+
 }
 
 .user-photo {
     width: 40px;
-    /* Tamanho da foto */
     height: 40px;
-    /* Tamanho da foto */
     border-radius: 50%;
-    /* Foto redonda */
     margin: 10px;
-    /* Espaço entre a foto e o botão */
 }
 
 button {
@@ -139,23 +133,15 @@ section#menu-topo {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* Alinha os itens à direita */
     width: 100%;
-    /* Altura do menu */
     background-color: #ffffff;
-    /* Cor de fundo opcional */
-    /* Espaçamento interno */
 }
 
 .user-photo {
     width: 40px;
-    /* Tamanho da foto */
     height: 40px;
-    /* Tamanho da foto */
     border-radius: 50%;
-    /* Foto redonda */
     margin: 10px;
-    /* Espaço entre a foto e o botão */
 }
 
 button {
@@ -272,7 +258,6 @@ span.user-name {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* Evita que o hover vaze */
 }
 
 .dropdown button {
@@ -286,12 +271,10 @@ span.user-name {
     font-weight: 400;
     color: #333;
     text-align: center;
-    /* Centraliza o texto dentro do botão */
 }
 
-.dropdown button:hover {
-    background-color: #fafafa;
-    /* Cor de hover mais clara */
+.dropdown:hover {
+    background-color: #e0e0e0;
 }
 
 .botao-link {
@@ -306,6 +289,7 @@ span.user-name {
     font-weight: 400;
     cursor: pointer;
 }
+
 
 .user-name {
     margin-right: 2px;
