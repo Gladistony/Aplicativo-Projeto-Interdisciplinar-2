@@ -3,12 +3,12 @@
 <body>
     <header id="barra-superior">
 
-        <section id="container-pesquisa">
+        <!--     <section id="container-pesquisa">
             <input type="text" id="barra-pesquisa" placeholder="Procurar conversas..." name="buscarConversa">
             <button id="botao-pesquisa" name="pesquisar">Pesquisar </button>
-        </section>
+        </section> -->
         <section id="container-adicionar-amigo">
-            <input type="text" id="novo-amigo" placeholder="Código do novo amigo" name="codigoDoAmigo">
+            <input type="email" id="novo-amigo" placeholder="E-mail do novo amigo" name="EmailDoAmigo">
             <button id="botao-adicionar-amigo" name="adicionar"> Adicionar </button>
         </section>
 
@@ -16,7 +16,7 @@
     <main>
         <section id="amigos">
 
-            <img src="../Recursos/Imagens/perfil-teste.avif" alt="" id="img-perfil">
+            <?php echo '<a href="./Paginas/menu-perfil-publico.php"><img src="../Recursos/Imagens/perfil-teste.avif" alt="" id="img-perfil"></a>'; ?>
             <section id="informacao">
                 <p id="nome"> Nome do usuário </p>
                 <p id="mensagem-recente"> mensagem recente </p>
