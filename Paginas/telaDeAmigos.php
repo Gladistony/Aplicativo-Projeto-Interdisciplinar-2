@@ -1,3 +1,10 @@
+<?php
+session_start();
+$fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Recursos/Imagens/perfil-teste.avif';
+?>
+
+
+
 <link rel="stylesheet" href="../Styles/estilo_tela-de-amigos.css">
 
 <body>
@@ -17,11 +24,11 @@
     <main>
         <section id="amigos">
 
-            <?php echo '<a href="./Paginas/menu-perfil-publico.php"><img src="../Recursos/Imagens/perfil-teste.avif" alt="" id="img-perfil"></a>'; ?>
+            ] <a href="./Paginas/menu-perfil-publico.php"><img src=" <?php echo $echo($fotoPerfil); ?>" alt=""
+                    id="img-perfil"></a>;
             <section id="informacao">
-                <p id="nome"> Nome do usuário </p>
-                <p id="mensagem-recente"> mensagem recente </p>
-
+                <p id="nome"> <?php echo $nomeDoAmigo; ?> </p>
+                <p id="mensagem-recente"><?php echo $emailDoUsuario; ?></p>
             </section>
 
             <a href="**"><button id="exculir" type="button" name="excluir"> Excluir </button></a>
