@@ -24,53 +24,57 @@ async function listarArquivos() {
     mensagemVazio.textContent = 'Vazio...';
     mensagemVazio.style.display = 'none';
     listagemDeArquivos.appendChild(mensagemVazio);
-    
     loadingElement.style.display = 'block'; // Mostrar o spinner de loading
-    
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             const userId = user.uid;
             const storage = getStorage();
             const storageRef = ref(storage, `profileDocuments/${userId}`);
-            const res = await listAll(storageRef);
-
-            loadingElement.style.display = 'none'; // Esconder o spinner de loading após a conclusão
-
-            if (res.items.length === 0) {
-                mensagemVazio.style.display = 'block';
-            } else {
-                mensagemVazio.style.display = 'none';
-                res.items.forEach(async (itemRef) => {
-                    const downloadURL = await getDownloadURL(itemRef);
-                    const metadata = await getMetadata(itemRef);
-                    const extensao = itemRef.name.split('.').pop();
-                    const icone = getIcone(extensao);
-                    const itemArquivo = document.createElement('div');
-                    const tamanhoArquivoMB = (metadata.size / (1024 * 1024)).toFixed(2);
-                    itemArquivo.className = 'arquivo-item';
-                    itemArquivo.innerHTML = `
-                        <div class="arquivo-item-header">
-                            <div class="nome-arquivo">
-                                <img src="${icone}" alt="${extensao} icon" class="icone-arquivo"> 
-                                <span>${itemRef.name}</span>
+            try {
+                const res = await listAll(storageRef);
+                loadingElement.style.display = 'none'; // Esconder o spinner de loading após a conclusão
+                if (res.items.length === 0) {
+                    mensagemVazio.style.display = 'block';
+                } else {
+                    mensagemVazio.style.display = 'none';
+                    res.items.forEach(async (itemRef) => {
+                        const downloadURL = await getDownloadURL(itemRef);
+                        const metadata = await getMetadata(itemRef);
+                        const extensao = itemRef.name.split('.').pop();
+                        const icone = getIcone(extensao);
+                        const itemArquivo = document.createElement('div');
+                        const tamanhoArquivoMB = Number((metadata.size / (1024 * 1024)).toFixed(2));
+                        let tamanhoArquivo;
+                        if (tamanhoArquivoMB < 1) {
+                            const tamanhoArquivoKB = Number((metadata.size / 1024).toFixed(2)); // Tamanho em KB
+                            tamanhoArquivo = `${tamanhoArquivoKB} KB`;
+                        } else {
+                            tamanhoArquivo = `${tamanhoArquivoMB} MB`;
+                        }
+                        itemArquivo.className = 'arquivo-item';
+                        itemArquivo.innerHTML = `
+                            <div class="arquivo-item-header">
+                                <div class="nome-arquivo">
+                                    <img src="${icone}" alt="${extensao} icon" class="icone-arquivo"> 
+                                    <span>${itemRef.name}</span>
+                                </div>
+                                <img src="${icones['download']}" alt="download icon" class="icone-download" onclick="downloadArquivo('${downloadURL}')">
+                                <img src="${icones['lixo']}" alt="lixo icon" class="icone-lixo" onclick="deleteArquivo('${itemRef.name}')">
                             </div>
-                            <img src="${icones['download']}" alt="download icon" class="icone-download" onclick="downloadArquivo('${downloadURL}')">
-                            <img src="${icones['lixo']}" alt="lixo icon" class="icone-lixo" onclick="deleteArquivo('${itemRef.name}')">
-                        </div>
-                        <div class="tamanho-arquivo">${tamanhoArquivoMB} MB</div>
-                    `;
-                    listagemDeArquivos.appendChild(itemArquivo);
-                });
+                            <div class="tamanho-arquivo">${tamanhoArquivo}</div>
+                        `;
+                        listagemDeArquivos.appendChild(itemArquivo);
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao listar os arquivos:', error);
+                loadingElement.style.display = 'none'; // Esconder o spinner de loading em caso de erro
             }
         } else {
             alert('Nenhum usuário está logado.');
             loadingElement.style.display = 'none'; // Esconder o spinner de loading em caso de erro
         }
     });
-}
-
-function downloadArquivo(url) {
-    window.open(url, '_blank');
 }
 
 async function deleteArquivo(nomeArquivo) {
@@ -87,6 +91,10 @@ async function deleteArquivo(nomeArquivo) {
             alert('Nenhum usuário está logado.');
         }
     });
+}
+
+function downloadArquivo(url) {
+    window.open(url, '_blank');
 }
 
 window.downloadArquivo = downloadArquivo;
@@ -106,7 +114,14 @@ async function uploadArquivo() {
         const listagemDeArquivos = document.getElementById('listagemDeArquivos');
         const itemArquivo = document.createElement('div');
         itemArquivo.className = 'arquivo-item';
-        const tamanhoArquivoMB = (file.size / (1024 * 1024)).toFixed(2);
+        const tamanhoArquivoMB = file.size / (1024 * 1024);
+        let tamanhoArquivo;
+        if (tamanhoArquivoMB < 1) {
+            const tamanhoArquivoKB = file.size / 1024; // Tamanho em KB
+            tamanhoArquivo = `${tamanhoArquivoKB.toFixed(2)} KB`;
+        } else {
+            tamanhoArquivo = `${tamanhoArquivoMB.toFixed(2)} MB`;
+        }
         const auth = getAuth();
         onAuthStateChanged(auth, async (user) => {
             if (user) {
@@ -124,13 +139,14 @@ async function uploadArquivo() {
                         <img src="${icones['download']}" alt="download icon" class="icone-download" onclick="downloadArquivo('${downloadURL}')">
                         <img src="${icones['lixo']}" alt="lixo icon" class="icone-lixo" onclick="deleteArquivo('${file.name}')">
                     </div>
-                    <div class="tamanho-arquivo">${tamanhoArquivoMB} MB</div>
+                    <div class="tamanho-arquivo">${tamanhoArquivo}</div>
                 `;
                 if (mensagemVazio) {
                     mensagemVazio.style.display = 'none';
                 }
                 listagemDeArquivos.appendChild(itemArquivo);
                 console.log('Arquivo enviado:', file.name);
+                input.value = ""; // Zera o estado do input de arquivo
             } else {
                 alert('Nenhum usuário está logado.');
             }
