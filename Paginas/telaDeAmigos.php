@@ -8,8 +8,9 @@
             <button id="botao-pesquisa" name="pesquisar">Pesquisar </button>
         </section> -->
         <section id="container-adicionar-amigo">
-            <input type="email" id="novo-amigo" placeholder="E-mail do novo amigo" name="EmailDoAmigo">
-            <button id="botao-adicionar-amigo" name="adicionar"> Adicionar </button>
+            <input type="email" id="novo-amigo" placeholder="E-mail do novo amigo" name="EmailDoAmigo"
+                autocomplete="off">
+            <button id="botao-adicionar-amigo" name="adicionar">Adicionar</button>
         </section>
 
     </header>

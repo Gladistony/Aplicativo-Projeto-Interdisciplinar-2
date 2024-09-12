@@ -22,7 +22,7 @@ header {
     margin-bottom: 0;
 }
 
-#barra-superior {
+#barra-superio {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@ header {
 #container-pesquisa,
 #container-adicionar-amigo {
     display: flex;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
@@ -47,9 +48,8 @@ header {
     flex-grow: 1;
     padding: 10.2px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 0;
+    border-radius: 20px 0 0 20px;
     font-family: "Poppins";
-    margin-right: -99px;
     font-size: x-small;
 }
 
