@@ -5,51 +5,59 @@
     src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
-#conteudo_principal * {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
-#conteudo_principal main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body {
     background-color: #f0f0f0;
 }
 
-#conteudo_principal #barra-superior {
+header {
+    display: inline-block;
+    width: 100%;
+    padding-top: 50px;
+    margin-bottom: 0;
+}
+
+#barra-superior {
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
     max-width: 600px;
+    margin: 0;
     margin-bottom: 20px;
 }
 
-#conteudo_principal .container-pesquisa,
-#conteudo_principal .container-adicionar-amigo {
+.container-pesquisa,
+.container-adicionar-amigo {
     display: flex;
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
 }
 
-#conteudo_principal #barra-pesquisa,
-#conteudo_principal #novo-amigo {
+#barra-pesquisa,
+#novo-amigo {
     flex-grow: 1;
-    padding: 10px;
+    padding: 10.2px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 0;
     font-family: "Poppins";
-    margin-right: -299px;
+    margin-right: -300px;
+    font-size: x-small;
 }
 
-#conteudo_principal #botao-pesquisa,
-#conteudo_principal #botao-adicionar-amigo {
+
+
+#botao-pesquisa,
+#botao-adicionar-amigo {
     padding: 10px;
     border: 1px solid #ccc;
     border-left: none;
@@ -57,14 +65,17 @@
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+
 }
 
-#conteudo_principal #botao-pesquisa:hover,
-#conteudo_principal #botao-adicionar-amigo:hover {
+
+
+#botao-pesquisa:hover,
+#botao-adicionar-amigo:hover {
     background-color: #0056b3;
 }
 
-#conteudo_principal #adicionar {
+#adicionar {
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -78,11 +89,23 @@
     align-items: center;
 }
 
-#conteudo_principal #adicionar:hover {
+#adicionar:hover {
     background-color: #0056b3;
 }
 
-#conteudo_principal #amigos {
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Alinha os itens à esquerda */
+    align-items: flex-start;
+    /* Alinha os itens à esquerda */
+    height: 100vh;
+    margin-top: 0;
+    /* Remove a margem superior */
+}
+
+#amigos {
     display: flex;
     align-items: center;
     background-color: #ffff;
@@ -93,34 +116,34 @@
     max-width: 600px;
 }
 
-#conteudo_principal #amigos:hover {
+#amigos:hover {
     background-color: #edf0f1;
     cursor: pointer;
     transition-duration: 0.1s;
     border-radius: 20px;
 }
 
-#conteudo_principal .img-perfil {
+.img-perfil {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-#conteudo_principal #nome {
+#nome {
     font-family: "Poppins";
     font-weight: bold;
     margin: 0;
 }
 
-#conteudo_principal #mensagem-recente {
+#mensagem-recente {
     font-family: "Poppins";
     font-size: small;
     margin: 5px 0 0 0;
     color: #555;
 }
 
-#conteudo_principal button {
+button {
     margin-left: 300px;
     color: #ffff;
     padding: 5px 10px;
@@ -130,6 +153,6 @@
     cursor: pointer;
 }
 
-#conteudo_principal button:hover {
+button:hover {
     background-color: #d00;
 }
