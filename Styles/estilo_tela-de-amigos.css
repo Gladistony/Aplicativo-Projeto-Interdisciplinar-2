@@ -9,7 +9,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 body {
@@ -35,8 +34,8 @@ header {
     margin-bottom: 20px;
 }
 
-.container-pesquisa,
-.container-adicionar-amigo {
+#container-pesquisa,
+#container-adicionar-amigo {
     display: flex;
     align-items: center;
     width: 100%;
@@ -54,8 +53,6 @@ header {
     font-size: x-small;
 }
 
-
-
 #botao-pesquisa,
 #botao-adicionar-amigo {
     padding: 10px;
@@ -65,10 +62,7 @@ header {
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
-
 }
-
-
 
 #botao-pesquisa:hover,
 #botao-adicionar-amigo:hover {
@@ -97,12 +91,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* Alinha os itens à esquerda */
     align-items: flex-start;
-    /* Alinha os itens à esquerda */
     height: 100vh;
     margin-top: 0;
-    /* Remove a margem superior */
 }
 
 #amigos {
@@ -123,7 +114,7 @@ main {
     border-radius: 20px;
 }
 
-.img-perfil {
+#img-perfil {
     width: 50px;
     height: 50px;
     border-radius: 50%;
