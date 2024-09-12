@@ -23,7 +23,7 @@
 
             </section>
 
-            <a href="**"><button type="button" name="excluir"> Excluir </button></a>
+            <a href="**"><button id="exculir" type="button" name="excluir"> Excluir </button></a>
 
         </section>
     </main>

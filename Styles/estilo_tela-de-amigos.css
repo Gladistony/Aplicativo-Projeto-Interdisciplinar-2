@@ -134,7 +134,7 @@ main {
     color: #555;
 }
 
-button {
+#exculir {
     margin-left: 300px;
     color: #ffff;
     padding: 5px 10px;
@@ -144,6 +144,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+
+#exculir:hover {
     background-color: #d00;
 }
