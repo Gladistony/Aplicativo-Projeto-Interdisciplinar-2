@@ -9,6 +9,7 @@ import { loadMenutopo } from './scriptBlocos/menuTopo.js';
 import { carregamentoBoasvindas } from './principalScripts/boasvindas.js';
 import { carregamentoPerfil, toggleEditModePerfil } from './principalScripts/editperfil.js';
 import { atualizarConecaoFirebase } from './atualizarData.js';
+import { carregamentoForum, carregamentoSubForum, carregamentoConteudoForum } from './principalScripts/forum.js';
 
 
 const paginaName = getURLParameter('pagina') || 'home';
@@ -16,7 +17,7 @@ const auth = getAuth();
 //const storage = getStorage();
 
 //Atualizar dados e iniciar loop de atualização
-atualizarConecaoFirebase();
+await atualizarConecaoFirebase();
 
 loadHTML('../Paginas/top-menu.php', '../Styles/estilo_menu-topo.css', 'menu_do_topo', loadMenutopo);
 loadHTML('../Paginas/menu-lateral.php', '../Styles/estilo_menu-lateral.css', 'menu_do_lado', loadMenulado); //carregamentoLateral
@@ -29,6 +30,17 @@ if (paginaName === 'home') {
     loadHTML("../Paginas/telaDeAmigos.php", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
 } else if (paginaName === 'arquivos') {
     loadHTML("../Paginas/arquivos.html", "../Styles/estilo_arquivos.css", "conteudo_principal", carregamentoArquivos);
+} else if (paginaName === 'forum') {
+    loadHTML("../Paginas/forum/forum-inicio.php", "../Styles/estilo_menu-forum.css", "conteudo_principal", carregamentoForum);
+} else if (paginaName === 'subforum') {
+    const subtopico = getURLParameter('id') || '0000';
+    window.subtopicoid = subtopico;
+    //console.log(subtopico);
+    loadHTML("../Paginas/forum/forum-subtopico.php", "../Styles/estilo_tela-de-subtopico.css", "conteudo_principal", carregamentoSubForum);
+} else if (paginaName === 'conteudoForum') {
+    const ide = getURLParameter('id') || '0000';
+    window.topicoID = ide;
+    loadHTML("../Paginas/forum/forum-conteudo.php?id=" + ide, "../Styles/forum-topico.css", "conteudo_principal", carregamentoConteudoForum);
 }
 
 
@@ -37,7 +49,6 @@ if (paginaName === 'home') {
 
 function carregamentoArquivos() {
     var script = document.createElement('script');
-    script.type = 'module';
     script.src = '../Scripts/arquivos_script.js';
     document.head.appendChild(script);
 }
@@ -48,5 +59,41 @@ window.onclick = function (event) {
         if (dropdown.style.display === 'block') {
             dropdown.style.display = 'none';
         }
+    }
+}
+
+window.postarComentario = async function () {
+    const text = document.getElementById('novo-comentario').value;
+    if (text === '') {
+        return;
+    }
+    await addDoc(collection(db, "comentarios-forum"), {
+        conteudo: text,
+        topicoID: window.topicoID,
+        data: new Date().getTime(),
+        autor: window.sessionData.id,
+        curtida: [],
+    });
+    // Atualizar a página
+    window.location.reload();
+}
+
+window.curtirComentario = async function (id) {
+    //console.log("id comentario", id);
+    //CArregar dados do comentário
+    const docRef = doc(db, "comentarios-forum", id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        const data = docSnap.data();
+        if (data.curtida.includes(window.sessionData.id)) {
+            data.curtida = data.curtida.filter(e => e !== window.sessionData.id);
+        } else {
+            data.curtida.push(window.sessionData.id);
+        }
+        await updateDoc(docRef, {
+            curtida: data.curtida,
+        });
+        // Atualizar a página
+        window.location.reload();
     }
 }
