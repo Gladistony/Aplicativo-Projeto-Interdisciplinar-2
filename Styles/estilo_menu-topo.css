@@ -298,7 +298,6 @@ span.user-name {
     display: inline-block;
     padding: 10px;
     border: none;
-    background-color: #f0f0f0;
     color: #333;
     text-align: center;
     text-decoration: none;
@@ -306,11 +305,6 @@ span.user-name {
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
-}
-
-.botao-link:hover {
-    background-color: #e0e0e0;
-    /* Cor de hover mais clara */
 }
 
 .user-name {
