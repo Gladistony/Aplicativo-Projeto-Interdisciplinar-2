@@ -1,6 +1,6 @@
 <nav class="menu-lateral">
     <header class="logo" id="logo-lateral">
-        Monitor<span>&a</span>
+        Monitor<span id="logo-lateral-span">&a</span>
     </header>
     <ul>
         <li class="item-menu">

@@ -5,6 +5,7 @@ function loadMenulado() {
     document.getElementById('lateral-forum').addEventListener('click', function () {
         //unloadHTML('conteudo_principal');
         //loadHTML("../Paginas/menu-forum.php", "../Styles/estilo_menu-forum.css", "conteudo_principal", carregamentoForum);
+        window.location.href = '../Paginas/main-logado.php?pagina=forum';
     });
     document.getElementById('lateral-arquivos').addEventListener('click', function () {
         //unloadHTML('conteudo_principal');
@@ -27,6 +28,13 @@ function loadMenulado() {
             botao.style.display = 'block';
         }
     }
+
+    const logocor = document.getElementById('logo-lateral-span');
+    const tipoconta = window.sessionData.userInfo.tipoConta;
+    if (tipoconta === 'Admin') logocor.style.color = '#7fff00'; // Preto
+    else if (tipoconta === 'Monitor') logocor.style.color = '#f0394f';
+    else if (tipoconta === 'Professor') logocor.style.color = '#5e109b';
+    else logocor.style.color = '#496b7a';
 }
 
 export { loadMenulado };

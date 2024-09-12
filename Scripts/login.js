@@ -1,6 +1,7 @@
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { collection, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { collection, query, where, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { db } from './firebase-config.js';
+import { getFirstTwoNames } from './utilidades.js';
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -79,12 +80,12 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const turmasCol = collection(db, 'turmas-forum');
                 const turmasSnapshot = await getDocs(turmasCol);
                 const turmasList = turmasSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                turmasList.forEach(async turma => {
+                await Promise.all(turmasList.map(async turma => {
                     if (turma.periodo == periodoAtual) {
                         const iconeTurma = turma.icone;
                         const nome = turma.nome;
                         const idTurma = turma.id;
-                        const professor = turma.professor;
+                        var professor = turma.professor;
                         const subtopicosCol = collection(db, 'subtopicos-forum');
                         const q = query(subtopicosCol, where('turmaId', '==', idTurma));
                         const subtopicosSnapshot = await getDocs(q);
@@ -97,17 +98,24 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                             };
                             subtopicos.push(subtopicoInfo);
                         });
+                        //buscar nome do professor
+                        const docRefProf = doc(db, "InforConta", professor);
+                        const docSnapProf = await getDoc(docRefProf);
+                        const profData = docSnapProf.data();
+                        professor = getFirstTwoNames(profData.nome);
+                        const professorFoto = profData.fotoPerfil;
+
                         let turmaInfo = {
                             icone: iconeTurma,
                             nome: nome,
                             id: idTurma,
                             professor: professor,
+                            professorFoto: professorFoto,
                             subtopicos: subtopicos,
                         };
                         forum.push(turmaInfo);
                     }
-                });
-
+                }));
                 // Enviar informações ao servidor PHP
                 await fetch('./Scripts/set-session.php', {
                     method: 'POST',
@@ -118,7 +126,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 });
                 localStorage.removeItem('usuariosMonitores');
                 localStorage.removeItem('tempoSalvo');
-
+                //alert('teste');
                 window.location.href = './Paginas/main-logado.php';
             } else {
                 console.log('Usuário não está logado');

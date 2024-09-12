@@ -1,6 +1,7 @@
 import { db } from '../firebase-config.js';
 import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { getFirstTwoNames } from '../utilidades.js';
 
 function loadMenuDireito() {
     ajustarmonitoresLogados();
@@ -26,7 +27,7 @@ async function ajustarmonitoresLogados() {
         const inforConta = collection(db, 'InforConta');
         const q = query(
             inforConta,
-            where('tipoConta', '==', 'Monitor')
+            where('tipoConta', 'in', ['Monitor', 'Professor'])
         );
         const usuarios = [];
         const querySnapshot = await getDocs(q);
@@ -57,11 +58,15 @@ function ajusteMonito(dadosSalvos) {
     } else {
         dadosSalvos.forEach((usuario) => {
             const usuarioLogado = document.createElement('div');
-            usuarioLogado.classList.add('usuarioLogado');
+            if (usuario.tipoConta === 'Professor') {
+                usuarioLogado.classList.add('usuarioLogadoprofessor');
+            } else {
+                usuarioLogado.classList.add('usuarioLogado');
+            }
             usuarioLogado.innerHTML = `
                 <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
                 <div>
-                    <h3>${usuario.nome}</h3>
+                    <h3>${getFirstTwoNames(usuario.nome)}</h3>
                     <p>${usuario.email}</p>
                 </div>
             `;
