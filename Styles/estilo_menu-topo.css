@@ -80,6 +80,7 @@ section#menu-topo {
 
 .user-name {
     margin-right: 2px;
+    margin-left: 3px;
 }
 
 .arrow-down {
@@ -97,23 +98,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* Alinha os itens à direita */
     width: 100%;
-    /* Altura do menu */
     background-color: #ffffff;
-    /* Cor de fundo opcional */
-    /* Espaçamento interno */
+
 }
 
 .user-photo {
     width: 40px;
-    /* Tamanho da foto */
     height: 40px;
-    /* Tamanho da foto */
     border-radius: 50%;
-    /* Foto redonda */
     margin: 10px;
-    /* Espaço entre a foto e o botão */
 }
 
 button {
@@ -128,23 +122,15 @@ section#menu-topo {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    /* Alinha os itens à direita */
     width: 100%;
-    /* Altura do menu */
     background-color: #ffffff;
-    /* Cor de fundo opcional */
-    /* Espaçamento interno */
 }
 
 .user-photo {
     width: 40px;
-    /* Tamanho da foto */
     height: 40px;
-    /* Tamanho da foto */
     border-radius: 50%;
-    /* Foto redonda */
     margin: 10px;
-    /* Espaço entre a foto e o botão */
 }
 
 button {
@@ -187,6 +173,18 @@ section#menu-topo>div.top-bar {
     width: 1070px;
 }
 
+.logo {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #1F1F1F;
+}
+
+.logo span {
+    font-family: 'Poppins-Bold' !important;
+    color: #F0394F;
+}
+
 span.user-name {
     font-family: 'Poppins-Bold' !important;
 }
@@ -227,6 +225,28 @@ span.user-name {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
     min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .dropdown button {
@@ -239,11 +259,29 @@ span.user-name {
     font-size: 16px;
     font-weight: 400;
     color: #333;
-    text-align: left;
+    text-align: center;
 }
 
-.dropdown button:hover {
-    background-color: #f5f5f5;
+.dropdown:hover {
+    background-color: #e0e0e0;
+}
+
+.botao-link {
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 10px;
+    border: none;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.botao-link:hover {
+    background-color: #e0e0e0;
 }
 
 .user-name {
