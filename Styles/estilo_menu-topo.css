@@ -23,17 +23,6 @@ section#menu-topo {
     position: relative;
 }
 
-.logo {
-    font-family: 'Poppins-Bold', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    color: #1F1F1F;
-}
-
-.logo span {
-    color: #10648C;
-}
-
 .user-profile {
     display: flex;
     align-items: center;
@@ -294,7 +283,6 @@ span.user-name {
 .botao-link:hover {
     background-color: #e0e0e0;
 }
-
 
 .user-name {
     margin-right: 2px;
