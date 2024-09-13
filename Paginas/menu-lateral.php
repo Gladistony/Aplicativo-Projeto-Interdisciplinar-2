@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="item-menu" id="botao-admin">
-            <a href="#">
+            <a href="../painel-admin.php?senha=duhadslgcaiudb42r3ffe1e">
                 <img src="../Recursos/Imagens/config.png"  alt="configurações">
                 <span class="txt-link">Configurar Contas</span>
             </a>
