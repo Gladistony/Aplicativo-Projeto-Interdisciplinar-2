@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { collection, query, where, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { db } from './firebase-config.js';
 import { getFirstTwoNames } from './utilidades.js';
@@ -35,6 +35,9 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const docSnap = await getDoc(docRef);
                 const IDUsuario = user.uid;
 
+                const clains = user.getIdTokenResult();
+                const customClaims = (await clains).claims;
+
                 let userInfo = {
                     curso: "Indisponível",
                     nome: "Indisponível",
@@ -63,6 +66,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 });
                 userInfo.dataacesso = dataAtual.getTime();
                 userInfo.ultimoLogin = dataFormatada;
+                //Atualizar informações no auth do nome para o displynome
+                updateProfile(user, {
+                    displayName: userInfo.nome
+                });
+
+                //Carregar as customClaims[''] do perfil
+                userInfo.tipoConta = customClaims.accountType || 'Aluno';
 
                 //Baixar as informações gerais de configuracao
                 const docRefConfig = doc(db, "DefinicoesGerais", "data");

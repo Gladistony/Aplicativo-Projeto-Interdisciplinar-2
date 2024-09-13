@@ -50,6 +50,7 @@ if (paginaName === 'home') {
 function carregamentoArquivos() {
     var script = document.createElement('script');
     script.src = '../Scripts/arquivos_script.js';
+    script.type = 'module';
     document.head.appendChild(script);
 }
 
