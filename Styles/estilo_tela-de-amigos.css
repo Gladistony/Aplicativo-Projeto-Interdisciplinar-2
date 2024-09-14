@@ -22,7 +22,7 @@ header {
     margin-bottom: 0;
 }
 
-#barra-superio {
+#barra-superior {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -34,27 +34,24 @@ header {
     margin-bottom: 20px;
 }
 
-#container-pesquisa,
-#container-adicionar-amigo {
+.container-pesquisa {
     display: flex;
-    flex-direction: row;
     align-items: center;
     width: 100%;
     margin-bottom: 10px;
 }
 
-#barra-pesquisa,
-#novo-amigo {
+#barra-pesquisa {
     flex-grow: 1;
     padding: 10.2px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
+    border-radius: 20px 0 0 0;
     font-family: "Poppins";
-    font-size: x-small;
+    margin-right: 10px;
+    font-size: small;
 }
 
-#botao-pesquisa,
-#botao-adicionar-amigo {
+#botao-pesquisa {
     padding: 10px;
     border: 1px solid #ccc;
     border-left: none;
@@ -64,26 +61,7 @@ header {
     cursor: pointer;
 }
 
-#botao-pesquisa:hover,
-#botao-adicionar-amigo:hover {
-    background-color: #0056b3;
-}
-
-#adicionar {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#adicionar:hover {
+#botao-pesquisa:hover {
     background-color: #0056b3;
 }
 
@@ -96,55 +74,54 @@ main {
     margin-top: 0;
 }
 
-#amigos {
-    display: flex;
-    align-items: center;
-    background-color: #ffff;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
+#lista-amigos {
+    width: 100%;
     max-width: 600px;
 }
 
-#amigos:hover {
+.amigo {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.amigo:hover {
     background-color: #edf0f1;
     cursor: pointer;
     transition-duration: 0.1s;
-    border-radius: 20px;
 }
 
-#img-perfil {
+.img-perfil {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 20px;
+}
+
+.informacao {
+    flex-grow: 1;
+    padding-right: 20px;
 }
 
 #nome {
     font-family: "Poppins";
     font-weight: bold;
-    margin: 0;
 }
 
-#mensagem-recente {
-    font-family: "Poppins";
-    font-size: small;
-    margin: 5px 0 0 0;
-    color: #555;
-}
-
-#exculir {
-    margin-left: 300px;
-    color: #ffff;
-    padding: 5px 10px;
-    background-color: #f00;
+.adicionar {
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-
-#exculir:hover {
-    background-color: #d00;
+.adicionar:hover {
+    background-color: #0056b3;
 }
