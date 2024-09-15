@@ -4,6 +4,7 @@ import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.
 
 function loadMenuDireito() {
     ajustarmonitoresLogados();
+    ajustarAmigosLogados();
     //document.getElementById('link-amigos').addEventListener('click', function () {
     //    unloadHTML('conteudo_principal');
     //    loadHTML("../Paginas/telaDeAmigos.php", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
@@ -72,30 +73,54 @@ function ajusteMonito(dadosSalvos) {
 
 
 
-/*
-async function ajustarAmigoLogados() {
-    const inforConta = collection(db, 'InforConta');
-    const q = query(inforConta, where('tipoConta', '==', 'Monitor'));
-    const usuarios = [];
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        usuarios.push(doc.data());
-    });
-    const usuariosLogados = document.getElementById('diferente');
-    usuariosLogados.innerHTML = '';
-    usuarios.forEach((usuario) => {
-        const amigoItem = document.createElement('div');
-        amigoItem.classList.add('amigoItem');
-        amigoItem.innerHTML = `
-            <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
-            <div>
-                <h2>${usuario.nome}</h2>
-                <p>${amigo.mensagemRecente || 'Nenhuma mensagem recente'}</p>
-            </div>
-        `;
-        usuariosLogados.appendChild(amigoItem);
-    });
-}  
-    */
+async function ajustarAmigosLogados() {
+    const auth = getAuth();
+    const user = auth.currentUser;  // Verifica se há um usuário logado
+
+    if (!user) {
+        console.error("Usuário não está logado.");
+        return;  // Sai da função se não houver usuário logado
+    }
+
+    const userId = user.uid;  // Pega o ID do usuário logado
+
+    try {
+        // Pega o documento do usuário logado
+        const userDoc = await getDoc(doc(db, "InforConta", userId));
+        const userData = userDoc.data();
+
+        if (userData && userData.listaAmigos && userData.listaAmigos.length > 0) {
+            const amigosContainer = document.getElementById('diferente');
+            amigosContainer.innerHTML = '';  // Limpa a listagem de amigos
+
+            // Para cada ID de amigo, busque seus dados
+            for (const amigoId of userData.listaAmigos) {
+                const amigoDoc = await getDoc(doc(db, "InforConta", amigoId));
+                if (amigoDoc.exists()) {
+                    const amigoData = amigoDoc.data();
+                    renderizarAmigo(amigoData, amigosContainer);
+                }
+            }
+        } else {
+            const amigosContainer = document.getElementById('diferente');
+            amigosContainer.innerHTML = '<p>Você ainda não adicionou nenhum amigo.</p>';
+        }
+    } catch (error) {
+        console.error("Erro ao buscar dados dos amigos: ", error);
+    }
+}
+
+function renderizarAmigo(amigoData, container) {
+    const amigoItem = document.createElement('div');
+    amigoItem.classList.add('amigoItem');
+    amigoItem.innerHTML = `
+        <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+        <div id="infor-amigo">
+            <h2 id="nome-amigo">${amigoData.nome}</h2>
+            <p id= "msg-amigo">Ainda sem mensagens recentes</p>
+        </div></a>
+    `;
+    container.appendChild(amigoItem);
+}
 
 export { loadMenuDireito };

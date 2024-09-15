@@ -1,79 +1,121 @@
 @charset "utf-8";
 
-section#conversas>section {
+section#conversas > section {
     margin: 8px;
     width: 270px;
     background-color: white;
     border-radius: 16px;
 }
 
-section#monitores-online>h1 {
+section#monitores-online > h1 {
     margin-left: -8px;
     font-size: 20px;
     color: #F03A4F;
 }
 
-section#monitores-online>div {
+section#monitores-online > div {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; 
 }
 
-section#monitores-online>div>.usuarioLogado {
+section#monitores-online > div > .usuarioLogado {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    width: 100%; 
 }
 
-section#monitores-online>div>.usuarioLogado>img {
+section#monitores-online > div > .usuarioLogado > img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 4px;
 }
 
-section#monitores-online>div>.usuarioLogado>div {
+section#monitores-online > div > .usuarioLogado > div {
     display: flex;
     flex-direction: column;
     margin-left: 8px;
 }
 
-section#monitores-online>div>.usuarioLogado>div>h3 {
+section#monitores-online > div > .usuarioLogado > div > h3 {
     font-size: 16px;
     color: #F03A4F;
 }
 
-section#monitores-online>div>.usuarioLogado>div>p {
+section#monitores-online > div > .usuarioLogado > div > p {
     font-size: 12px;
 }
 
-section#conversas-recentes>h1 {
+#tudo-amigo {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+section#conversas-recentes > h1 {
     margin-left: -42px;
     font-size: 20px;
     color: #F03A4F;
+    margin-bottom: 4px;
 }
 
-section#conversas-recentes>div>div {
-    margin-left: 8px;
-    margin-top: 4px;
+section#conversas-recentes > div {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
-section#conversas-recentes>div>div>h2 {
-    font-size: 16px;
-    color: #F03A4F;
+section#conversas-recentes > div > a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: inherit;
 }
 
-section#conversas-recentes>div>div>p {
-    font-size: 12px;
+section#conversas-recentes > div > a > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%; 
 }
 
-section#conversas-recentes>div>img {
+section#conversas-recentes > div > a > div > img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 4px;
-    margin-left: -60px;
+}
+
+section#conversas-recentes > div > a > div > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
+
+#infor-amigo{
+    margin-top: 4px;
+}
+
+#nome-amigo{
+    font-size: 16px;
+    color: #F03A4F;
+}
+
+#msg-amigo {
+    font-size: 12px;
+}
+
+#foto-amigo {
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 4px;
 }
 
 div#listagemdeMonitores.container {
