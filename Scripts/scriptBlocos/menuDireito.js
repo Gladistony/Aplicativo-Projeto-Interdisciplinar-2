@@ -75,30 +75,29 @@ function ajusteMonito(dadosSalvos) {
 
 async function ajustarAmigosLogados() {
     const auth = getAuth();
-    const user = auth.currentUser;  // Verifica se há um usuário logado
+    const user = auth.currentUser;
 
     if (!user) {
         console.error("Usuário não está logado.");
-        return;  // Sai da função se não houver usuário logado
+        return;
     }
 
-    const userId = user.uid;  // Pega o ID do usuário logado
-
+    const userId = user.uid;
     try {
-        // Pega o documento do usuário logado
         const userDoc = await getDoc(doc(db, "InforConta", userId));
         const userData = userDoc.data();
 
         if (userData && userData.listaAmigos && userData.listaAmigos.length > 0) {
             const amigosContainer = document.getElementById('diferente');
-            amigosContainer.innerHTML = '';  // Limpa a listagem de amigos
+            amigosContainer.innerHTML = '';
 
-            // Para cada ID de amigo, busque seus dados
             for (const amigoId of userData.listaAmigos) {
                 const amigoDoc = await getDoc(doc(db, "InforConta", amigoId));
                 if (amigoDoc.exists()) {
                     const amigoData = amigoDoc.data();
                     renderizarAmigo(amigoData, amigosContainer);
+                } else {
+                    console.warn(`Amigo com ID ${amigoId} não encontrado.`);
                 }
             }
         } else {
@@ -117,7 +116,7 @@ function renderizarAmigo(amigoData, container) {
         <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
         <div id="infor-amigo">
             <h2 id="nome-amigo">${amigoData.nome}</h2>
-            <p id= "msg-amigo">Ainda sem mensagens recentes</p>
+            <p id="msg-amigo">Ainda sem mensagens recentes</p>
         </div></a>
     `;
     container.appendChild(amigoItem);
