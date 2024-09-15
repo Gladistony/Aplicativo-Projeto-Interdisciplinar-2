@@ -5,38 +5,20 @@
     src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f0f0f0;
-}
-
-header {
-    display: inline-block;
-    width: 100%;
-    padding-top: 50px;
-    margin-bottom: 0;
-}
-
 #barra-superior {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 600px;
-    margin: 0;
-    margin-bottom: 20px;
+    margin: 0 auto;
 }
 
 .container-pesquisa {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     margin-bottom: 10px;
 }
@@ -45,9 +27,8 @@ header {
     flex-grow: 1;
     padding: 10.2px;
     border: 1px solid #ccc;
-    border-radius: 20px 0 0 0;
+    border-radius: 20px 0 0 20px;
     font-family: "Poppins";
-    margin-right: 10px;
     font-size: small;
 }
 
@@ -67,11 +48,13 @@ header {
 
 main {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 100vh;
-    margin-top: 0;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
 }
 
 #lista-amigos {
