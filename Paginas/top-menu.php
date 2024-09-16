@@ -22,7 +22,7 @@ $fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Rec
             <span class="arrow-down"><img src="../Recursos/Imagens/Seta-para-baixo.png" alt=""></span>
         </button>
         <div class="dropdown" id="dropdown" style="display: none;">
-            <a href="./Paginas/menu-perfil.php" id="botao-drop-seu-Perfil" class="botao-link">Seu perfil</a>
+            <a href="#" id="botao-drop-seu-Perfil" class="botao-link">Seu perfil</a>
             <button id="botao-drop-sair">Sair</button>
         </div>
     </div>
