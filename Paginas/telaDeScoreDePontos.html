@@ -1,98 +1,42 @@
-<!DOCTYPE html>
-<html lang="br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\Styles\estilo_telaDeScoreDePontos.css">
-</head>
-<body>  
-    <div class="card">
+<div class="card">
 
-        <div class="card-title">
-            <h1 class="no-break">Maiores pontuações</h1>
-        </div>
+    <div class="card-title">
+        <h1 class="no-break">Maiores pontuações</h1>
+    </div>
 
-        <div class="card-body">
-            <ul class="list">
+    <div class="card-body">
+        <ul class="list" id="lista-posicoes-jogadores">
 
-                <!-- Maiores pontuações -->
-                 
-                <li class="list-item">
-                    <div class="list-item-header">
-                        <span class="list-item-header-badge">1º</span>
-                        <img src="../Recursos/Imagens/user.png" alt="foto" class="list-item-icon">
-                    </div>
-                    <div class="list-item-body">
-                        <span class="list-item-title">Nome</span>
-                        <div class="list-item-level">
-                            <span class="level">Nível: 20</span>
-                        </div>
-                        <span class="list-item-subtitle">Pontos 80/100</span>
-                        <div class="list-item-progress-bar">
-                            <span class="progress" style="width: 80%;"></span>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="list-item-header">
-                        <span class="list-item-header-badge">2º</span>
-                        <img src="../Recursos/Imagens/user.png" alt="foto" class="list-item-icon">
-                    </div>
-                    <div class="list-item-body">
-                        <span class="list-item-title">Nome</span>
-                        <div class="list-item-level">
-                            <span class="level">Nível: 17</span>
-                        </div>
-                        <span class="list-item-subtitle">Pontos 65/100</span>
-                        <div class="list-item-progress-bar">
-                            <span class="progress" style="width: 65%;"></span>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-item">
-                    <div class="list-item-header">
-                        <span class="list-item-header-badge">3º</span>
-                        <img src="../Recursos/Imagens/user.png" alt="Foto" class="list-item-icon">
-                    </div>
-                    <div class="list-item-body">
-                        <span class="list-item-title">Nome</span>
-                        <div class="list-item-level">
-                            <span class="level">Nível: 12</span>
-                        </div>
-                        <span class="list-item-subtitle">Pontos 40/100</span>
-                        <div class="list-item-progress-bar">
-                            <span class="progress" style="width: 40%;"></span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div> 
+            <!-- Maiores pontuações -->
 
-    <!--pontuação do usuário -->
 
-    <div class="card user-score-card">
-        <div class="card-title">
-            <h1 class="no-break">Minha Pontuação</h1>
-        </div>
-        <div class="card-body">
-            <div class="user-score">
-                <div class="user-score-header">
-                    <span class="user-score-header-badge">4º</span>
-                    <img src="../Recursos/Imagens/user.png" alt="foto" class="user-score-icon">
+
+        </ul>
+    </div>
+</div>
+
+<!--pontuação do usuário -->
+
+<div class="card user-score-card">
+    <div class="card-title">
+        <h1 class="no-break">Minha Pontuação</h1>
+    </div>
+    <div class="card-body">
+        <div class="user-score">
+            <div class="user-score-header">
+                <span class="user-score-header-badge" id="pontos-minha-posicao">4º</span>
+                <img src="../Recursos/Imagens/user.png" alt="foto" class="user-score-icon" id="pontos-minha-foto">
+            </div>
+            <div class="user-score-body">
+                <span class="user-score-title" id="pontos-meu-nome">Meu Nome</span>
+                <div class="user-score-level">
+                    <span class="level" id="pontos-meu-nivel">Nível: 11</span>
                 </div>
-                <div class="user-score-body">
-                    <span class="user-score-title">Meu Nome</span>
-                    <div class="user-score-level">
-                        <span class="level">Nível: 11</span>
-                    </div>
-                    <span class="user-score-subtitle">Pontos 30/100</span>
-                    <div class="user-score-progress-bar">
-                        <span class="progress" style="width: 30%;"></span>
-                    </div>
+                <span class="user-score-subtitle" id="pontos-meus-pontos">Pontos 30/100</span>
+                <div class="user-score-progress-bar">
+                    <span class="progress" style="width: 30%;" id="pontos-progress-bar"></span>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>

@@ -10,6 +10,7 @@ import { carregamentoBoasvindas } from './principalScripts/boasvindas.js';
 import { carregamentoPerfil, toggleEditModePerfil } from './principalScripts/editperfil.js';
 import { atualizarConecaoFirebase } from './atualizarData.js';
 import { carregamentoForum, carregamentoSubForum, carregamentoConteudoForum } from './principalScripts/forum.js';
+import { carregamentoPontuacao } from './principalScripts/sistemapontuacao.js';
 
 
 const paginaName = getURLParameter('pagina') || 'home';
@@ -41,6 +42,8 @@ if (paginaName === 'home') {
     const ide = getURLParameter('id') || '0000';
     window.topicoID = ide;
     loadHTML("../Paginas/forum/forum-conteudo.php?id=" + ide, "../Styles/forum-topico.css", "conteudo_principal", carregamentoConteudoForum);
+} else if (paginaName === 'pontuacao') {
+    loadHTML("../Paginas/telaDeScoreDePontos.html", "../Styles/estilo_telaDeScoreDePontos.css", "conteudo_principal", carregamentoPontuacao);
 }
 
 

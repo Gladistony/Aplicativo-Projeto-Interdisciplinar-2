@@ -45,6 +45,11 @@
                 <span class="txt-link">Ver todos os fóruns</span>
             </a>
         </li>
+        <li class="buton">
+            <a href="#" id="pontos-button">
+                <span class="txt-link">Ver Rank de Pontos</span>
+            </a>
+        </li>
     </ul>
 </nav>
 
