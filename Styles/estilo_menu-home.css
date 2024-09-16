@@ -14,8 +14,8 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+    width: 100%;
+    /*max-width: 600px;*/
     display: flex;
     flex-direction: column;
 }
@@ -64,6 +64,16 @@
     color: #333;
 }
 
+#conteudo_principal .aviso-hud {
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+
+
 #conteudo_principal .nova-monitoria {
     margin-top: 30px;
     padding: 20px;
@@ -98,5 +108,6 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: not-allowed; /* Indica que o botão está desativado */
+    cursor: not-allowed;
+    /* Indica que o botão está desativado */
 }
