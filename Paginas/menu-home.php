@@ -47,6 +47,20 @@ if ($hora < 12) {
     </div>
 </div>
 
+<!-- Campo para adicionar novas monitorias -->
+<div class="nova-monitoria">
+    <h2>Adicionar Nova Monitoria</h2>
+    <form action="#" method="POST">
+        <label for="nome-monitoria">Nome da Monitoria:</label>
+        <input type="text" id="nome-monitoria" name="nome-monitoria" disabled>
+        <br>
+        <label for="descricao-monitoria">Descrição:</label>
+        <textarea id="descricao-monitoria" name="descricao-monitoria" rows="4" cols="50" disabled></textarea>
+        <br>
+        <button type="submit" disabled>Adicionar Monitoria</button>
+    </form>
+</div>
+
 <!-- Script para atualizar o relógio em tempo real -->
 <script>
     function atualizarRelogio() {
