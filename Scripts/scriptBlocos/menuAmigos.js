@@ -6,8 +6,9 @@ import { db } from '../firebase-config.js';
 
 const auth = getAuth();
 
-async function buscarAmigosPorEmail(email) {
-    const q = query(collection(db, "InforConta"), where("email", "==", email));
+async function buscarAmigosPorEmail(parteDoEmail) {
+    parteDoEmail = parteDoEmail.toLowerCase();
+    const q = query(collection(db, "InforConta"), where("email", ">=", parteDoEmail), where("email", "<=", parteDoEmail + '\uf8ff'));
     const querySnapshot = await getDocs(q);
 
     document.getElementById("lista-amigos").innerHTML = "";

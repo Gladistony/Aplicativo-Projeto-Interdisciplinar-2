@@ -9,6 +9,9 @@ function loadMenutopo() {
     if (botaodropdw) {
         botaodropdw.addEventListener('click', toggleDropdown);
     }
+    const botaoperfil = document.getElementById('botao-drop-seu-Perfil');
+    const meuid = window.sessionData.id;
+    botaoperfil.href = './main-logado.php?pagina=perfilpublico&id=' + meuid;
 }
 function toggleDropdown() {
     var dropdown = document.getElementById('dropdown');

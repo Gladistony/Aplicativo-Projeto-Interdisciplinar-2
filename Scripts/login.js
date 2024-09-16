@@ -79,6 +79,14 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 let infoConfig = docSnapConfig.data();
                 const periodoAtual = infoConfig.Periodo;
 
+                //Listas de conquistas
+                var conquistacriartopico = false;
+                var conquistacomentar10vezes = false;
+                var conquistaeditardescricao = false;
+                //verificar tamanho do userInfo.descricao é maior que 10 caracteres
+                if (userInfo.descricao != undefined && userInfo.descricao.length > 10 && userInfo.descricao != 'Não informado') {
+                    conquistaeditardescricao = true;
+                }
                 //Baixar informações basicas do forum
                 let forum = [];
 
@@ -128,6 +136,10 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const comentariosSnapshot = await getDocs(q);
                 const comentariosList = comentariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 let listaultimoscomentarios = {};
+                var totalcomentarios = comentariosList.length;
+                if (totalcomentarios >= 10) {
+                    conquistacomentar10vezes = true;
+                }
                 const promessas = comentariosList.map(async comentario => {
                     const totalcurtidas = comentario.curtida.length;
                     pontuacao += totalcurtidas * 5 + 1;
@@ -140,6 +152,15 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                         listaultimoscomentarios[comentario.topicoID] = [topicoData, comentario.data];
                     }
                 });
+                //Verificar se voce criou algum topico
+                const topicosCol = collection(db, 'topicos-alunos');
+                const qTopicos = query(topicosCol, where('autor', '==', IDUsuario));
+                const topicosSnapshot = await getDocs(qTopicos);
+                const topicosList = topicosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (topicosList.length > 0) {
+                    conquistacriartopico = true;
+                }
+
                 await Promise.all(promessas);
                 //Pegar apenas os ultimos 3 topicos que vc comentou
                 let ultimosComentarios = [];
@@ -157,6 +178,19 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 };
 
                 userInfo.pontuacao = pontuacao;
+                //Verificar quais as conquistas foram obtidas
+                var conquistas = userInfo.conquistas || [];
+                if (conquistacomentar10vezes && !conquistas.includes('AVVhM3eNceaXaXSSWMOj')) {
+                    conquistas.push('AVVhM3eNceaXaXSSWMOj');
+                }
+                if (conquistacriartopico && !conquistas.includes('qaMLMXfNPsxhx9T5wktA')) {
+                    conquistas.push('qaMLMXfNPsxhx9T5wktA');
+                }
+                if (conquistaeditardescricao && !conquistas.includes('woG1vDyAsXRtzCPeCzSO')) {
+                    conquistas.push('woG1vDyAsXRtzCPeCzSO');
+                }
+                userInfo.conquistas = conquistas;
+
                 // Atualizar informações no Firestore
                 await setDoc(docRef, userInfo);
                 // Enviar informações ao servidor PHP
