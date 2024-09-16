@@ -26,10 +26,19 @@ if ($hora < 12) {
 ?>
 
 <div class="container">
+    <!-- Mensagem de Boas-vindas -->
     <h1><?php echo $boas_vindas; ?></h1>
+    
+    <!-- Saudação personalizada com base no horário -->
     <div class="saudacao"><?php echo $saudacao; ?>, <?php echo $nome; ?>!</div>
+    
+    <!-- Informações de período -->
     <div class="periodo">Período: <?php echo $periodo; ?></div>
-    <div id="relogio" class="relogio"></div>
+    
+    <!-- Relógio exibindo a hora atual -->
+    <div id="relogio" class="relogio"><?php echo $dataAtual; ?></div>
+    
+    <!-- Seção de avisos -->
     <div class="avisos">
         <div class="aviso">Avisos:</div>
         <?php foreach ($avisos as $aviso): ?>
@@ -37,3 +46,18 @@ if ($hora < 12) {
         <?php endforeach; ?>
     </div>
 </div>
+
+<!-- Script para atualizar o relógio em tempo real -->
+<script>
+    function atualizarRelogio() {
+        const relogio = document.getElementById('relogio');
+        const agora = new Date();
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        const segundos = String(agora.getSeconds()).padStart(2, '0');
+        const data = agora.toLocaleDateString('pt-BR');
+        relogio.innerHTML = `${data} ${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio();
+</script>
