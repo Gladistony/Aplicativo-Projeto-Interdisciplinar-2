@@ -7,11 +7,13 @@
   
   :root {
     --texto: #000000;
+    --textoDaColocação: #ffffff;
     --fundo: #ffffff;
     --pontuação: #000000;
     --fundoDoContainer: #ffffff;
     --barraVazia: #93949e;
     --posição: #ff0000;
+    --corDaColocação:#000000;
     --molduraDoicone: #1f0202;
   }
   
@@ -36,6 +38,7 @@
   .list-item-header {
     display: flex;
   }
+
   .list {
     width: 100%;
     padding: 10px;
@@ -55,21 +58,20 @@
     align-items: center;
   }
   .list-item-header-badge {
-    position: fixed;
-    margin-top: -20px;
+    margin-top: -25px;
     margin-left: -4px;
+    z-index: 1000;
     width: 10px;
-    display: block;
     padding: 2px;
     border-radius: 50%;
-    background-color: var(--posição);
+    background-color: var(--corDaColocação);
     text-align: center;
     font-weight: 900;
     font-size: 10px;
     line-height: 10px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
       rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-    color: var(--numeroDaPosição);
+    color: var(--textoDaColocação);
   }
   .list-item-icon {
     width: calc(95% - 10px);
@@ -129,6 +131,19 @@
       font-weight: 900;
       color: var(--texto);
   }
+
+  .user-score,
+  .user-score-card,
+  .user-score-header {
+  display: flex;
+  }
+
+  .user-score {
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
   
   .card, .user-score-card {
     width: 300px;
@@ -149,21 +164,20 @@
     align-items: center;
   }
   .user-score-header-badge {
-    position: fixed;
     margin-top: 5px;
     margin-left: -4px;
+    margin-bottom: 30px;
     width: 10px;
-    display: block;
     padding: 2px;
     border-radius: 50%;
-    background-color: var(--posição);
+    background-color: var(--corDaColocação);
     text-align: center;
     font-weight: 900;
     font-size: 10px;
     line-height: 10px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
       rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-    color: var(--numeroDaPosição);
+    color: var(--textoDaColocação);
   }
   
   .user-score-card .user-score-icon {
