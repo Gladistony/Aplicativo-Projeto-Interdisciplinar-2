@@ -1,81 +1,105 @@
-#conteudo_principal body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
+#conteudo_principal .spinner {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#conteudo_principal .content {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+#conteudo_principal .container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#conteudo_principal .topico {
+    border: 1px solid #ccc;
     padding: 20px;
-}
-
-#conteudo_principal h1,
-h2 {
-    text-align: center;
-    color: #333;
-}
-
-#conteudo_principal p {
-    text-align: center;
-    color: #666;
-}
-
-#conteudo_principal textarea {
-    display: block;
-    width: 80%;
     margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#conteudo_principal button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#conteudo_principal button:hover {
-    background-color: #0056b3;
-}
-
-#conteudo_principal ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.comentario-box {
-    display: flex;
-    align-items: flex-start;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    width: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px auto;
-    padding: 20px;
-    width: 80%;
 }
 
-.autor-foto {
+#conteudo_principal .topico img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 20px;
 }
 
-.comentario-conteudo {
-    flex: 1;
+#conteudo_principal .topico h2 {
+    margin: 10px 0;
 }
 
-.comentario-conteudo h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 0 0 10px;
-}
-
-.comentario-conteudo p {
-    font-size: 14px;
-    color: #666;
+#conteudo_principal .topico p {
     margin: 5px 0;
+}
+
+#conteudo_principal .conteudo-box {
+    border: 2px solid #3498db;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+}
+
+#conteudo_principal .comentarios {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#conteudo_principal .comentario {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+#conteudo_principal .comentario img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+#conteudo_principal .comentario strong {
+    margin-left: 10px;
+}
+
+#conteudo_principal .comentario-form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#conteudo_principal .comentario-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+#conteudo_principal .comentario-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
 }

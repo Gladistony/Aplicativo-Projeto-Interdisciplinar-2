@@ -1,6 +1,7 @@
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { collection, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { collection, query, where, doc, setDoc, getDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { db } from './firebase-config.js';
+import { getFirstTwoNames } from './utilidades.js';
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -33,6 +34,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const docRef = doc(db, "InforConta", user.uid);
                 const docSnap = await getDoc(docRef);
                 const IDUsuario = user.uid;
+                const clains = user.getIdTokenResult();
+                const customClaims = (await clains).claims;
 
                 let userInfo = {
                     curso: "Indisponível",
@@ -62,15 +65,18 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 });
                 userInfo.dataacesso = dataAtual.getTime();
                 userInfo.ultimoLogin = dataFormatada;
+                //Atualizar informações no auth do nome para o displynome
+                updateProfile(user, {
+                    displayName: userInfo.nome
+                });
 
-                // Atualizar informações no Firestore
-                await setDoc(docRef, userInfo);
+                //Carregar as customClaims[''] do perfil
+                userInfo.tipoConta = customClaims.accountType || 'Aluno';
 
                 //Baixar as informações gerais de configuracao
                 const docRefConfig = doc(db, "DefinicoesGerais", "data");
                 const docSnapConfig = await getDoc(docRefConfig);
                 let infoConfig = docSnapConfig.data();
-
                 const periodoAtual = infoConfig.Periodo;
 
                 //Baixar informações basicas do forum
@@ -79,12 +85,12 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const turmasCol = collection(db, 'turmas-forum');
                 const turmasSnapshot = await getDocs(turmasCol);
                 const turmasList = turmasSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                turmasList.forEach(async turma => {
+                await Promise.all(turmasList.map(async turma => {
                     if (turma.periodo == periodoAtual) {
                         const iconeTurma = turma.icone;
                         const nome = turma.nome;
                         const idTurma = turma.id;
-                        const professor = turma.professor;
+                        var professor = turma.professor;
                         const subtopicosCol = collection(db, 'subtopicos-forum');
                         const q = query(subtopicosCol, where('turmaId', '==', idTurma));
                         const subtopicosSnapshot = await getDocs(q);
@@ -97,28 +103,73 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                             };
                             subtopicos.push(subtopicoInfo);
                         });
+                        //buscar nome do professor
+                        const docRefProf = doc(db, "InforConta", professor);
+                        const docSnapProf = await getDoc(docRefProf);
+                        const profData = docSnapProf.data();
+                        professor = getFirstTwoNames(profData.nome);
+                        const professorFoto = profData.fotoPerfil;
+
                         let turmaInfo = {
                             icone: iconeTurma,
                             nome: nome,
                             id: idTurma,
                             professor: professor,
+                            professorFoto: professorFoto,
                             subtopicos: subtopicos,
                         };
                         forum.push(turmaInfo);
                     }
+                }));
+                var pontuacao = 0;
+                //começar a busca pelos comentarios do usuario
+                const comentariosCol = collection(db, 'comentarios-forum');
+                const q = query(comentariosCol, where('autor', '==', IDUsuario));
+                const comentariosSnapshot = await getDocs(q);
+                const comentariosList = comentariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                let listaultimoscomentarios = {};
+                const promessas = comentariosList.map(async comentario => {
+                    const totalcurtidas = comentario.curtida.length;
+                    pontuacao += totalcurtidas * 5 + 1;
+                    //buscar topico do comentario
+                    const topicoID = comentario.topicoID;
+                    const topicoRef = doc(db, 'topicos-alunos', topicoID);
+                    const topicoSnap = await getDoc(topicoRef);
+                    const topicoData = topicoSnap.data();
+                    if (listaultimoscomentarios[comentario.topicoID] == undefined) {
+                        listaultimoscomentarios[comentario.topicoID] = [topicoData, comentario.data];
+                    }
                 });
+                await Promise.all(promessas);
+                //Pegar apenas os ultimos 3 topicos que vc comentou
+                let ultimosComentarios = [];
+                for (let key in listaultimoscomentarios) {
+                    ultimosComentarios.push({ topicoID: key, dado: listaultimoscomentarios[key][0], data: listaultimoscomentarios[key][1] });
+                }
+                ultimosComentarios.sort((a, b) => {
+                    return b.data - a.data;
+                });
+                ultimosComentarios = ultimosComentarios.slice(0, 3);
 
+                let datacustom = {
+                    pontuacao: pontuacao,
+                    ultimosComentarios: ultimosComentarios,
+                };
+
+                userInfo.pontuacao = pontuacao;
+                // Atualizar informações no Firestore
+                await setDoc(docRef, userInfo);
                 // Enviar informações ao servidor PHP
                 await fetch('./Scripts/set-session.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: forum })
+                    body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: forum, datacustom: datacustom })
                 });
                 localStorage.removeItem('usuariosMonitores');
                 localStorage.removeItem('tempoSalvo');
-
+                //alert('teste');
                 window.location.href = './Paginas/main-logado.php';
             } else {
                 console.log('Usuário não está logado');

@@ -8,7 +8,8 @@ $response = array(
     'verificado' => isset($_SESSION['verificado']) ? $_SESSION['verificado'] : null,
     'id' => isset($_SESSION['id']) ? $_SESSION['id'] : null,
     'infoConfig' => isset($_SESSION['infoConfig']) ? $_SESSION['infoConfig'] : null,
-    'forum' => isset($_SESSION['forum']) ? $_SESSION['forum'] : null
+    'forum' => isset($_SESSION['forum']) ? $_SESSION['forum'] : null,
+    'datacustom' => isset($_SESSION['datacustom']) ? $_SESSION['datacustom'] : null
 );
 
 echo json_encode($response);

@@ -1,6 +1,6 @@
 <nav class="menu-lateral">
     <header class="logo" id="logo-lateral">
-        Monitor<span>&a</span>
+        Monitor<span id="logo-lateral-span">&a</span>
     </header>
     <ul>
         <li class="item-menu">
@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="item-menu" id="botao-admin">
-            <a href="#">
+            <a href="../painel-admin.php?senha=duhadslgcaiudb42r3ffe1e">
                 <img src="../Recursos/Imagens/config.png"  alt="configurações">
                 <span class="txt-link">Configurar Contas</span>
             </a>
@@ -36,13 +36,9 @@
 
         <hr class="line">
 
-        <h1 class="subtitulo">Fóruns que participo</h1>
+        <h1 class="subtitulo">Topicos de Interesse</h1>
 
         <section id="foruns">
-            <div class="container" id="listagemdediciplinas">
-                <img src="../Recursos/Imagens/integral.png"  alt="integral">
-                <h2>Calculo 1<br>prof: João Azevedo</h2>
-            </div>
         </section>
         <li class="buton">
             <a href="#" id="lateral-forum">

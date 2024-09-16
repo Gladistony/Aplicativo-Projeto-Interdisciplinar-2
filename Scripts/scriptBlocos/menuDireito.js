@@ -1,6 +1,7 @@
 import { db } from '../firebase-config.js';
-import { collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { collection, query, where, getDocs, getDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { getFirstTwoNames } from '../utilidades.js';
 
 function loadMenuDireito() {
     ajustarmonitoresLogados();
@@ -10,6 +11,34 @@ function loadMenuDireito() {
     //    loadHTML("../Paginas/telaDeAmigos.php", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
     // });
 }
+
+async function ajustarAmigoLogados() {
+    const auth = getAuth();
+    const agora = new Date().getTime();
+    const cincoMinutos = 5 * 60 * 1000;
+    const umMinutoAtras = agora - 3 * 60000;
+    const dadosSalvos = JSON.parse(localStorage.getItem('usuariosAmigos'));
+    const tempoSalvo = localStorage.getItem('tempoSalvo');
+    if (dadosSalvos && tempoSalvo && (agora - tempoSalvo < cincoMinutos)) {
+        ajustarAmigo(dadosSalvos);
+    } else {
+        const listaamigos = window.sessionData.userInfo.listaAmigos || [];
+        const usuarios = [];
+        for (const amigo of listaamigos) {
+            const docRef = doc(db, "InforConta", amigo);
+            if (docRef) {
+                const doc = await getDoc(docRef);
+                const data = doc.data();
+                if (data.dataacesso && (data.dataacesso > umMinutoAtras)) {
+                    usuarios.push(data);
+                }
+            }
+        }
+        localStorage.setItem('usuariosAmigos', JSON.stringify(usuarios));
+        ajustarAmigo(usuarios);
+    }
+}
+
 
 async function ajustarmonitoresLogados() {
     //console.log(window.sessionData);
@@ -27,7 +56,7 @@ async function ajustarmonitoresLogados() {
         const inforConta = collection(db, 'InforConta');
         const q = query(
             inforConta,
-            where('tipoConta', '==', 'Monitor')
+            where('tipoConta', 'in', ['Monitor', 'Professor'])
         );
         const usuarios = [];
         const querySnapshot = await getDocs(q);
@@ -58,15 +87,43 @@ function ajusteMonito(dadosSalvos) {
     } else {
         dadosSalvos.forEach((usuario) => {
             const usuarioLogado = document.createElement('div');
-            usuarioLogado.classList.add('usuarioLogado');
+            if (usuario.tipoConta === 'Professor') {
+                usuarioLogado.classList.add('usuarioLogadoprofessor');
+            } else {
+                usuarioLogado.classList.add('usuarioLogado');
+            }
             usuarioLogado.innerHTML = `
                 <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
                 <div>
-                    <h3>${usuario.nome}</h3>
+                    <h3>${getFirstTwoNames(usuario.nome)}</h3>
                     <p>${usuario.email}</p>
                 </div>
             `;
             usuariosLogados.appendChild(usuarioLogado);
+        });
+    }
+}
+
+function ajustarAmigo(dadosSalvos) {
+    const usuariosLogados = document.getElementById('diferente');
+    usuariosLogados.innerHTML = '';
+    if (dadosSalvos.length === 0) {
+        const aviso = document.createElement('div');
+        aviso.classList.add('aviso');
+        aviso.innerHTML = '<p>Nenhum amigo online no momento.</p>';
+        usuariosLogados.appendChild(aviso);
+    } else {
+        dadosSalvos.forEach((usuario) => {
+            const amigoItem = document.createElement('div');
+            amigoItem.classList.add('usuarioLogado');
+            amigoItem.innerHTML = `
+            <img src="${usuario.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+            <div>
+                <h3>${getFirstTwoNames(usuario.nome)}</h3>
+                <p>${usuario.email}</p>
+            </div>
+        `;
+            usuariosLogados.appendChild(amigoItem);
         });
     }
 }
