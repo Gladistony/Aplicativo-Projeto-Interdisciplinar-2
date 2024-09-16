@@ -10,8 +10,8 @@ $infoGeral = $_SESSION['infoConfig'];
 $boas_vindas = $infoGeral['MsgBoasVindas'];
 $periodo = $infoGeral['Periodo'];
 $avisos = $infoGeral['Avisos'];
+date_default_timezone_set('America/Sao_Paulo');
 
-// Obtendo a data atual
 $dataAtual = date('d/m/Y H:i:s');
 
 // Definindo a saudação com base no horário
@@ -37,17 +37,13 @@ if ($hora < 12) {
     
     <!-- Relógio exibindo a hora atual -->
     <div id="relogio" class="relogio"><?php echo $dataAtual; ?></div>
-    
-    <!-- Seção de avisos -->
+
     <div class="avisos">
         <div class="aviso">Avisos:</div>
         <?php foreach ($avisos as $aviso): ?>
             <div class="aviso"><?php echo $aviso; ?></div>
         <?php endforeach; ?>
     </div>
-</div>
-
-<!-- Campo para adicionar novas monitorias -->
 <div class="nova-monitoria">
     <h2>Adicionar Nova Monitoria</h2>
     <form action="#" method="POST">

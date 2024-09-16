@@ -182,9 +182,9 @@
             'dev_requirement' => false,
         ),
         'kreait/firebase-php' => array(
-            'pretty_version' => '7.14.0',
-            'version' => '7.14.0.0',
-            'reference' => 'e4b0c0c9be0959cf5f02208fe3815a52f692aebe',
+            'pretty_version' => '7.15.0',
+            'version' => '7.15.0.0',
+            'reference' => '4dbbc88539b71b16ebb5e4fc94ee2d7003ae13e2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../kreait/firebase-php',
             'aliases' => array(),
