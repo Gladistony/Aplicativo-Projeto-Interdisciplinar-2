@@ -13,21 +13,17 @@ section#monitores-online>h1 {
     color: #F03A4F;
 }
 
-section#conversas-recentes>h1 {
-    margin-left: -8px;
-    font-size: 20px;
-    color: #F03A4F;
-}
-
 section#monitores-online>div {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 section#monitores-online>div>.usuarioLogado {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    width: 100%;
 }
 
 section#monitores-online>div>.usuarioLogado>img {
@@ -52,61 +48,79 @@ section#monitores-online>div>.usuarioLogado>div>p {
     font-size: 12px;
 }
 
-section#monitores-online>div>.usuarioLogadoprofessor {
+#tudo-amigo {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+section#conversas-recentes>h1 {
+    margin-left: -42px;
+    font-size: 20px;
+    color: #F03A4F;
+    margin-bottom: 4px;
+}
+
+section#conversas-recentes>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+section#conversas-recentes>div>a {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    text-decoration: none;
+    color: inherit;
 }
 
-section#monitores-online>div>.usuarioLogadoprofessor>img {
+section#conversas-recentes>div>a>div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+section#conversas-recentes>div>a>div>img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 4px;
 }
 
-section#monitores-online>div>.usuarioLogadoprofessor>div {
+section#conversas-recentes>div>a>div>div {
     display: flex;
     flex-direction: column;
     margin-left: 8px;
 }
 
-section#monitores-online>div>.usuarioLogadoprofessor>div>h3 {
+#infor-amigo {
+    margin-top: 4px;
+}
+
+#nome-amigo {
+    font-size: 16px;
+    color: #393439;
+}
+
+#nome-amigo-2 {
     font-size: 16px;
     color: #c11cda;
 }
 
-section#monitores-online>div>.usuarioLogadoprofessor>div>p {
+#msg-amigo {
     font-size: 12px;
 }
 
-
-section#conversas-recentes>div>.usuarioLogado {
+#foto-amigo {
     display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
-
-section#conversas-recentes>div>.usuarioLogado>img {
+    flex-direction: row;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 4px;
-}
-
-section#conversas-recentes>div>.usuarioLogado>div {
-    display: flex;
-    flex-direction: column;
-    margin-left: 8px;
-}
-
-section#conversas-recentes>div>.usuarioLogado>div>h3 {
-    font-size: 16px;
-    color: hsl(0, 0%, 0%);
-}
-
-section#conversas-recentes>div>.usuarioLogado>div>p {
-    font-size: 12px;
 }
 
 div#listagemdeMonitores.container {

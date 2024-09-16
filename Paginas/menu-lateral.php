@@ -12,7 +12,7 @@
         <li class="item-menu">
             <a href="#" id="lateral-amigos">
                 <img src="../Recursos/Imagens/pessoas.png"  alt="pessoas">
-                <span class="txt-link">Amigos</span>
+                <span class="txt-link">Adicionar Amigos</span>
             </a>
         </li>
         <li class="item-menu">
@@ -43,6 +43,11 @@
         <li class="buton">
             <a href="#" id="lateral-forum">
                 <span class="txt-link">Ver todos os fóruns</span>
+            </a>
+        </li>
+        <li class="buton">
+            <a href="#" id="pontos-button">
+                <span class="txt-link">Ver Rank de Pontos</span>
             </a>
         </li>
     </ul>

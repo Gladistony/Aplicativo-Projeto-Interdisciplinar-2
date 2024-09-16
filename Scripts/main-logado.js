@@ -10,6 +10,7 @@ import { carregamentoBoasvindas } from './principalScripts/boasvindas.js';
 import { carregamentoPerfil, toggleEditModePerfil } from './principalScripts/editperfil.js';
 import { atualizarConecaoFirebase } from './atualizarData.js';
 import { carregamentoForum, carregamentoSubForum, carregamentoConteudoForum } from './principalScripts/forum.js';
+import { carregamentoPontuacao } from './principalScripts/sistemapontuacao.js';
 
 
 const paginaName = getURLParameter('pagina') || 'home';
@@ -27,7 +28,7 @@ if (paginaName === 'home') {
 } else if (paginaName === 'perfil') {
     loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal", carregamentoPerfil);
 } else if (paginaName === 'amigos') {
-    loadHTML("../Paginas/telaDeAmigos.php", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
+    loadHTML("../Paginas/telaDeAmigos.html", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal", carregamentoAmigos);
 } else if (paginaName === 'arquivos') {
     loadHTML("../Paginas/arquivos.html", "../Styles/estilo_arquivos.css", "conteudo_principal", carregamentoArquivos);
 } else if (paginaName === 'forum') {
@@ -41,6 +42,8 @@ if (paginaName === 'home') {
     const ide = getURLParameter('id') || '0000';
     window.topicoID = ide;
     loadHTML("../Paginas/forum/forum-conteudo.php?id=" + ide, "../Styles/forum-topico.css", "conteudo_principal", carregamentoConteudoForum);
+} else if (paginaName === 'pontuacao') {
+    loadHTML("../Paginas/telaDeScoreDePontos.html", "../Styles/estilo_telaDeScoreDePontos.css", "conteudo_principal", carregamentoPontuacao);
 }
 
 
@@ -50,6 +53,13 @@ if (paginaName === 'home') {
 function carregamentoArquivos() {
     var script = document.createElement('script');
     script.src = '../Scripts/arquivos_script.js';
+    script.type = 'module';
+    document.head.appendChild(script);
+}
+
+function carregamentoAmigos() {
+    var script = document.createElement('script');
+    script.src = '../Scripts/scriptBlocos/menuAmigos.js';
     script.type = 'module';
     document.head.appendChild(script);
 }

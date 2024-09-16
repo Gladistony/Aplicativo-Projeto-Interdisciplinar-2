@@ -5,51 +5,34 @@
     src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
 }
 
-#conteudo_principal * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#conteudo_principal main {
+#barra-superior {
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    width: 100%;
+    margin: 0 auto;
 }
 
-#conteudo_principal #barra-superior {
+.container-pesquisa {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    width: 80%;
-    max-width: 600px;
-    margin-bottom: 20px;
-}
-
-#conteudo_principal .container-pesquisa,
-#conteudo_principal .container-adicionar-amigo {
-    display: flex;
-    align-items: center;
     width: 100%;
     margin-bottom: 10px;
 }
 
-#conteudo_principal #barra-pesquisa,
-#conteudo_principal #novo-amigo {
+#barra-pesquisa {
     flex-grow: 1;
-    padding: 10px;
+    padding: 10.2px;
     border: 1px solid #ccc;
     border-radius: 20px 0 0 20px;
     font-family: "Poppins";
-    margin-right: -299px;
+    font-size: small;
 }
 
-#conteudo_principal #botao-pesquisa,
-#conteudo_principal #botao-adicionar-amigo {
+#botao-pesquisa {
     padding: 10px;
     border: 1px solid #ccc;
     border-left: none;
@@ -59,77 +42,69 @@
     cursor: pointer;
 }
 
-#conteudo_principal #botao-pesquisa:hover,
-#conteudo_principal #botao-adicionar-amigo:hover {
+#botao-pesquisa:hover {
     background-color: #0056b3;
 }
 
-#conteudo_principal #adicionar {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
 }
 
-#conteudo_principal #adicionar:hover {
-    background-color: #0056b3;
-}
-
-#conteudo_principal #amigos {
-    display: flex;
-    align-items: center;
-    background-color: #ffff;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
+#lista-amigos {
+    width: 100%;
     max-width: 600px;
 }
 
-#conteudo_principal #amigos:hover {
+.amigo {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.amigo:hover {
     background-color: #edf0f1;
     cursor: pointer;
     transition-duration: 0.1s;
-    border-radius: 20px;
 }
 
-#conteudo_principal .img-perfil {
+.img-perfil {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
-#conteudo_principal #nome {
+.informacao {
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+#nome {
     font-family: "Poppins";
     font-weight: bold;
-    margin: 0;
 }
 
-#conteudo_principal #mensagem-recente {
-    font-family: "Poppins";
-    font-size: small;
-    margin: 5px 0 0 0;
-    color: #555;
-}
-
-#conteudo_principal button {
-    margin-left: 300px;
-    color: #ffff;
-    padding: 5px 10px;
-    background-color: #f00;
+.adicionar {
+    background-color: #007bff;
+    color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#conteudo_principal button:hover {
-    background-color: #d00;
+.adicionar:hover {
+    background-color: #0056b3;
 }

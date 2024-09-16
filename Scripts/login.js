@@ -34,7 +34,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const docRef = doc(db, "InforConta", user.uid);
                 const docSnap = await getDoc(docRef);
                 const IDUsuario = user.uid;
-
                 const clains = user.getIdTokenResult();
                 const customClaims = (await clains).claims;
 
@@ -78,7 +77,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                 const docRefConfig = doc(db, "DefinicoesGerais", "data");
                 const docSnapConfig = await getDoc(docRefConfig);
                 let infoConfig = docSnapConfig.data();
-
                 const periodoAtual = infoConfig.Periodo;
 
                 //Baixar informações basicas do forum

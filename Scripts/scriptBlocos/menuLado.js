@@ -7,6 +7,11 @@ function loadMenulado() {
         //loadHTML("../Paginas/menu-forum.php", "../Styles/estilo_menu-forum.css", "conteudo_principal", carregamentoForum);
         window.location.href = '../Paginas/main-logado.php?pagina=forum';
     });
+    document.getElementById('pontos-button').addEventListener('click', function () {
+        //unloadHTML('conteudo_principal');
+        //loadHTML("../Paginas/menu-forum.php", "../Styles/estilo_menu-forum.css", "conteudo_principal", carregamentoForum);
+        window.location.href = '../Paginas/main-logado.php?pagina=pontuacao';
+    });
     document.getElementById('lateral-arquivos').addEventListener('click', function () {
         //unloadHTML('conteudo_principal');
         //loadHTML("../Paginas/arquivos.html", "../Styles/estilo_arquivos.css", "conteudo_principal", carregamentoArquivos);
@@ -38,7 +43,7 @@ function loadMenulado() {
 
     // buscar lista de ultimos forum
     const listaForum = window.sessionData.datacustom.ultimosComentarios || [];
-    console.log(window.sessionData.datacustom.pontuacao);
+    //console.log(window.sessionData.datacustom.pontuacao);
     //<div class="container" id="listagemdediciplinas">
     //    <img src="../Recursos/Imagens/integral.png" alt="integral">
     //        <h2>Calculo 1<br>prof: João Azevedo</h2>
