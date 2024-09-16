@@ -22,6 +22,8 @@
 
 #conteudo_principal h1 {
     color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
 }
 
 #conteudo_principal p {
@@ -58,4 +60,43 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+#conteudo_principal .nova-monitoria {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#conteudo_principal .nova-monitoria h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#conteudo_principal .nova-monitoria label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#conteudo_principal .nova-monitoria input[type="text"],
+#conteudo_principal .nova-monitoria textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#conteudo_principal .nova-monitoria button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed; /* Indica que o botão está desativado */
 }
