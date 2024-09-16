@@ -12,7 +12,7 @@
         <li class="item-menu">
             <a href="#" id="lateral-amigos">
                 <img src="../Recursos/Imagens/pessoas.png"  alt="pessoas">
-                <span class="txt-link">Amigos</span>
+                <span class="txt-link">Adicionar Amigos</span>
             </a>
         </li>
         <li class="item-menu">

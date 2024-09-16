@@ -27,7 +27,7 @@ if (paginaName === 'home') {
 } else if (paginaName === 'perfil') {
     loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal", carregamentoPerfil);
 } else if (paginaName === 'amigos') {
-    loadHTML("../Paginas/telaDeAmigos.html", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal");
+    loadHTML("../Paginas/telaDeAmigos.html", "../Styles/estilo_tela-de-amigos.css", "conteudo_principal", carregamentoAmigos);
 } else if (paginaName === 'arquivos') {
     loadHTML("../Paginas/arquivos.html", "../Styles/estilo_arquivos.css", "conteudo_principal", carregamentoArquivos);
 } else if (paginaName === 'forum') {
@@ -50,6 +50,13 @@ if (paginaName === 'home') {
 function carregamentoArquivos() {
     var script = document.createElement('script');
     script.src = '../Scripts/arquivos_script.js';
+    script.type = 'module';
+    document.head.appendChild(script);
+}
+
+function carregamentoAmigos() {
+    var script = document.createElement('script');
+    script.src = '../Scripts/scriptBlocos/menuAmigos.js';
     script.type = 'module';
     document.head.appendChild(script);
 }

@@ -1,7 +1,8 @@
 import { db } from '../firebase-config.js';
 import { collection, query, where, getDocs, getDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { getFirstTwoNames } from '../utilidades.js';
+
 
 function loadMenuDireito() {
     ajustarmonitoresLogados();
@@ -132,50 +133,66 @@ function ajustarAmigo(dadosSalvos) {
 
 async function ajustarAmigosLogados() {
     const auth = getAuth();
-    const user = auth.currentUser;
 
-    if (!user) {
-        console.error("Usuário não está logado.");
-        return;
-    }
 
-    const userId = user.uid;
-    try {
-        const userDoc = await getDoc(doc(db, "InforConta", userId));
-        const userData = userDoc.data();
-
-        if (userData && userData.listaAmigos && userData.listaAmigos.length > 0) {
-            const amigosContainer = document.getElementById('diferente');
-            amigosContainer.innerHTML = '';
-
-            for (const amigoId of userData.listaAmigos) {
-                const amigoDoc = await getDoc(doc(db, "InforConta", amigoId));
-                if (amigoDoc.exists()) {
-                    const amigoData = amigoDoc.data();
-                    renderizarAmigo(amigoData, amigosContainer);
-                } else {
-                    console.warn(`Amigo com ID ${amigoId} não encontrado.`);
-                }
-            }
-        } else {
-            const amigosContainer = document.getElementById('diferente');
-            amigosContainer.innerHTML = '<p>Você ainda não adicionou nenhum amigo.</p>';
+    await onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+            console.error("Usuário não está logado.");
+            return;
         }
-    } catch (error) {
-        console.error("Erro ao buscar dados dos amigos: ", error);
-    }
+        const userId = user.uid;
+        try {
+            const userDoc = await getDoc(doc(db, "InforConta", userId));
+            const userData = userDoc.data();
+
+            if (userData && userData.listaAmigos && userData.listaAmigos.length > 0) {
+                const amigosContainer = document.getElementById('diferente');
+                amigosContainer.innerHTML = '';
+
+                for (const amigoId of userData.listaAmigos) {
+                    const amigoDoc = await getDoc(doc(db, "InforConta", amigoId));
+                    if (amigoDoc.exists()) {
+                        const amigoData = amigoDoc.data();
+                        renderizarAmigo(amigoData, amigosContainer);
+                    } else {
+                        console.warn(`Amigo com ID ${amigoId} não encontrado.`);
+                    }
+                }
+            } else {
+                const amigosContainer = document.getElementById('diferente');
+                amigosContainer.innerHTML = '<p>Você ainda não adicionou nenhum amigo.</p>';
+            }
+        } catch (error) {
+            console.error("Erro ao buscar dados dos amigos: ", error);
+        }
+    });
 }
 
 function renderizarAmigo(amigoData, container) {
     const amigoItem = document.createElement('div');
     amigoItem.classList.add('amigoItem');
-    amigoItem.innerHTML = `
-        <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
-        <div id="infor-amigo">
-            <h2 id="nome-amigo">${amigoData.nome}</h2>
-            <p id="msg-amigo">Ainda sem mensagens recentes</p>
-        </div></a>
-    `;
+    const ultimologado = amigoData.dataacesso;
+    const agora = new Date().getTime();
+    //verificar se a pessoa não esta online nos ultimos 5 minutos
+    const online = (agora - ultimologado) < 5 * 60 * 1000;
+    if (online) {
+        amigoItem.innerHTML = `
+            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+            <div id="infor-amigo">
+                <h2 id="nome-amigo-2">${getFirstTwoNames(amigoData.nome)}</h2>
+                <p id="msg-amigo">Ainda sem mensagens recentes</p>
+            </div></a>
+        `;
+    } else {
+        amigoItem.innerHTML = `
+            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+            <div id="infor-amigo">
+                <h2 id="nome-amigo">${getFirstTwoNames(amigoData.nome)}</h2>
+                <p id="msg-amigo">Ainda sem mensagens recentes</p>
+            </div></a>
+        `;
+    }
+
     container.appendChild(amigoItem);
 }
 
