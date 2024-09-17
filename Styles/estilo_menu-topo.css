@@ -260,6 +260,9 @@ span.user-name {
     font-weight: 400;
     color: #333;
     text-align: center;
+}
+
+.dropdown button:hover {
     background-color: #e0e0e0;
 }
 
