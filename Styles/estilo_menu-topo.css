@@ -262,7 +262,7 @@ span.user-name {
     text-align: center;
 }
 
-.dropdown button:hover {
+.dropdown button .botao-link:hover {
     background-color: #e0e0e0;
 }
 
