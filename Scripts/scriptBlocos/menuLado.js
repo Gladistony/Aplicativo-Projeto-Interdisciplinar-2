@@ -57,7 +57,7 @@ function loadMenulado() {
         listaForum.forEach(forum => {
             const container = document.createElement('div');
             container.classList.add('container');
-            container.innerHTML = '<h2>➦ ${forum.dado.titulo}</h2>';
+            container.innerHTML = `<h2>➦ ${forum.dado.titulo}</h2>`;
             container.addEventListener('click', () => {
                 window.location.href = `../Paginas/main-logado.php?pagina=conteudoForum&id=${forum.topicoID}`;
             });
