@@ -7,6 +7,17 @@ Please read about the future of the Firebase Admin PHP SDK on the
 
 ## [Unreleased]
 
+## [7.15.0] - 2024-09-11
+
+### Added
+
+* Added support for [rollout parameter values](https://firebase.google.com/docs/reference/remote-config/rest/v1/RemoteConfig#RolloutValue)
+  in Remote Config Templates. 
+  ([#923](https://github.com/kreait/firebase-php/pull/923)), ([#927](https://github.com/kreait/firebase-php/pull/927))
+  * Please note that it's not (yet?) possible to create rollouts programmatically via the Firebase API. This means that 
+    you have to manually create a rollout in the Firebase console to be able to reference it in the Remote Config 
+    template.  Rollout IDs are named `rollout_<number>`, and you can find the ID in the URL after clicking on a rollout in the list.
+
 ## [7.14.0] - 2024-08-21
 
 ### Added
@@ -260,7 +271,8 @@ See **[UPGRADE-7.0](UPGRADE-7.0.md) for more details on the changes between 6.x 
 
 https://github.com/kreait/firebase-php/blob/6.9.6/CHANGELOG.md
 
-[Unreleased]: https://github.com/kreait/firebase-php/compare/7.14.0...7.x
+[Unreleased]: https://github.com/kreait/firebase-php/compare/7.15.0...7.x
+[7.15.0]: https://github.com/kreait/firebase-php/compare/7.14.0...7.15.0
 [7.14.0]: https://github.com/kreait/firebase-php/compare/7.13.1...7.14.0
 [7.13.1]: https://github.com/kreait/firebase-php/compare/7.13.0...7.13.1
 [7.13.0]: https://github.com/kreait/firebase-php/compare/7.12.0...7.13.0

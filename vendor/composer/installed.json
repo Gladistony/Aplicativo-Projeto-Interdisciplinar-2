@@ -1231,17 +1231,17 @@
         },
         {
             "name": "kreait/firebase-php",
-            "version": "7.14.0",
-            "version_normalized": "7.14.0.0",
+            "version": "7.15.0",
+            "version_normalized": "7.15.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kreait/firebase-php.git",
-                "reference": "e4b0c0c9be0959cf5f02208fe3815a52f692aebe"
+                "reference": "4dbbc88539b71b16ebb5e4fc94ee2d7003ae13e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/e4b0c0c9be0959cf5f02208fe3815a52f692aebe",
-                "reference": "e4b0c0c9be0959cf5f02208fe3815a52f692aebe",
+                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/4dbbc88539b71b16ebb5e4fc94ee2d7003ae13e2",
+                "reference": "4dbbc88539b71b16ebb5e4fc94ee2d7003ae13e2",
                 "shasum": ""
             },
             "require": {
@@ -1287,7 +1287,7 @@
             "suggest": {
                 "google/cloud-firestore": "^1.0 to use the Firestore component"
             },
-            "time": "2024-08-20T22:29:49+00:00",
+            "time": "2024-09-10T22:44:23+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
