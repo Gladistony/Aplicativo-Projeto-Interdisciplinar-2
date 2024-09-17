@@ -260,11 +260,10 @@ span.user-name {
     font-weight: 400;
     color: #333;
     text-align: center;
-}
-
-.dropdown:hover {
     background-color: #e0e0e0;
 }
+
+
 
 .botao-link {
     background-color: #ffffff;
@@ -278,10 +277,6 @@ span.user-name {
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
-}
-
-.botao-link:hover {
-    background-color: #e0e0e0;
 }
 
 .user-name {
