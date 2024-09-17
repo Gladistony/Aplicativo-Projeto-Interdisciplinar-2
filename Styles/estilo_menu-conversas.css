@@ -1,93 +1,106 @@
 @charset "utf-8";
 
+/* Estilos gerais para as seções */
 section#conversas>section {
     margin: 8px;
     width: 270px;
     background-color: white;
     border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-section#monitores-online>h1 {
-    margin-left: -8px;
+/* Estilos para os títulos das seções */
+section#monitores-online>h1,
+section#conversas-recentes>h1 {
     font-size: 20px;
     color: #F03A4F;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-section#monitores-online>div {
+/* Estilos para os contêineres das seções */
+section#monitores-online>div,
+section#conversas-recentes>div {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-section#monitores-online>div>.usuarioLogado {
+/* Estilos para os usuários logados */
+section#monitores-online>div>.usuarioLogado,
+section#conversas-recentes>div>div {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
-section#monitores-online>div>.usuarioLogado>img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 4px;
-}
-
-section#monitores-online>div>.usuarioLogado>div {
-    display: flex;
-    flex-direction: column;
-    margin-left: 8px;
-}
-
-section#monitores-online>div>.usuarioLogado>div>h3 {
-    font-size: 16px;
-    color: #F03A4F;
-}
-
-section#monitores-online>div>.usuarioLogado>div>p {
-    font-size: 12px;
-}
-
-section#conversas-recentes>h1 {
-    margin-left: -42px;
-    font-size: 20px;
-    color: #F03A4F;
-}
-
-section#conversas-recentes>div>div {
-    margin-left: 8px;
-    margin-top: 4px;
-    display: flex;
-    flex-direction: column;
-}
-
-section#conversas-recentes>div>div>h2 {
-    font-size: 16px;
-    color: #F03A4F;
-}
-
-section#conversas-recentes>div>div>p {
-    font-size: 12px;
-}
-
+/* Estilos para as imagens dos usuários */
+section#monitores-online>div>.usuarioLogado>img,
 section#conversas-recentes>div>img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin: 4px;
-    margin-left: -60px;
+    margin-right: 10px;
 }
 
-div#listagemdeMonitores.container {
-    margin-top: 8px;
-    margin-bottom: 4px;
-    background-color: white !important;
+/* Estilos para os detalhes dos usuários */
+section#monitores-online>div>.usuarioLogado>div,
+section#conversas-recentes>div>div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
+/* Estilos para os nomes dos usuários */
+section#monitores-online>div>.usuarioLogado>div>h3,
+section#conversas-recentes>div>div>h2 {
+    font-size: 16px;
+    color: #F03A4F;
+    margin: 0;
+}
+
+/* Estilos para as mensagens dos usuários */
+section#monitores-online>div>.usuarioLogado>div>p,
+section#conversas-recentes>div>div>p {
+    font-size: 12px;
+    margin: 0;
+}
+
+/* Estilos para os links dos nomes dos usuários */
+.usuarioLogado .nome {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.usuarioLogado .nome:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para os status dos usuários */
+.usuarioLogado .status {
+    color: green;
+}
+
+.usuarioLogado .status.offline {
+    color: red;
+}
+
+/* Estilos para os contêineres específicos */
+div#listagemdeMonitores.container,
 div#diferente.container {
     margin-top: 8px;
     margin-bottom: 4px;
     background-color: white !important;
 }
 
+/* Estilos para as seções específicas */
 section#conversas-recentes,
 section#monitores-online {
     display: flex;
