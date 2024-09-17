@@ -18,7 +18,7 @@ async function carregamentoConteudoForum() {
     const autorSnapshot = await getDoc(autorRef);
     const autorData = autorSnapshot.data();
     const autorNome = getFirstTwoNames(autorData.nome);
-    const autorFoto = autorData.fotoPerfil;
+    const autorFoto = autorData.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif";
     //Pegar os comentários
     const comentariosCol = collection(db, 'comentarios-forum');
     const q = query(comentariosCol, where('topicoID', '==', idTopico));
@@ -35,7 +35,7 @@ async function carregamentoConteudoForum() {
         if (autorSnapshot.exists()) {
             const autorData = autorSnapshot.data();
             aNome = getFirstTwoNames(autorData.nome);
-            aFoto = autorData.fotoPerfil;
+            aFoto = autorData.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif";
             tipoConta = autorData.tipoConta;
         }
         const arraycurtir = comentario.curtida || []
@@ -50,7 +50,8 @@ async function carregamentoConteudoForum() {
             data: new Date(comentario.data).toLocaleString('pt-BR'),
             curtidas: totalcurtidas,
             curtil: vccurtil,
-            id: comentario.id
+            id: comentario.id,
+            autorID: comentario.autor
         };
         comentarios.push(comentarioInfo);
     }
@@ -71,6 +72,10 @@ async function carregamentoConteudoForum() {
                     <p>${comentario.data}</p>
                     <span class="curtir" onclick="curtirComentario('${comentario.id}')">${comentario.curtil ? 'Descurtir' : 'Curtir'} (${comentario.curtidas})</span>
                 `;
+        //Adicionar link para o perfil
+        comentarioDiv.querySelector('img').addEventListener('click', () => {
+            window.location.href = "../Paginas/main-logado.php?pagina=perfilpublico&id=" + comentario.autorID;
+        });
         comentariosContainer.appendChild(comentarioDiv);
     });
 
@@ -100,7 +105,7 @@ async function carregamentoSubForum() {
         const autorSnapshot = await getDoc(docRef);
         const autorData = autorSnapshot.data();
         const autorNome = getFirstTwoNames(autorData.nome);
-        const autorFoto = autorData.fotoPerfil;
+        const autorFoto = autorData.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif";
         let topicoInfo = {
             titulo: topico.titulo,
             autor: autorNome,
@@ -256,7 +261,7 @@ async function atualizarmainforum() {
             const docSnapProf = await getDoc(docRefProf);
             const profData = docSnapProf.data();
             professor = getFirstTwoNames(profData.nome);
-            const professorFoto = profData.fotoPerfil;
+            const professorFoto = profData.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif";
 
             let turmaInfo = {
                 icone: iconeTurma,

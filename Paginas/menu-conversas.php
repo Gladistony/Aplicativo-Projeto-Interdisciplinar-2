@@ -6,7 +6,7 @@
     </section>
 
     <section id="conversas-recentes"> <!--Futuro sistema de repetição e requisição do banco de dados-->
-        <h1>Amigos online agora</h1>
+        <h1>Amigos</h1>
         <div class="container" id="diferente">
         </div>
     </section>
