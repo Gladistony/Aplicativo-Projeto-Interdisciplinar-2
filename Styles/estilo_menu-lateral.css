@@ -146,7 +146,6 @@ ul li.buton a {
     padding: 12px 4%;
     display: flex;
     line-height: 20px;
-    margin-bottom: 10px;
     border-color: #ff0000;
 }
 
@@ -177,13 +176,30 @@ ul li.buton a:hover {
     width: 12%;
 }
 
+section#foruns>div{
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    margin-left: 3px;
+}
+
 section#foruns>div>h2 {
-    margin-left: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
     font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
 }
 
 section#foruns>div>h2:hover {
     color: #ff0000;
+    background-color: rgb(238, 237, 236);
+    border-color: #ff0000;
+    text-align: left;
 }
 
 section#foruns>div>img {
@@ -195,4 +211,4 @@ section#foruns>div>img {
 #menu_do_lado .container {
     display: flex;
     align-items: center;
-}
+} 
