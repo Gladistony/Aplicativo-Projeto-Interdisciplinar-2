@@ -11,7 +11,7 @@ $nomeUsuario = $primeiroNome . ' ' . $ultimoNome;
 $fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Recursos/Imagens/perfil-teste.avif';
 ?>
 <section id="menu-topo">
-    <a href="./Paginas/menu-perfil.php">
+    <a href="#">
         <img alt="Foto do Usuário" class="user-photo" src="<?php echo htmlspecialchars($fotoPerfil); ?>">
 
     </a>
@@ -23,7 +23,7 @@ $fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Rec
         </button>
         <div class="dropdown" id="dropdown" style="display: none;">
             <a href="#" id="botao-drop-seu-Perfil" class="botao-link">Seu perfil</a>
-            <button id="botao-drop-sair">Sair</button>
+            <button id="botao-drop-sair" class="botao-link">Sair</button>
         </div>
     </div>
 </section>
