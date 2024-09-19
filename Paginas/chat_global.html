@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../Styles/cssReset.css"/>
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <script type="module" src="../Scripts/configFirebase.js"></script>
+    <script type="module" src="../Scripts/script_global.js"></script>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-box">
+        <div class="user-header" id="user-header"></div>
+        <div class="messagesContainer" id="messagesContainer">
+          <div class="messages" id="messages"></div>
+        </div>
+        <form onsubmit="sendMessage(event)">
+          <div class="container-input">
+            <input
+              type="text"
+              id="user-input"
+              autofocus
+              placeholder="Digite sua mensagem..."
+            />
+            <button type="submit" class="submit-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="43"
+                height="27"
+                viewBox="0 0 43 27"
+                fill="none"
+              >
+                <path
+                  d="M23.2609 13.8432L7.10756 15.52C6.92185 15.5393 6.74757 15.5888 6.60225 15.6633C6.45694 15.7379 6.3457 15.835 6.27974 15.9449L0.710122 25.2416C0.178252 26.0967 1.61301 26.9117 2.92982 26.5002L41.5332 14.4752C41.8 14.3919 42.0244 14.2639 42.1812 14.1057C42.338 13.9475 42.421 13.7652 42.421 13.5793C42.421 13.3934 42.338 13.2111 42.1812 13.0529C42.0244 12.8947 41.8 12.7668 41.5332 12.6834L2.92982 0.658414C1.61301 0.248227 0.178252 1.06326 0.710122 1.91703L6.28188 11.2137C6.34785 11.3236 6.45908 11.4207 6.6044 11.4953C6.74972 11.5699 6.924 11.6193 7.10971 11.6386L23.2631 13.3154C23.3639 13.3254 23.4556 13.3575 23.5218 13.4059C23.588 13.4542 23.6244 13.5157 23.6244 13.5793C23.6244 13.6429 23.588 13.7044 23.5218 13.7527C23.4556 13.8011 23.3639 13.8332 23.2631 13.8432H23.2609Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
