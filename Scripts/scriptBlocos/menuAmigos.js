@@ -51,6 +51,8 @@ async function adicionarAmigo(userId, amigoId) {
     await updateDoc(userDoc, {
         listaAmigos: arrayUnion(amigoId)
     });
+    //Atualizar a pagina
+    window.location.reload();
 }
 
 

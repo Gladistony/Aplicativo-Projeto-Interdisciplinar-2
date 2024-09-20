@@ -1,6 +1,6 @@
 <div class="container">
     <div id="spinner" class="spinner"></div>
-    <div id="content" class="topico" style="display: none;">
+    <div id="content" class="ssubtopico" style="display: none;">
         <h1 id="titulo">Título do Subfórum</h1>
         <div id="topicos"></div>
         <div class="add-topico">
@@ -12,7 +12,7 @@
 <!-- Modal -->
 <div id="addTopicoModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close">×</span>
         <h2>Adicionar Novo Tópico</h2>
         <form id="addTopicoForm">
             <label for="tituloTopico">Título do Tópico:</label><br>

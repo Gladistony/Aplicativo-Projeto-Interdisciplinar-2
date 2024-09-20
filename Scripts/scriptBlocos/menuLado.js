@@ -50,14 +50,14 @@ function loadMenulado() {
     //</div>
     if (listaForum.length == 0) {
         const container = document.createElement('div');
-        container.classList.add('container');
+        container.classList.add('container', 'item-menu'); // Adiciona a classe 'item-menu'
         container.innerHTML = '<h2>Você ainda não comentou em nenhum tópico</h2>';
         document.getElementById('foruns').appendChild(container);
     } else {
         listaForum.forEach(forum => {
             const container = document.createElement('div');
-            container.classList.add('container');
-            container.innerHTML = `<h2>\> ${forum.dado.titulo}</h2>`;
+            container.classList.add('container', 'item-menu'); // Adiciona a classe 'item-menu'
+            container.innerHTML = `<h2>${forum.dado.titulo}</h2>`;
             container.addEventListener('click', () => {
                 window.location.href = `../Paginas/main-logado.php?pagina=conteudoForum&id=${forum.topicoID}`;
             });
