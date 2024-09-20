@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../Recursos/Fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+#barra-superior {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#barra-pesquisa {
+    flex-grow: 1;
+    padding: 10.2px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    font-family: "Poppins";
+    font-size: small;
+}
+
+#botao-pesquisa {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#botao-pesquisa:hover {
+    background-color: #0056b3;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#lista-amigos {
+    width: 100%;
+    max-width: 600px;
+}
+
+.amigo {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.amigo:hover {
+    background-color: #edf0f1;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+.img-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.informacao {
+    flex-grow: 1;
+    padding-right: 20px;
+}
+
+#nome {
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+.adicionar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.adicionar:hover {
+    background-color: #0056b3;
+}
+.adicionar:active {
+    animation: retrair 0.2s ease-in-out;
+}
+
+@keyframes retrair {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
