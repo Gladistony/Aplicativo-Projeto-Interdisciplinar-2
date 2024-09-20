@@ -1,6 +1,7 @@
 import { collection, query, where, getDocs, orderBy, limit, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { db } from '../firebase-config.js';
+import { getFirstTwoNames } from '../utilidades.js';
 
 
 //Modelo de item de pontuação
@@ -68,7 +69,7 @@ async function carregamentoPontuacao() {
                     campoposicao.innerText = `${minhaposicao}°`;
                 }
                 //Coletar dados do jogador
-                const nome = jogador.nome;
+                const nome = getFirstTwoNames(jogador.nome);
                 const foto = jogador.fotoPerfil;
                 const pontos = jogador.pontuacao;
                 const nivel = Math.floor(pontos / 100);
