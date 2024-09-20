@@ -58,6 +58,7 @@ $currentYear = date("Y");
     <h3>Descrição</h3>
     <textarea id="descricao" class="descricao-fonte" placeholder="Fale mais sobre você..." readonly><?php echo htmlspecialchars($descricao); ?></textarea>
     <input type="password" id="senha" class="input-senha-fonte" placeholder="Nova senha" style="display: none;">
+    <input type="password" id="senhaconfirm" class="input-senha-fonte" placeholder="Confime a Nova senha" style="display: none;">
     <small id="senhaAviso" class="aviso-senha" style="display: none;">Lembre-se, a senha deve conter 8 caracteres.</small>
     <div class="button-container">
         <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" />
