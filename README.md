@@ -6,6 +6,8 @@ Este projeto é dedicado à disciplina de Projeto 2 do curso de Engenharia da Co
 
 [Relatorio da 1 VA - 27/08/2024](https://github.com/Gladistony/Aplicativo-Projeto-Interdisciplinar-2/issues/45)
 
+[Relatorio da 2 VA - 20/09/2024](https://github.com/Gladistony/Aplicativo-Projeto-Interdisciplinar-2/issues/108)
+
 ## 🎯 Objetivo do Projeto
 
 O projeto tem como objetivo a criação de um site destinado a centralizar a interação entre estudantes, monitores e professores. Para isso, será criado um fórum dedicado às discussões, apresentação e resolução de atividades, bem como ao compartilhamento geral de informações sobre a disciplina.
@@ -68,9 +70,14 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
    ```bash
    composer init
 	```
-### Passo 5: Instalar o Pacote do Firebase
+### Passo 5: Instalação de componentes essenciaiais
+Para o funcionamento do sistema administrativo, é preciso instalar o php-mbstring em adicional. É possivel fazer isso no ubunto usando o seguinte comando:
+   ```
+	sudo apt-get install php-mbstring
+```
+### Passo 6: Instalar o Pacote do Firebase
 1. **Abra a pasta do projeto**: No terminal, navegue até o diretório do seu projeto.
 2. **Instale o pacote do Firebase**: Execute o seguinte comando para instalar o pacote `kreait/firebase-php`:
    ```bash
-   composer require "kreait/firebase-php:^7.0"
+   composer require "kreait/firebase-php"
    ```
