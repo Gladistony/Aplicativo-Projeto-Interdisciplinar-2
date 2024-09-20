@@ -136,11 +136,18 @@ section#conversas-recentes>div>a>div>div {
 
 #nome-amigo-2 {
     font-size: 16px;
-    color: #c11cda;
+    color: #14c22c;
 }
 
 #msg-amigo {
     font-size: 12px;
+}
+
+#msg-amigo-2 {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    color: #070754;
 }
 
 #foto-amigo {

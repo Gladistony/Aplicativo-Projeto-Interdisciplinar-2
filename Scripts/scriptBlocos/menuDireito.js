@@ -1,7 +1,8 @@
-import { db } from '../firebase-config.js';
+import { db, realdb } from '../firebase-config.js';
 import { collection, query, where, getDocs, getDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { getFirstTwoNames } from '../utilidades.js';
+import { ref, onValue, limitToLast } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 
 function loadMenuDireito() {
@@ -175,23 +176,82 @@ function renderizarAmigo(amigoData, container, idamigo) {
     const agora = new Date().getTime();
     //verificar se a pessoa não esta online nos ultimos 5 minutos
     const online = (agora - ultimologado) < 5 * 60 * 1000;
-    if (online) {
-        amigoItem.innerHTML = `
+
+    //Calcular id da conversa privada
+    const meuid = window.sessionData.id;
+    const idconversa = meuid < idamigo ? meuid + idamigo : idamigo + meuid;
+
+    //abir o realtime database para verificar se tem mensagens
+    const userRef = query(ref(realdb, 'conversas-privadas/' + idconversa), limitToLast(1));
+    //Pegar dado do querry
+    onValue(userRef, (snapshot) => {
+        const data = snapshot.val()
+        if (data) {
+            Object.keys(snapshot.val()).forEach((key) => {
+                const id = data[key].idusuario;
+                const mensagem = data[key].message;
+                if (id == meuid) {
+                    if (online) {
+                        amigoItem.innerHTML = `
+                            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+                            <div id="infor-amigo">
+                                <h2 id="nome-amigo-2">${getFirstTwoNames(amigoData.nome)}</h2>
+                                <p id="msg-amigo">Você: ${mensagem}</p>
+                            </div></a>
+                        `;
+                    } else {
+                        amigoItem.innerHTML = `
+                            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+                            <div id="infor-amigo">
+                                <h2 id="nome-amigo">${getFirstTwoNames(amigoData.nome)}</h2>
+                                <p id="msg-amigo">Você: ${mensagem}</p>
+                            </div></a>
+                        `;
+                    }
+                } else {
+                    if (online) {
+                        amigoItem.innerHTML = `
+                            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+                            <div id="infor-amigo">
+                                <h2 id="nome-amigo-2">${getFirstTwoNames(amigoData.nome)}</h2>
+                                <p id="msg-amigo-2">${mensagem}</p>
+                            </div></a>
+                        `;
+                    } else {
+                        amigoItem.innerHTML = `
+                            <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
+                            <div id="infor-amigo">
+                                <h2 id="nome-amigo">${getFirstTwoNames(amigoData.nome)}</h2>
+                                <p id="msg-amigo-2">${mensagem}</p>
+                            </div></a>
+                        `;
+                    }
+                }
+
+            });
+        } else {
+            if (online) {
+                amigoItem.innerHTML = `
             <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
             <div id="infor-amigo">
                 <h2 id="nome-amigo-2">${getFirstTwoNames(amigoData.nome)}</h2>
                 <p id="msg-amigo">Ainda sem mensagens recentes</p>
             </div></a>
         `;
-    } else {
-        amigoItem.innerHTML = `
+            } else {
+                amigoItem.innerHTML = `
             <a id="tudo-amigo"><img id="foto-amigo" src="${amigoData.fotoPerfil || '../Recursos/Imagens/perfil-teste.avif'}" alt="Foto de perfil">
             <div id="infor-amigo">
                 <h2 id="nome-amigo">${getFirstTwoNames(amigoData.nome)}</h2>
                 <p id="msg-amigo">Ainda sem mensagens recentes</p>
             </div></a>
         `;
-    }
+            }
+        }
+    });
+
+
+
     amigoItem.addEventListener('click', () => {
         //console.log("Clicou no amigo: ", idamigo);
         window.location.href = '../Paginas/main-logado.php?pagina=conversaprivada&amigo=' + idamigo;
