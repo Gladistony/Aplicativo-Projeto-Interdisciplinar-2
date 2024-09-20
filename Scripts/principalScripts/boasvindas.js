@@ -6,6 +6,7 @@ import {
     push,
     onChildAdded, query, limitToLast
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { getFirstTwoNames } from '../utilidades.js';
 
 function carregamentoBoasvindas() {
 
@@ -46,11 +47,11 @@ function carregamentoBoasvindas() {
             const newMessage = push(userRef);
             await set(newMessage, {
                 message: message,
-                usuario: name,
-                idusuario: userId,
+                usuario: name || 'Não identificado',
+                idusuario: userId || user.uid,
                 time: time,
-                cargo: window.sessionData.userInfo.tipoConta,
-                foto: window.sessionData.userInfo.fotoPerfil
+                cargo: window.sessionData.userInfo.tipoConta || 'Aluno',
+                foto: window.sessionData.userInfo.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif"
             });
             messageInput.value = '';
         }
@@ -67,7 +68,8 @@ function carregamentoBoasvindas() {
                 const data = snapshot.val();
 
                 const message = data.message || '';
-                const usuario = data.usuario || 'Não identificado';
+                var usuario = data.usuario || 'Não identificado';
+                usuario = getFirstTwoNames(usuario);
                 const idusuario = data.idusuario || userId;
                 const cargo = data.cargo || 'Aluno';
                 const foto = data.foto || "../Recursos/Imagens/perfil-teste.avif";
