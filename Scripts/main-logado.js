@@ -99,7 +99,7 @@ function carregamentoperfilpublico() {
                     tipoconta.style.color = '#000000'; // Preto para outros
                 }
                 curso.innerHTML = data.curso;
-                periodo.innerHTML = data.periodoIngresso;
+                periodo.innerHTML = data.periodoIngresso || "Não informado";
                 datacriacao.innerHTML = data.dataCriacao;
                 descricao.innerHTML = data.descricao;
                 //conquistas.innerHTML = data.conquistas;
