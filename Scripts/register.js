@@ -66,6 +66,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
+                const verificado = user.emailVerified;
                 // Buscar informações da conta no Firestore
                 const docRef = doc(db, "InforConta", user.uid);
                 const docSnap = await getDoc(docRef);
@@ -88,13 +89,22 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                     userInfo = docSnap.data();
                 }
 
+                // Informações gerais iniciais para um novo usuário
+                const docRefConfig = doc(db, "DefinicoesGerais", "data");
+                const docSnapConfig = await getDoc(docRefConfig);
+                let infoConfig = docSnapConfig.data();
+                let datacustom = {
+                    pontuacao: 0,
+                    ultimosComentarios: [],
+                };
+                
                 // Enviar informações ao servidor PHP
                 await fetch('../Scripts/set-session.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: forum })
+                    body: JSON.stringify({email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: [], datacustom: datacustom })
                 });
 
                 window.location.href = './main-logado.php';
