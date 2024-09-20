@@ -27,7 +27,9 @@ $currentYear = date("Y");
     <div class="imagem">
         <img id="profileImage" src="<?php echo htmlspecialchars($fotoPerfil); ?>" />
     </div>
-    <h1><?php echo htmlspecialchars($userInfo['nome']); ?></h1>
+    <h1 id="nomeContainer">
+        <span id="nome" class="input-nome-fonte"><?php echo htmlspecialchars($userInfo['nome']); ?></span>
+    </h1>
     <h2><?php echo htmlspecialchars($email); ?></h2>
     <?php if (!$verificado) : ?>
         <div class="alert">
@@ -55,6 +57,8 @@ $currentYear = date("Y");
     <p>Data de criação do perfil: <span class="data-criacao"><?php echo htmlspecialchars($dataCriacao); ?></span></p>
     <h3>Descrição</h3>
     <textarea id="descricao" class="descricao-fonte" placeholder="Fale mais sobre você..." readonly><?php echo htmlspecialchars($descricao); ?></textarea>
+    <input type="password" id="senha" class="input-senha-fonte" placeholder="Nova senha" style="display: none;">
+    <small id="senhaAviso" class="aviso-senha" style="display: none;">Lembre-se, a senha deve conter 8 caracteres.</small>
     <div class="button-container">
         <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" />
         <div id="loading-fotoperfil" class="loading-spinner" style="display: none;"></div>

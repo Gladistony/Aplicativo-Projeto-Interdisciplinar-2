@@ -167,6 +167,7 @@ function carregamentoAmigos() {
     script.type = 'module';
     document.head.appendChild(script);
 
+
     document.getElementById("barra-pesquisa").addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault(); // Evita o comportamento padrão do Enter

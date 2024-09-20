@@ -138,8 +138,22 @@
 .input-data-fonte,
 .periodo-fonte,
 .curso,
-.data-criacao {
+.data-criacao,
+.input-senha-fonte {
     font-family: 'Poppins-SemiBold', sans-serif;
+}
+
+.input-nome-fonte-edit {
+    width: 400px;
+    font-size: 0.8em;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.aviso-senha {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
 }
 
 .descricao-fonte {
