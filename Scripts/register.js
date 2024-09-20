@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-import { app, db } from './firebase-config.js';
+import {  doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { db } from './firebase-config.js';
 
 document.getElementById('registerForm').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -66,9 +66,11 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
+                const verificado = user.emailVerified;
                 // Buscar informações da conta no Firestore
                 const docRef = doc(db, "InforConta", user.uid);
                 const docSnap = await getDoc(docRef);
+                const IDUsuario = user.uid;
 
                 let userInfo = {
                     curso: "Indisponível",
@@ -87,13 +89,22 @@ document.getElementById('registerForm').addEventListener('submit', async functio
                     userInfo = docSnap.data();
                 }
 
+                // Informações gerais iniciais para um novo usuário
+                const docRefConfig = doc(db, "DefinicoesGerais", "data");
+                const docSnapConfig = await getDoc(docRefConfig);
+                let infoConfig = docSnapConfig.data();
+                let datacustom = {
+                    pontuacao: 0,
+                    ultimosComentarios: [],
+                };
+                
                 // Enviar informações ao servidor PHP
                 await fetch('../Scripts/set-session.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ email: email, userInfo: userInfo, verificado: false })
+                    body: JSON.stringify({email: email, userInfo: userInfo, verificado: verificado, id: IDUsuario, infoConfig: infoConfig, forum: [], datacustom: datacustom })
                 });
 
                 window.location.href = './main-logado.php';
@@ -107,8 +118,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         erromsg.style.display = 'block';
         if (error.code === 'auth/email-already-in-use') {
             erromsg.innerHTML = 'O e-mail já está em uso.';
+            loadingSpinner.style.display = 'none';
         }
     } finally {
-        loadingSpinner.style.display = 'none';
+        //loadingSpinner.style.display = 'none';
     }
 });
