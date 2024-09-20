@@ -1,3 +1,4 @@
+/* Spinner */
 #conteudo_principal .spinner {
     display: block;
     width: 50px;
@@ -22,38 +23,25 @@
     }
 }
 
-#conteudo_principal .content {
-    display: none;
-    text-align: center;
-    margin-top: 50px;
+/* Container */
+#conteudo_principal .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Tópico */
+#conteudo_principal .topico {
+    background-color: #ffffff;
     width: 100%;
 }
 
-#conteudo_principal .container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-#conteudo_principal .topico {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px auto;
-    width: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#conteudo_principal .topico img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-#conteudo_principal .topico h2 {
-    margin: 10px 0;
-}
-
-#conteudo_principal .topico p {
-    margin: 5px 0;
+#conteudo_principal .topico h1 {
+    font-size: 24px;
+    /* Tamanho maior para o título */
+    margin-bottom: 10px;
 }
 
 #conteudo_principal .conteudo-box {
@@ -61,6 +49,24 @@
     padding: 15px;
     margin: 20px 0;
     background-color: #f9f9f9;
+}
+
+#conteudo_principal #autor-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#conteudo_principal #autor-foto {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+#conteudo_principal #autor-nome,
+#conteudo_principal #data-postagem {
+    margin: 0;
 }
 
 #conteudo_principal .comentarios {

@@ -1,3 +1,4 @@
+/* Spinner */
 #conteudo_principal .spinner {
     display: block;
     width: 50px;
@@ -22,42 +23,76 @@
     }
 }
 
-#conteudo_principal .content {
-    display: none;
-    text-align: center;
-    margin-top: 50px;
+/* Container */
+#conteudo_principal .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
 }
 
+/* Tópico */
+#conteudo_principal .ssubtopico {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+#conteudo_principal .ssubtopico h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+/* Tópico */
 #conteudo_principal .topico {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px auto;
-    width: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#conteudo_principal .topico img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #conteudo_principal .topico h2 {
-    margin: 10px 0;
+    font-size: 24px;
+    /* Tamanho maior para o título */
+    margin-bottom: 10px;
+}
+
+#conteudo_principal .topico .info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#conteudo_principal .topico img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+#conteudo_principal .topico .autor-data {
+    display: flex;
+    flex-direction: column;
 }
 
 #conteudo_principal .topico p {
     margin: 5px 0;
 }
 
+/* Botão Adicionar Tópico */
 #conteudo_principal .add-topico button {
     padding: 10px 20px;
     background-color: #3498db;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
+/* Modal */
 #conteudo_principal .modal {
     display: none;
     position: fixed;
@@ -67,7 +102,6 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
@@ -88,7 +122,7 @@
 }
 
 #conteudo_principal .close:hover,
-.close:focus {
+#conteudo_principal .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

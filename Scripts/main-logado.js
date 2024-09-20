@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { collection, query, where, doc, arrayUnion, getDoc, getDocs, addDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { getStorage } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
-import { db } from './firebase-config.js';
+import { db, realdb } from './firebase-config.js';
 import { loadHTML, getURLParameter } from './CarregamentoHtml.js';
 import { loadMenuDireito } from './scriptBlocos/menuDireito.js';
 import { loadMenulado } from './scriptBlocos/menuLado.js';
@@ -11,6 +11,8 @@ import { carregamentoPerfil, toggleEditModePerfil } from './principalScripts/edi
 import { atualizarConecaoFirebase } from './atualizarData.js';
 import { carregamentoForum, carregamentoSubForum, carregamentoConteudoForum } from './principalScripts/forum.js';
 import { carregamentoPontuacao } from './principalScripts/sistemapontuacao.js';
+import { set, ref, push, onChildAdded, limitToLast } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+import { getFirstTwoNames } from './utilidades.js';
 
 
 const paginaName = getURLParameter('pagina') || 'home';
@@ -48,21 +50,136 @@ if (paginaName === 'home') {
     const id = getURLParameter('id') || '0000';
     window.perfilID = id;
     loadHTML("../Paginas/menu-perfil-publico.html", "../Styles/estilo_menu-perfil-publico.css", "conteudo_principal", carregamentoperfilpublico);
+} else if (paginaName === 'conversaprivada') {
+    const idamigo = getURLParameter('amigo') || '0000';
+    window.amigoID = idamigo;
+    loadHTML("../Paginas/conversa-privada.html", "../Styles/estilo-conversa-privada.css", "conteudo_principal", carregamentoConversaPrivada);
 }
 
+function carregamentoConversaPrivada() {
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const messagesDiv = document.getElementById('messages');
 
-//loadHTML("../Paginas/menu-home.php", "../Styles/estilo_menu-home,css", "conteudo_principal", carregamentoMain);
-//loadHTML("../Paginas/menu-perfil.php", "../Styles/estilo_menu-perfil.css", "conteudo_principal", carregamentoPerfil);
-//Modelo de conquista
-//foreach($arrayConquistas as $conquista) {
-//            echo '<div class="conquista-container">';
-//            echo '<img class="conquista-img" src="'.htmlspecialchars($conquista[0]). '" />';
-//            echo '<div class="conquista-texto">';
-//            echo '<p class="titulo-conquista">'.htmlspecialchars($conquista[1]). '</p>';
-//            echo '<p class="descricao-conquista">'.htmlspecialchars($conquista[2]). '</p>';
-//            echo '</div>';
-//            echo '</div>';
-//}
+    messageInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('send-button').click();
+        }
+    });
+
+
+    //Configurar evento de enviar mensagem
+    sendButton.addEventListener('click', async () => {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+            const userId = window.sessionData.id;
+            const name = window.sessionData.userInfo.nome;
+            const message = messageInput.value;
+            const time = Date.now();
+            //Calcular o id da conversa
+            let arrayindices = [];
+            arrayindices.push(userId);
+            arrayindices.push(window.amigoID);
+            arrayindices.sort();
+            const idconversa = arrayindices[0] + arrayindices[1];
+
+            const userRef = ref(realdb, 'conversas-privadas/' + idconversa);
+            const newMessage = push(userRef);
+            await set(newMessage, {
+                message: message,
+                usuario: name || 'Não identificado',
+                idusuario: userId || user.uid,
+                time: time,
+                cargo: window.sessionData.userInfo.tipoConta || 'Aluno',
+                foto: window.sessionData.userInfo.fotoPerfil || "../Recursos/Imagens/perfil-teste.avif"
+            });
+            messageInput.value = '';
+        }
+    });
+
+    //Configurar evento de receber mensagem
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            messagesDiv.innerHTML = '';
+            const userId = user.uid;
+            let arrayindices = [];
+            arrayindices.push(userId);
+            arrayindices.push(window.amigoID);
+            arrayindices.sort();
+            const idconversa = arrayindices[0] + arrayindices[1];
+            const userRef = query(ref(realdb, 'conversas-privadas/' + idconversa), limitToLast(10));
+            onChildAdded(userRef, (snapshot) => {
+                const data = snapshot.val();
+
+                const message = data.message || '';
+                var usuario = data.usuario || 'Não identificado';
+                usuario = getFirstTwoNames(usuario);
+                const idusuario = data.idusuario || userId;
+                const cargo = data.cargo || 'Aluno';
+                const foto = data.foto || "../Recursos/Imagens/perfil-teste.avif";
+                const date = new Date(data.time);
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // Os meses são indexados a partir de 0
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                const formattedTime = `${day}/${month} - ${hours}:${minutes}`;
+
+                // Criação do elemento da mensagem
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+
+                // Criação do elemento da foto com link
+                const photoElement = document.createElement('img');
+                photoElement.src = foto;
+                photoElement.alt = `${usuario} foto`;
+                photoElement.classList.add('user-photo');
+                photoElement.style.cursor = 'pointer';
+                photoElement.addEventListener('click', () => {
+                    window.location.href = `./main-logado.php?pagina=perfilpublico&id=${idusuario}`;
+                });
+
+                // Criação do elemento do texto da mensagem
+                const textElement = document.createElement('div');
+                textElement.classList.add('message-text');
+
+                // Criação do elemento do nome com link
+                const nameElement = document.createElement('span');
+                nameElement.innerText = `${usuario} `;
+                nameElement.style.cursor = 'pointer';
+                nameElement.addEventListener('click', () => {
+                    window.location.href = `./main-logado.php?pagina=perfilpublico&id=${idusuario}`;
+                });
+
+
+                // Criação do elemento do cargo com cor ajustada
+                const cargoElement = document.createElement('span');
+                cargoElement.innerText = `(${cargo})`;
+                if (cargo === 'Admin') cargoElement.style.color = '#7fff00';
+                else if (cargo === 'Monitor') cargoElement.style.color = '#f0394f';
+                else if (cargo === 'Professor') cargoElement.style.color = '#5e109b';
+                else cargoElement.style.color = '#496b7a';
+
+                // Adiciona a data, o nome do usuário e o cargo ao texto da mensagem
+                textElement.innerText = `${formattedTime} - `;
+                textElement.appendChild(nameElement);
+                textElement.appendChild(cargoElement);
+                textElement.innerHTML += `: ${message}`;
+
+                // Adiciona a foto e o texto ao elemento da mensagem
+                messageElement.appendChild(photoElement);
+                messageElement.appendChild(textElement);
+
+                // Adiciona a mensagem ao container de mensagens
+                messagesDiv.appendChild(messageElement);
+
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            });
+        }
+    });
+}
 
 function carregamentoperfilpublico() {
     //Carregar elementos da pagina
@@ -166,6 +283,7 @@ function carregamentoAmigos() {
     script.src = '../Scripts/scriptBlocos/menuAmigos.js';
     script.type = 'module';
     document.head.appendChild(script);
+
 
     document.getElementById("barra-pesquisa").addEventListener("keydown", function (event) {
         if (event.key === "Enter") {

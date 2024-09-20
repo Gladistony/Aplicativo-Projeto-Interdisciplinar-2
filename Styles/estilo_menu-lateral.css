@@ -183,7 +183,7 @@ section#foruns>div>h2 {
 }
 
 section#foruns>div>h2:hover {
-    color: #ff0000;
+    color: #ffffff;
 }
 
 section#foruns>div>img {
@@ -195,4 +195,24 @@ section#foruns>div>img {
 #menu_do_lado .container {
     display: flex;
     align-items: center;
+}
+
+#menu_do_lado .container {
+    padding: 12px 4%;
+    width: 90%;
+    margin-bottom: 10px;
+    background-color: rgb(238, 237, 236);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#menu_do_lado .container h2 {
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+
+}
+
+#menu_do_lado .container:hover {
+    background-color: rgb(210, 30, 30);
+    color: #e7e7e7;
 }

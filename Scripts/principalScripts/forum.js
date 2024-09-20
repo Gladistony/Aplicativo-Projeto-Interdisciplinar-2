@@ -67,17 +67,18 @@ async function carregamentoConteudoForum() {
         const comentarioDiv = document.createElement('div');
         comentarioDiv.classList.add('comentario');
         comentarioDiv.innerHTML = `
-                    <img src="${comentario.autorFoto}" alt="Foto do Autor">
-                    <strong>${comentario.autor}</strong> (${comentario.autorTipo}): ${comentario.conteudo}
-                    <p>${comentario.data}</p>
-                    <span class="curtir" onclick="curtirComentario('${comentario.id}')">${comentario.curtil ? 'Descurtir' : 'Curtir'} (${comentario.curtidas})</span>
-                `;
-        //Adicionar link para o perfil
+        <img src="${comentario.autorFoto}" alt="Foto do Autor">
+        <strong>${comentario.autor}</strong> (${comentario.autorTipo}): ${comentario.conteudo}
+        <p>${comentario.data}</p>
+        <span class="curtir" onclick="curtirComentario('${comentario.id}')">${comentario.curtil ? 'Descurtir' : 'Curtir'} (${comentario.curtidas})</span>
+    `;
+        // Adicionar link para o perfil
         comentarioDiv.querySelector('img').addEventListener('click', () => {
             window.location.href = "../Paginas/main-logado.php?pagina=perfilpublico&id=" + comentario.autorID;
         });
         comentariosContainer.appendChild(comentarioDiv);
     });
+
 
     document.getElementById('spinner').style.display = 'none';
     document.getElementById('content').style.display = 'block';
@@ -121,11 +122,15 @@ async function carregamentoSubForum() {
         const topicoDiv = document.createElement('div');
         topicoDiv.classList.add('topico');
         topicoDiv.innerHTML = `
-                    <h2>${topico.titulo}</h2>
-                    <img src="${topico.autorFoto}" alt="Foto do Autor">
-                    <p>Autor: ${topico.autor}</p>
-                    <p>Data: ${new Date(topico.data).toLocaleDateString()}</p>
-                `;
+        <h2>${topico.titulo}</h2>
+        <div class="info">
+            <img src="${topico.autorFoto}" alt="Foto do Autor">
+            <div class="autor-data">
+                <p>Autor: ${topico.autor}</p>
+                <p>Data: ${new Date(topico.data).toLocaleDateString()}</p>
+            </div>
+        </div>
+    `;
         topicoDiv.addEventListener('click', () => {
             window.location.href = "../Paginas/main-logado.php?pagina=conteudoForum&id=" + topico.id;
         });
@@ -163,7 +168,7 @@ async function carregamentoSubForum() {
             subtopicoID: idSubtopico
         });
 
-        //Regarregar a pagina
+        // Recarregar a página
         location.reload();
     }
 
