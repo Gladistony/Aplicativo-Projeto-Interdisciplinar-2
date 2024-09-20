@@ -60,6 +60,7 @@ function carregamentoConversaPrivada() {
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const messagesDiv = document.getElementById('messages');
+    const perfilbutton = document.getElementById('perfil-button');
 
     messageInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
@@ -68,6 +69,9 @@ function carregamentoConversaPrivada() {
         }
     });
 
+    perfilbutton.addEventListener('click', () => {
+        window.location.href = `./main-logado.php?pagina=perfilpublico&id=${window.amigoID}`;
+    });
 
     //Configurar evento de enviar mensagem
     sendButton.addEventListener('click', async () => {
