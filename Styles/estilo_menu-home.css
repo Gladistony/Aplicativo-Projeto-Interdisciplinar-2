@@ -1,0 +1,138 @@
+#conteudo_principal body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+#conteudo_principal .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /*max-width: 600px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+#conteudo_principal h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+#conteudo_principal p {
+    color: #666;
+}
+
+#conteudo_principal .saudacao {
+    text-align: left;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#conteudo_principal .periodo {
+    text-align: left;
+    font-size: 1em;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#conteudo_principal .relogio {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#conteudo_principal .avisos {
+    text-align: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#conteudo_principal .aviso {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+#conteudo_principal .aviso-hud {
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+
+
+#conteudo_principal .nova-monitoria {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#conteudo_principal .nova-monitoria h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#conteudo_principal .nova-monitoria label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#conteudo_principal .nova-monitoria input[type="text"],
+#conteudo_principal .nova-monitoria textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#conteudo_principal .nova-monitoria button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    /* Indica que o botão está desativado */
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message-text {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#messages {
+    height: 300px;
+    /* Ajuste a altura conforme necessário */
+    overflow-y: scroll;
+}

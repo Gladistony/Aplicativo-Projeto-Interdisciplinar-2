@@ -35,6 +35,10 @@ $currentYear = date("Y");
         <div class="alert">
             <h4>Sua conta ainda não está verificada. Por favor, verifique seu e-mail.</h4>
         </div>
+        <button class="btn-editar" id="reenviarEmailBtn" onclick="reenviaremail()">
+            <img class="icone" src="../Recursos/Imagens/mail.png" alt="icone-email">
+            Reenviar e-mail de verificação
+        </button>
     <?php endif; ?>
     <p>Cursando <span class="curso"><?php echo htmlspecialchars($userInfo['curso']); ?></span></p>
     <p>Período de ingresso:

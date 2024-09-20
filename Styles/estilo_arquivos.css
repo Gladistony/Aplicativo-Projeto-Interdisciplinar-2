@@ -21,7 +21,7 @@ section#arquivos-pessoais>h1 {
     margin-bottom: 16px;
 }
 
-section#arquivos-pessoais>div.container {
+section#arquivos-pessoais>div.box {
     margin-top: 8px;
     margin-bottom: 16px;
     padding: 16px;
@@ -76,7 +76,7 @@ section#arquivos-pessoais>div>button:hover {
     margin-right: 8px;
 }
 
-.icone-download {
+.icone-download, .icone-lixo {
     width: 24px;
     height: 24px;
     margin-left: 8px;
@@ -87,4 +87,25 @@ section#arquivos-pessoais>div>button:hover {
     font-size: 12px;
     color: #666;
     margin-top: 4px;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #007bff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

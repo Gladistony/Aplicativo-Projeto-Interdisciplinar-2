@@ -1,0 +1,28 @@
+<section id="perfil">
+    <div class="imagem">
+        <img id="profileImage" />
+        <div class="informacoes-usuario">
+            <h1 class="nomeUsuarioFonte" id="usuario-publico"></h1>
+            <h2 id="email-publico"></h2>
+            <div class="botoes-usuario">
+                <button id="botaoAmizade" class="addAmigo" onclick="addamigopublico()">
+                    <img src="../Recursos/Imagens/add-amizade.png" alt="Adicionar Amizade" class="icone-amizade" />
+                    Adicionar amizade
+                </button>
+                <button id="botaoPontuacao" class="pontuacao">Pontuação:</button>
+            </div>
+        </div>
+    </div>
+    <p>
+        <span class="cor-usuario" id="tipo-conta-publico">
+        </span>
+        em <span class="curso" id="curso-publico"></span>
+    </p>
+    <p>Período de ingresso: <span class="periodo-fonte" id="periodo-publico"></span></p>
+    <p>Data de criação do perfil: <span class="data-criacao" id="datacriacao-publico"></span></p>
+    <h3>Descrição</h3>
+    <textarea id="descricao" class="descricao-fonte" placeholder="Fale mais sobre você..." readonly></textarea>
+    <h3>Conquistas deste usuário</h3>
+    <div class="conImg" id="conquistas-publico">
+    </div>
+</section>
