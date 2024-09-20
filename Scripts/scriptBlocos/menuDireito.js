@@ -153,7 +153,7 @@ async function ajustarAmigosLogados() {
                     const amigoDoc = await getDoc(doc(db, "InforConta", amigoId));
                     if (amigoDoc.exists()) {
                         const amigoData = amigoDoc.data();
-                        renderizarAmigo(amigoData, amigosContainer);
+                        renderizarAmigo(amigoData, amigosContainer, amigoId);
                     } else {
                         console.warn(`Amigo com ID ${amigoId} não encontrado.`);
                     }
@@ -168,7 +168,7 @@ async function ajustarAmigosLogados() {
     });
 }
 
-function renderizarAmigo(amigoData, container) {
+function renderizarAmigo(amigoData, container, idamigo) {
     const amigoItem = document.createElement('div');
     amigoItem.classList.add('amigoItem');
     const ultimologado = amigoData.dataacesso;
@@ -192,8 +192,14 @@ function renderizarAmigo(amigoData, container) {
             </div></a>
         `;
     }
+    amigoItem.addEventListener('click', () => {
+        //console.log("Clicou no amigo: ", idamigo);
+        window.location.href = '../Paginas/main-logado.php?pagina=conversaprivada&amigo=' + idamigo;
+    });
+
 
     container.appendChild(amigoItem);
 }
+
 
 export { loadMenuDireito };
