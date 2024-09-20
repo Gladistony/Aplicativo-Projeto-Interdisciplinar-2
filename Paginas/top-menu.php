@@ -4,16 +4,20 @@ session_start();
 $userInfo = $_SESSION['userInfo'];
 $nomeCompleto = isset($userInfo['nome']) ? $userInfo['nome'] : 'Usuário';
 $partesNome = explode(' ', $nomeCompleto);
-$primeiroNome = $partesNome[0];
-$ultimoNome = end($partesNome);
-$nomeUsuario = $primeiroNome . ' ' . $ultimoNome;
+
+if (count($partesNome) > 1) {
+    $primeiroNome = $partesNome[0];
+    $ultimoNome = end($partesNome);
+    $nomeUsuario = $primeiroNome . ' ' . $ultimoNome;
+} else {
+    $nomeUsuario = $nomeCompleto;
+}
 
 $fotoPerfil = isset($userInfo['fotoPerfil']) ? $userInfo['fotoPerfil'] : '../Recursos/Imagens/perfil-teste.avif';
 ?>
 <section id="menu-topo">
     <a href="#">
         <img alt="Foto do Usuário" class="user-photo" src="<?php echo htmlspecialchars($fotoPerfil); ?>">
-
     </a>
 
     <div class="user-profile">
