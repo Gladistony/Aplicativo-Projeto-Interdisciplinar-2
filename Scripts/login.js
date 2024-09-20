@@ -141,7 +141,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     conquistacomentar10vezes = true;
                 }
                 const promessas = comentariosList.map(async comentario => {
-                    const totalcurtidas = comentario.curtida.length;
+                    const totalcurtidas = comentario.curtida ? comentario.curtida.length : 0;
                     pontuacao += totalcurtidas * 5 + 1;
                     //buscar topico do comentario
                     const topicoID = comentario.topicoID;
@@ -151,7 +151,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
                     if (listaultimoscomentarios[comentario.topicoID] == undefined) {
                         listaultimoscomentarios[comentario.topicoID] = [topicoData, comentario.data];
                     }
-                });
+                });;
                 //Verificar se voce criou algum topico
                 const topicosCol = collection(db, 'topicos-alunos');
                 const qTopicos = query(topicosCol, where('autor', '==', IDUsuario));
